@@ -11,8 +11,15 @@ jobs:
     - checkout
     - run: flutter test
 
+  android_beta:
+    <<: *defaults
+    steps:
+    - checkout
+    - run: cd android && bundle install
+
 workflows:
   version: 2
   build-workflow:
     jobs:
       - test
+      - android_beta

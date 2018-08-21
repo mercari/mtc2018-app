@@ -16,7 +16,7 @@
 default_platform(:android)
 
 platform :android do
-  desc "Submit a new Beta Build to Crashlytics Beta"
+  desc "Submit a new Beta Build to Deploygate"
   lane :beta do
     deploygate(
       api_token: ENV['DEPLOYGATE_API_TOKEN'],
