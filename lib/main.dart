@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mtc2018_app/page/time_table_page.dart';
-import 'package:mtc2018_app/page/contents_page.dart';
+import 'package:mtc2018_app/page/content_page.dart';
 import 'package:mtc2018_app/page/about_page.dart';
+import 'package:mtc2018_app/page/news_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -30,8 +31,27 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: new AppBar(
-        title: new Text('M'),
+      appBar: AppBar(
+        title: Text('M'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.notifications),
+            onPressed: () {
+              print("pressed");
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      settings: RouteSettings(name: "/news"),
+                      builder: (context) => new NewsPage()));
+            },
+          ),
+          IconButton(
+            icon: Icon(Icons.account_circle),
+            onPressed: () {
+              print("pressed");
+            },
+          )
+        ],
         elevation: 4.0,
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -56,7 +76,7 @@ class _MainPageState extends State<MainPage> {
       case 0:
         return TimeTablePage();
       case 1:
-        return ContentsPage();
+        return ContentPage();
       case 2:
         return AboutPage();
       default:
