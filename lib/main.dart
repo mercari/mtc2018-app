@@ -11,8 +11,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Mercari Tech Conf',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+          brightness: Brightness.dark,
+          primaryColor: Colors.grey[800], // TODO: change color
+          accentColor: Colors.grey[200]),
       home: MainPage(),
     );
   }
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
 
 class MainPage extends StatefulWidget {
   @override
-  _MainPageState createState() =>  _MainPageState();
+  _MainPageState createState() => _MainPageState();
 }
 
 class _MainPageState extends State<MainPage> {
@@ -34,22 +35,17 @@ class _MainPageState extends State<MainPage> {
         elevation: 4.0,
       ),
       bottomNavigationBar: BottomNavigationBar(
-         items: [
-           BottomNavigationBarItem(
-             title: Text("TimeTable"),
-             icon: Icon(Icons.list),
+        items: [
+          BottomNavigationBarItem(
+            title: Text("TimeTable"),
+            icon: Icon(Icons.list),
           ),
           BottomNavigationBarItem(
-            title: Text("Contents"),
-            icon: Icon(Icons.home)
-          ),
-          BottomNavigationBarItem(
-            title: Text("About"),
-            icon: Icon(Icons.info)
-          ),
-         ],
-         onTap: _onSelectTab,
-         currentIndex: _currentIndex,
+              title: Text("Contents"), icon: Icon(Icons.home)),
+          BottomNavigationBarItem(title: Text("About"), icon: Icon(Icons.info)),
+        ],
+        onTap: _onSelectTab,
+        currentIndex: _currentIndex,
       ),
       body: _buildPage(),
     );
