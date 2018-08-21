@@ -8,3 +8,8 @@
 /build
 /captures
 GeneratedPluginRegistrant.java
+
+# fastlane
+.bundle/
+vendor/
+fastlane/report.xml
