@@ -18,10 +18,11 @@ default_platform(:android)
 platform :android do
   desc "Submit a new Beta Build to Crashlytics Beta"
   lane :beta do
-    crashlytics(
-      api_token: ENV['CRASHLYTICS_API_TOKEN'],
-      build_secret: ENV['CRASHLYTICS_BUILD_SECRET'],
-      apk_path: '../build/app/outputs/apk/release/app-release.apk',
+    deploygate(
+      api_token: ENV['DEPLOYGATE_API_TOKEN'],
+      user: ENV['DEPLOYGATE_USER'],
+      apk: '../build/app/outputs/apk/release/app-release.apk',
+      distribution_key: ENV['DEPLOYGATE_DISTRIBUTION_KEY']
     )
   end
 
