@@ -11,8 +11,19 @@ jobs:
     - checkout
     - run: flutter test
 
+  android_beta:
+    <<: *defaults
+    steps:
+    - checkout
+    - run: flutter build apk --release
+    - run: cd android && bundle install && bundle exec fastlane android beta
+
 workflows:
   version: 2
   build-workflow:
     jobs:
       - test
+      - android_beta:
+          filters:
+            branches:
+              only: master
