@@ -23,4 +23,7 @@ workflows:
   build-workflow:
     jobs:
       - test
-      - android_beta
+      - android_beta:
+          filters:
+            branches:
+              only: master
