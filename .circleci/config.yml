@@ -3,6 +3,14 @@ defaults: &defaults
   docker:
   - image: cirrusci/flutter
 
+machine_macos: &machine_macos
+  macos:
+    xcode: "9.4.0"
+  environment:
+    LC_ALL: en_US.UTF-8
+    LANG: en_US.UTF-8
+  shell: /bin/bash --login -o pipefail
+
 version: 2
 jobs:
   test:
@@ -18,11 +26,18 @@ jobs:
     - run: flutter build apk --release
     - run: cd android && bundle install && bundle exec fastlane android beta
 
+  ios_beta:
+    <<: *machine_macos
+    - checkout
+    - run: cd ios && bundle install
+
+
 workflows:
   version: 2
   build-workflow:
     jobs:
       - test
+      - ios_beta
       - android_beta:
           filters:
             branches:
