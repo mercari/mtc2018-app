@@ -30,7 +30,7 @@ jobs:
     <<: *machine_macos
     steps:
     - checkout
-    - run: cd ios && bundle install
+    - run: cd ios && bundle install && bundle exec fastlane ios custom_lane
 
 workflows:
   version: 2
