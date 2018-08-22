@@ -28,9 +28,9 @@ jobs:
 
   ios_beta:
     <<: *machine_macos
+    steps:
     - checkout
     - run: cd ios && bundle install
-
 
 workflows:
   version: 2
