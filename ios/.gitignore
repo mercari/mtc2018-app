@@ -43,3 +43,8 @@ Icon?
 
 Pods/
 .symlinks/
+
+# fastlane
+.bundle/
+vendor/
+fastlane/report.xml
