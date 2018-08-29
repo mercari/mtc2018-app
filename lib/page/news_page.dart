@@ -18,23 +18,23 @@ class NewsPage extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Icon(Icons.account_circle),
-                    Container(width: 8.0),
+                    // Icon(Icons.account_circle),
+                    // Container(width: 8.0),
                     Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'お知らせ1',
+                            'Webページが公開されました',
                             style: TextStyle(
                                 fontSize: 16.0, fontWeight: FontWeight.bold),
                           ),
                           Container(height: 4.0),
-                          Text('2018/10/1', style: TextStyle(fontSize: 12.0))
+                          Text('2018/08/29', style: TextStyle(fontSize: 12.0))
                         ])
                   ],
                 ),
                 Container(height: 12.0),
-                Text("お知らせの内容が入ります。"),
+                Text("Mercari Tech Conf 2018のWebページが公開されました。"),
               ],
             ),
           ))
