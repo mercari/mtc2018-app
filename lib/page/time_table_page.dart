@@ -5,18 +5,21 @@ class TimeTablePage extends StatelessWidget {
   Widget buildSessionCard(String timeRange, String title, List<String> typeLabels, String text, String speakerName, String speakerType) {
     return Card(
       color: Colors.white,
-      child: Padding(
-        padding: const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0, bottom: 10.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            buildSessionTimeRange(timeRange),
-            buildSessionTitle(title),
-            buildSessionTypeLabels(typeLabels),
-            buildSessionText(text),
-            buildSessionSpeakerInformation(speakerName, speakerType)
-          ],
+      child: FlatButton(
+        onPressed: (){},
+        child: Padding(
+          padding: const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0, bottom: 10.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              buildSessionTimeRange(timeRange),
+              buildSessionTitle(title),
+              buildSessionTypeLabels(typeLabels),
+              buildSessionText(text),
+              buildSessionSpeakerInformation(speakerName, speakerType)
+            ],
+          )
         )
       )
     );
