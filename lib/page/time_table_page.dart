@@ -71,7 +71,7 @@ class TimeTablePage extends StatelessWidget {
         leading: const Icon(Icons.camera, color: Colors.black, size: 50.0),
         title: Text(speakerName, style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
         subtitle: Text(speakerType, style: TextStyle(color: Colors.black)),
-        trailing: IconButton(icon: const Icon(Icons.favorite_border), color: Colors.black, onPressed: () { AlertDialog(title: Text('Go to the session!'), content: Text('Hey!')); }),
+        // trailing: IconButton(icon: const Icon(Icons.favorite_border), color: Colors.black, onPressed: () { AlertDialog(title: Text('Go to the session!'), content: Text('Hey!')); }),
       )
     );
   }
@@ -91,12 +91,16 @@ class TimeTablePage extends StatelessWidget {
           body: TabBarView(
             children: [
               ListView(children: [
+                buildSessionCard('10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer'),
+                buildSessionCard('10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer'),
+                buildSessionCard('10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer'),
                 buildSessionCard('10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer')
               ]),
               ListView(children: [
-                SizedBox(
-                  child: Card(child: Text("セッションB 1")),
-                ),
+                buildSessionCard('10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer'),
+                buildSessionCard('10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer'),
+                buildSessionCard('10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer'),
+                buildSessionCard('10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer')
               ]),
             ],
           ),
