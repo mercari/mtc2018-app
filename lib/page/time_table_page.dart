@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:mtc2018_app/page/session_detail.dart';
 
 class TimeTablePage extends StatelessWidget {
 
-  Widget buildSessionCard(String timeRange, String title, List<String> typeLabels, String text, String speakerName, String speakerType) {
+  Widget buildSessionCard(BuildContext context, String timeRange, String title, List<String> typeLabels, String text, String speakerName, String speakerType) {
     return Card(
       color: Colors.white,
       child: FlatButton(
-        onPressed: (){},
+        onPressed: (){
+          Navigator.push(
+            context, 
+            MaterialPageRoute(
+              settings: RouteSettings(name: '/session_detail'),
+              builder: (context) => SessionDetailPage()
+            )
+          );
+        },
         child: Padding(
           padding: const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0, bottom: 10.0),
           child: Column(
@@ -94,16 +103,16 @@ class TimeTablePage extends StatelessWidget {
           body: TabBarView(
             children: [
               ListView(children: [
-                buildSessionCard('10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer'),
-                buildSessionCard('10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer'),
-                buildSessionCard('10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer'),
-                buildSessionCard('10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer')
+                buildSessionCard(context, '10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer'),
+                buildSessionCard(context, '10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer'),
+                buildSessionCard(context, '10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer'),
+                buildSessionCard(context, '10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer')
               ]),
               ListView(children: [
-                buildSessionCard('10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer'),
-                buildSessionCard('10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer'),
-                buildSessionCard('10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer'),
-                buildSessionCard('10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer')
+                buildSessionCard(context, '10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer'),
+                buildSessionCard(context, '10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer'),
+                buildSessionCard(context, '10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer'),
+                buildSessionCard(context, '10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer')
               ]),
             ],
           ),
