@@ -1,42 +1,72 @@
 import 'package:flutter/material.dart';
+import 'package:mtc2018_app/page/session_detail.dart';
+import 'package:mtc2018_app/model/session.dart';
+import 'package:mtc2018_app/model/speaker.dart';
 
 class TimeTablePage extends StatelessWidget {
 
-  Widget buildSessionCard(String timeRange, String title, List<String> typeLabels, String text, String speakerName, String speakerType) {
+  Widget buildSessionCard(BuildContext context, String timeRange, String title, List<String> typeLabels, String text, String speakerName, String speakerType) {
     return Card(
       color: Colors.white,
-      child: Padding(
-        padding: const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0, bottom: 10.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            buildSessionTimeRange(timeRange),
-            buildSessionTitle(title),
-            buildSessionTypeLabels(typeLabels),
-            buildSessionText(text),
-            buildSessionSpeakerInformation(speakerName, speakerType)
-          ],
+      child: FlatButton(
+        onPressed: (){
+          Navigator.push(
+            context, 
+            MaterialPageRoute(
+              settings: RouteSettings(name: '/session_detail'),
+              builder: (context) {
+                Speaker speaker = new Speaker(
+                  speakerName,
+                  speakerType,
+                  Icon(Icons.camera),
+                  'He is happy',
+                  'www.mercari.com',
+                  'www.mercari.com'
+                );
+                Session session = new Session(
+                  timeRange,
+                  title,
+                  typeLabels,
+                  text,
+                  speaker
+                );
+                return SessionDetailPage(session);
+              }
+            )
+          );
+        },
+        child: Padding(
+          padding: const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0, bottom: 10.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              buildSessionTimeRange(timeRange),
+              buildSessionTitle(title),
+              buildSessionTypeLabels(typeLabels),
+              buildSessionText(text),
+              buildSessionSpeakerInformation(speakerName, speakerType)
+            ],
+          )
         )
       )
     );
   }
 
   Widget buildSessionTimeRange(String text) {
-    return Container(margin: const EdgeInsets.only(bottom: 5.0), child: new Text(text, style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 14.0, color: Colors.black)));
+    return Container(margin: const EdgeInsets.only(bottom: 5.0), child: Text(text, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14.0, color: Colors.black)));
   }
 
   Widget buildSessionTitle(String title) {
-    return Container(margin: const EdgeInsets.only(bottom: 10.0), child: new Text(title, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25.0, color: Colors.black)));
+    return Container(margin: const EdgeInsets.only(bottom: 10.0), child: Text(title, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25.0, color: Colors.black)));
   }
 
   Widget buildSessionTypeLabels(List<String> titles) {
     List<Container> containers = titles.map((title) { return buildSessionTypeLabel(title); }).toList();
-    return Container(child: new Row(children: containers));
+    return Container(child: Row(children: containers));
   }
 
   Container buildSessionTypeLabel(String title) {
-    return new Container(
+    return Container(
       margin: const EdgeInsets.all(2.0),
       padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 3.0),
       decoration: BoxDecoration(
@@ -46,10 +76,9 @@ class TimeTablePage extends StatelessWidget {
           left: const BorderSide(width: 1.0),
           bottom: const BorderSide(width: 1.0),
           right: const BorderSide(width: 1.0),
-        ),
-        color: const Color(0xDDDDDD)
+        )
       ),
-      child: new Text(title, style: TextStyle(color: Colors.black))
+      child: Text(title, style: TextStyle(color: Colors.black))
     );
   }
 
@@ -68,7 +97,7 @@ class TimeTablePage extends StatelessWidget {
       ),
       child: ListTile(
         contentPadding: const EdgeInsets.all(0.0),
-        leading: const Icon(Icons.camera, color: Colors.black, size: 50.0),
+        leading: const Icon(Icons.android, color: Colors.black, size: 40.0),
         title: Text(speakerName, style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
         subtitle: Text(speakerType, style: TextStyle(color: Colors.black)),
         // trailing: IconButton(icon: const Icon(Icons.favorite_border), color: Colors.black, onPressed: () { AlertDialog(title: Text('Go to the session!'), content: Text('Hey!')); }),
@@ -91,16 +120,16 @@ class TimeTablePage extends StatelessWidget {
           body: TabBarView(
             children: [
               ListView(children: [
-                buildSessionCard('10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer'),
-                buildSessionCard('10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer'),
-                buildSessionCard('10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer'),
-                buildSessionCard('10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer')
+                buildSessionCard(context, '10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ', 'Aさん', 'Android Engineer'),
+                buildSessionCard(context, '10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer'),
+                buildSessionCard(context, '10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer'),
+                buildSessionCard(context, '10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer')
               ]),
               ListView(children: [
-                buildSessionCard('10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer'),
-                buildSessionCard('10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer'),
-                buildSessionCard('10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer'),
-                buildSessionCard('10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer')
+                buildSessionCard(context, '10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer'),
+                buildSessionCard(context, '10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer'),
+                buildSessionCard(context, '10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer'),
+                buildSessionCard(context, '10:00~11:00', 'このアプリ、Flutterです', ['iOS', 'Android'], 'このセッションでは、Flutterがほげほげがふがふがなることを証明します。', 'Aさん', 'Android Engineer')
               ]),
             ],
           ),
