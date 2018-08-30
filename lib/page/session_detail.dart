@@ -70,7 +70,7 @@ class SessionDetailPage extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Container(margin: const EdgeInsets.only(bottom: 10.0), child: buildSessionSpeakerInformation()),
-        Container(margin: const EdgeInsets.only(bottom: 10.0), child: Text(session.speaker.description)),
+        Container(margin: const EdgeInsets.only(bottom: 20.0), child: Text(session.speaker.description)),
         buildLinkLabels()
       ]
     );
