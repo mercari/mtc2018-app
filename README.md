@@ -1,6 +1,6 @@
 # mtc2018_app
 
-[![CircleCI](https://circleci.com/gh/mercari/mtc2018-app/tree/master.svg?style=svg)](https://circleci.com/gh/mercari/mtc2018-app/tree/master)
+[![Build Status](https://travis-ci.org/mercari/mtc2018-app.svg?branch=master)](https://travis-ci.org/mercari/mtc2018-app)
 
 The Official Conference App for Mercari Tech Conf 2018
 
