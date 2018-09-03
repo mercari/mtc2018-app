@@ -1,19 +1,33 @@
-import 'package:flutter/material.dart';
+import 'package:json_annotation/json_annotation.dart';
 
-class Speaker {
+part 'speaker.g.dart';
+
+@JsonSerializable()
+class Speaker extends Object with _$SpeakerSerializerMixin {
+  Speaker(
+      this.id,
+      this.name,
+      this.nameJa,
+      this.company,
+      this.position,
+      this.positionJa,
+      this.profile,
+      this.profileJa,
+      this.iconUrl,
+      this.twitterId,
+      this.githubId);
+  String id;
   String name;
-  String type;
-  Icon icon;
-  String description;
-  String twitterUrl;
-  String githubUrl;
+  String nameJa;
+  String company;
+  String position;
+  String positionJa;
+  String profile;
+  String profileJa;
+  String iconUrl;
+  String twitterId;
+  String githubId;
 
-  Speaker(String name, String type, Icon icon, String description, String twitterUrl, String githubUrl) {
-    this.name = name;
-    this.type = type;
-    this.icon = icon;
-    this.description = description;
-    this.twitterUrl = twitterUrl;
-    this.githubUrl = githubUrl;
-  }
+  factory Speaker.fromJson(Map<String, dynamic> json) =>
+      _$SpeakerFromJson(json);
 }

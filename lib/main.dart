@@ -45,12 +45,12 @@ class _MainPageState extends State<MainPage> {
                       builder: (context) => new NewsPage()));
             },
           ),
-          IconButton(
-            icon: Icon(Icons.account_circle),
-            onPressed: () {
-              print("pressed");
-            },
-          )
+          // IconButton(
+          //   icon: Icon(Icons.account_circle),
+          //   onPressed: () {
+          //     print("pressed");
+          //   },
+          // )
         ],
         elevation: 4.0,
       ),
@@ -60,8 +60,8 @@ class _MainPageState extends State<MainPage> {
             title: Text("TimeTable"),
             icon: Icon(Icons.list),
           ),
-          BottomNavigationBarItem(
-              title: Text("Contents"), icon: Icon(Icons.home)),
+          // BottomNavigationBarItem(
+          //     title: Text("Contents"), icon: Icon(Icons.home)),
           BottomNavigationBarItem(title: Text("About"), icon: Icon(Icons.info)),
         ],
         onTap: _onSelectTab,
@@ -75,9 +75,9 @@ class _MainPageState extends State<MainPage> {
     switch (_currentIndex) {
       case 0:
         return TimeTablePage();
+      // case 1:
+      //   return ContentPage();
       case 1:
-        return ContentPage();
-      case 2:
         return AboutPage();
       default:
         return Text("No page");

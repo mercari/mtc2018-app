@@ -4,15 +4,19 @@ description: The Official Conference App for Mercari Tech Conf 2018
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
+  json_annotation: ^0.2.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_launcher_icons: "^0.6.0"
+  
 
 flutter_icons:
   android: true
@@ -34,7 +38,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
    - images/map_tmp.png
-  #  - images/a_dot_ham.jpeg
+   - data/contents.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.

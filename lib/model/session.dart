@@ -1,18 +1,37 @@
-import 'package:flutter/material.dart';
 import 'package:mtc2018_app/model/speaker.dart';
+import 'package:json_annotation/json_annotation.dart';
 
-class Session {
-  String timeRange;
+part 'session.g.dart';
+
+@JsonSerializable()
+class Session extends Object with _$SessionSerializerMixin {
+  Session(
+      this.id,
+      this.type,
+      this.place,
+      this.startTime,
+      this.endTime,
+      this.title,
+      this.titleJa,
+      this.outline,
+      this.outlineJa,
+      this.lang,
+      this.tags,
+      this.speakers);
+
+  int id;
+  String type;
+  String place;
+  String startTime;
+  String endTime;
   String title;
-  List<String> labels;
-  String text;
-  Speaker speaker;
+  String titleJa;
+  String outline;
+  String outlineJa;
+  String lang;
+  List<String> tags;
+  List<Speaker> speakers;
 
-  Session(String timeRange, String title, List<String> labels, String text, Speaker speaker) {
-    this.timeRange = timeRange;
-    this.title = title;
-    this.labels = labels;
-    this.text = text;
-    this.speaker = speaker;
-  }
+  factory Session.fromJson(Map<String, dynamic> json) =>
+      _$SessionFromJson(json);
 }
