@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mtc2018_app/page/session_detail.dart';
+import 'package:mtc2018_app/page/speaker_detail.dart';
 import 'package:mtc2018_app/model/session.dart';
 import 'package:mtc2018_app/model/speaker.dart';
 import 'dart:convert';
