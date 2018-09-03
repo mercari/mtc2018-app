@@ -1,0 +1,750 @@
+{
+    "tags": [
+        "Android",
+        "Evolution",
+        "CRE",
+        "CSE",
+        "Frontend",
+        "GoBold",
+        "Internship",
+        "Kando",
+        "MachineLearning",
+        "Merpay",
+        "Microservices",
+        "Platform",
+        "QuantumInternet",
+        "Rearchitecture",
+        "Search",
+        "Security",
+        "iOS"
+    ],
+    "sessions": [
+        {
+            "id": 1,
+            "type": "keynote",
+            "place": "TrackA",
+            "startTime": "2018-10-04T10:15:00+09:00",
+            "endTime": "2018-10-04T11:45:00+09:00",
+            "title": "Keynote",
+            "titleJa": "基調講演",
+            "outline": "メルカリがテックカンパニーを宣言し、この1年で起きた変化や、これから目指していく方向、組織として技術にどう取り組んでいくか",
+            "outlineJa": "",
+            "lang": "jp",
+            "tags": [
+                "Evolution"
+            ],
+            "speakers": [
+                {
+                    "id": "suguru_namura",
+                    "name": "Suguru Namura",
+                    "nameJa": "名村 卓",
+                    "company": "mercari",
+                    "position": "CTO, Mercari",
+                    "positionJa": "CTO, Mercari",
+                    "profile": "受託開発経験を経て、2004年株式会社サイバーエージェント入社。各種メディアやゲームなどの新規事業立ち上げの開発を担当。2016年に株式会社メルカリ入社。USに出向し、USのサービス開発を担当。2017年4月CTO就任。",
+                    "profileJa": "受託開発経験を経て、2004年株式会社サイバーエージェント入社。各種メディアやゲームなどの新規事業立ち上げの開発を担当。2016年に株式会社メルカリ入社。USに出向し、USのサービス開発を担当。2017年4月CTO就任。",
+                    "iconUrl": "",
+                    "twitterId": "",
+                    "githubId": "suguru"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "keynote",
+            "place": "TrackA",
+            "startTime": "2018-10-04T10:15:00+09:00",
+            "endTime": "2018-10-04T11:45:00+09:00",
+            "title": "Keynote",
+            "titleJa": "基調講演",
+            "outline": "I will be discussing technological challenges we're undertaking, what it's like working as a single team split across the US and Japan, the importance of focusing on the fundamentals while investing for the future.",
+            "outlineJa": "",
+            "lang": "en",
+            "tags": [
+                "Evolution"
+            ],
+            "speakers": [
+                {
+                    "id": "mok_oh",
+                    "name": "Mok Oh",
+                    "nameJa": "Mok Oh",
+                    "company": "mercari",
+                    "position": "CTO, Mercari US",
+                    "positionJa": "CTO, Mercari US",
+                    "profile": "Dr. Mok Oh is the Chief Technology Officer of US Mercari.  He been in the tech industry for over 20 years with wide- and deep-ranging experiences – from initial research to execution, from startups to large enterprises. Previously, he was the Corporate Vice President at Samsung Electronics in Suwon, Korea; Chief Scientist at PayPal; Cofounder and CEO of Moju Labs; Entrepreneur in Residence at North Bridge Venture Capital; CIO at Where, Inc; and Founder of EveryScape.  Mok holds 12 patents, a Ph.D. from MIT, an M.S. from University of Pennsylvania, and two BA degrees (Computer Science and Art History) from Oberlin College.",
+                    "profileJa": "",
+                    "iconUrl": "",
+                    "twitterId": "mok_oh",
+                    "githubId": ""
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "type": "keynote",
+            "place": "TrackA",
+            "startTime": "2018-10-04T10:15:00+09:00",
+            "endTime": "2018-10-04T11:45:00+09:00",
+            "title": "Keynote",
+            "titleJa": "基調講演",
+            "outline": "メルカリグループの新たな事業領域の説明、技術領域や技術的にチャレンジしていることなど",
+            "outlineJa": "",
+            "lang": "jp",
+            "tags": [
+                "Evolution"
+            ],
+            "speakers": [
+                {
+                    "id": "keisuke_sogawa",
+                    "name": "Keisuke Sogawa",
+                    "nameJa": "曾川 景介",
+                    "company": "merpay",
+                    "position": "CTO, merpay",
+                    "positionJa": "CTO, merpay",
+                    "profile": "2010年度未踏ユース採択。2011年京都大学情報学研究科修了。2011年にシリコンバレーの FluxFlex社にてWebPayを立ち上げる。ウェブペイ株式会社の最高技術責任者（CTO）としてクレジットカード決済のサービス基盤の開発に従事、LINEグループに参画しLINE Pay事業を経験。2017年11月、株式会社メルペイ取締役に就任。",
+                    "profileJa": "2010年度未踏ユース採択。2011年京都大学情報学研究科修了。2011年にシリコンバレーの FluxFlex社にてWebPayを立ち上げる。ウェブペイ株式会社の最高技術責任者（CTO）としてクレジットカード決済のサービス基盤の開発に従事、LINEグループに参画しLINE Pay事業を経験。2017年11月、株式会社メルペイ取締役に就任。",
+                    "iconUrl": "",
+                    "twitterId": "sowawa",
+                    "githubId": "sowawa"
+                }
+            ]
+        },
+        {
+            "id": 10,
+            "type": "session",
+            "place": "TrackA",
+            "startTime": "2018-10-04T13:00:00+09:00",
+            "endTime": "2018-10-04T13:30:00+09:00",
+            "title": "Microservices Platform at Mercari",
+            "titleJa": "Microservices Platform at Mercari",
+            "outline": "Mercariではサービスと組織の拡大に合わせてMonolithアーキテクチャからMicroservicesアーキテクチャへの移行を進めています．Microservices Platform TeamはこのMicroservicesのためのPlatformの構築を行っています．開発者のDeveloper Productivityを最大限に高め各チームがオーナーシップを持ち独立して高速にサービス開発サイクルを回せるようなPlatformを目指しています．本セッションではMicroservices Platform Teamの取り組みを紹介します",
+            "outlineJa": "Mercariではサービスと組織の拡大に合わせてMonolithアーキテクチャからMicroservicesアーキテクチャへの移行を進めています．Microservices Platform TeamはこのMicroservicesのためのPlatformの構築を行っています．開発者のDeveloper Productivityを最大限に高め各チームがオーナーシップを持ち独立して高速にサービス開発サイクルを回せるようなPlatformを目指しています．本セッションではMicroservices Platform Teamの取り組みを紹介します",
+            "lang": "jp",
+            "tags": [
+                "Microservices",
+                "Platform"
+            ],
+            "speakers": [
+                {
+                    "id": "nakashima_taichi",
+                    "name": "Taichi Nakashima",
+                    "nameJa": "中島 大一",
+                    "company": "mercari",
+                    "position": "Principal Software Engineer ",
+                    "positionJa": "Principal Software Engineer ",
+                    "profile": "Taichi Nakashima (@deeeet) is a tech lead for the Microservices Platform at Mercari. Prior to Mercari, he was a software engineer at Japanese E-commerce company, working on building internal Platform-as-a-Service. He is Gopher and co-authoer of “みんなのGo言語” (Japanese Golang book).",
+                    "profileJa": "Taichi Nakashima (@deeeet) is a tech lead for the Microservices Platform at Mercari. Prior to Mercari, he was a software engineer at Japanese E-commerce company, working on building internal Platform-as-a-Service. He is Gopher and co-authoer of “みんなのGo言語” (Japanese Golang book).",
+                    "iconUrl": "",
+                    "twitterId": "deeeet",
+                    "githubId": "tcnksm"
+                }
+            ]
+        },
+        {
+            "id": 12,
+            "type": "session",
+            "place": "TrackB",
+            "startTime": "2018-10-04T13:00:00+09:00",
+            "endTime": "2018-10-04T13:30:00+09:00",
+            "title": "Introduction to the Corporate Solutions Engineering",
+            "titleJa": "Introduction to the Corporate Solutions Engineering",
+            "outline": "メルカリには「経営課題を解決する」ための Corporate Solutions Engineering というチームがあります。このチームがどのような活動を通じてどのような課題を解決しているのか、また、そこでどのようなプロダクトを開発しているのか、その基礎となる考え方と活動についてご紹介します。",
+            "outlineJa": "メルカリには「経営課題を解決する」ための Corporate Solutions Engineering というチームがあります。このチームがどのような活動を通じてどのような課題を解決しているのか、また、そこでどのようなプロダクトを開発しているのか、その基礎となる考え方と活動についてご紹介します。",
+            "lang": "jp",
+            "tags": [
+                "Microservices",
+                "CSE"
+            ],
+            "speakers": [
+                {
+                    "id": "sotaro_karasawa",
+                    "name": "Sotaro Karasawa",
+                    "nameJa": "柄沢 聡太郎",
+                    "company": "mercari",
+                    "position": "Software Engineer, Manager",
+                    "positionJa": "Software Engineer, Manager",
+                    "profile": "2010年中央大学大学院卒業後、グリー株式会社入社。2011年2月株式会社クロコスを共同創業、CTO就任。2012年8月、クロコスをヤフー株式会社へ売却。ヤフーのグループ会社としてクロコスの事業成長と、ヤフー自身のソーシャルの展開を担当。2015年5月、株式会社メルカリに参画。CTO、VPoEを経て、現在は Corporate Solutions Engineering (CSE) マネージャー。",
+                    "profileJa": "2010年中央大学大学院卒業後、グリー株式会社入社。2011年2月株式会社クロコスを共同創業、CTO就任。2012年8月、クロコスをヤフー株式会社へ売却。ヤフーのグループ会社としてクロコスの事業成長と、ヤフー自身のソーシャルの展開を担当。2015年5月、株式会社メルカリに参画。CTO、VPoEを経て、現在は Corporate Solutions Engineering (CSE) マネージャー。",
+                    "iconUrl": "",
+                    "twitterId": "sotarok",
+                    "githubId": "sotarok"
+                }
+            ]
+        },
+        {
+            "id": 13,
+            "type": "session",
+            "place": "TrackA",
+            "startTime": "2018-10-04T13:40:00+09:00",
+            "endTime": "2018-10-04T14:10:00+09:00",
+            "title": "Mercari API: from Monolithic to Microservices",
+            "titleJa": "Mercari API: from Monolithic to Microservices",
+            "outline": "Mercari has evolved tremendously in the last 5 years, and so is our code base. As of 2018, the backend API is a monolithic repository of half-million lines of code, serving all the functions of the Mercari web and mobile applications. It is becoming a bottle neck of our growth, in terms of both the system and the organization. This talk will focus on how we migrate the monolithic backend API to a microservice architecture, the methodology we choose and the lessons we learned.",
+            "outlineJa": "Mercari has evolved tremendously in the last 5 years, and so is our code base. As of 2018, the backend API is a monolithic repository of half-million lines of code, serving all the functions of the Mercari web and mobile applications. It is becoming a bottle neck of our growth, in terms of both the system and the organization. This talk will focus on how we migrate the monolithic backend API to a microservice architecture, the methodology we choose and the lessons we learned.",
+            "lang": "en",
+            "tags": [
+                "Microservices"
+            ],
+            "speakers": [
+                {
+                    "id": "tonghui_li",
+                    "name": "Tonghui Li",
+                    "nameJa": "李 同輝",
+                    "company": "mercari",
+                    "position": "Tech Lead",
+                    "positionJa": "Tech Lead",
+                    "profile": "Tonghui joined Mercari in April 2018 and is responsible for migrating the monolithic backend API to a microservice architecture. Prior to Mercari, he was a tech lead of Indeed, working on different components of the job search engine including Title Normalization, Location system, Job Search API, etc.",
+                    "profileJa": "Tonghui joined Mercari in April 2018 and is responsible for migrating the monolithic backend API to a microservice architecture. Prior to Mercari, he was a tech lead of Indeed, working on different components of the job search engine including Title Normalization, Location system, Job Search API, etc.",
+                    "iconUrl": "",
+                    "twitterId": "ummterry",
+                    "githubId": "ummterry"
+                }
+            ]
+        },
+        {
+            "id": 14,
+            "type": "session",
+            "place": "TrackB",
+            "startTime": "2018-10-04T13:40:00+09:00",
+            "endTime": "2018-10-04T14:10:00+09:00",
+            "title": "Mercari ML Platform",
+            "titleJa": "Mercari ML Platform",
+            "outline": "メルカリでは多数の機械学習モデル(以下MLモデル)を運用しています。MLモデルは構築後も継続的な評価・再トレーニング・チューニングが必要で、高度に自動化された仕組み無しでは多数のMLモデルを運用できません。本セッションではそれらの基盤と自動化の仕組み等、現状と開発中の物について話します。",
+            "outlineJa": "メルカリでは多数の機械学習モデル(以下MLモデル)を運用しています。MLモデルは構築後も継続的な評価・再トレーニング・チューニングが必要で、高度に自動化された仕組み無しでは多数のMLモデルを運用できません。本セッションではそれらの基盤と自動化の仕組み等、現状と開発中の物について話します。",
+            "lang": "jp",
+            "tags": [
+                "MachineLearning",
+                "Platform"
+            ],
+            "speakers": [
+                {
+                    "id": "hirofumi_nakagawa",
+                    "name": "Hirofumi Nakagawa",
+                    "nameJa": "中河 宏文",
+                    "company": "mercari",
+                    "position": "エンジニア",
+                    "positionJa": "エンジニア",
+                    "profile": "自称、日本一波乱万丈な経歴を持つLinuxエンジニア。渡米後長い旅の末何故かメルカリに流れ着いていた。所属はSREでデバイスドライバ開発からフロントエンド開発までやる何でも屋。",
+                    "profileJa": "自称、日本一波乱万丈な経歴を持つLinuxエンジニア。渡米後長い旅の末何故かメルカリに流れ着いていた。所属はSREでデバイスドライバ開発からフロントエンド開発までやる何でも屋。",
+                    "iconUrl": "",
+                    "twitterId": "",
+                    "githubId": "hnakagawa"
+                }
+            ]
+        },
+        {
+            "id": 15,
+            "type": "session",
+            "place": "TrackA",
+            "startTime": "2018-10-04T14:20:00+09:00",
+            "endTime": "2018-10-04T14:50:00+09:00",
+            "title": "Android at Scale",
+            "titleJa": "Android at Scale",
+            "outline": "In this talk, Israel Ferrer Camacho will share what are the common pitfalls at developing applications with big teams and big codebases and how to solve them.",
+            "outlineJa": "In this talk, Israel Ferrer Camacho will share what are the common pitfalls at developing applications with big teams and big codebases and how to solve them.",
+            "lang": "en",
+            "tags": [
+                "Android",
+                "Rearchitecture"
+            ],
+            "speakers": [
+                {
+                    "id": "israel_ferrer_comacho",
+                    "name": "Israel Ferrer Camacho",
+                    "nameJa": "",
+                    "company": "mercari",
+                    "position": "Android Engineer",
+                    "positionJa": "Android Engineer",
+                    "profile": "Israel Ferrer Camacho is an Android engineer working at Mercari. Passionate about Android, object-oriented design principles, testing and agile methodologies. Previously, Israel worked at Twitter in San Francisco.",
+                    "profileJa": "Israel Ferrer Camacho is an Android engineer working at Mercari. Passionate about Android, object-oriented design principles, testing and agile methodologies. Previously, Israel worked at Twitter in San Francisco.",
+                    "iconUrl": "",
+                    "twitterId": "rallat",
+                    "githubId": "rallat"
+                }
+            ]
+        },
+        {
+            "id": 16,
+            "type": "session",
+            "place": "TrackB",
+            "startTime": "2018-10-04T14:20:00+09:00",
+            "endTime": "2018-10-04T14:50:00+09:00",
+            "title": "どうして僕らは決済処理をマイクロサービス化しようとしているのか",
+            "titleJa": "どうして僕らは決済処理をマイクロサービス化しようとしているのか",
+            "outline": "メルカリの売上金も電子マネーとして使えるようになるメルペイ。もちろんメルカリでの買い物でも使える予定ですが、そこで問題となったのがメルカリ上での決済処理。増築に増築を重ねたモノリシックなプログラムが、新しい決済手段の導入の前に立ちはだかります。そこで、私達はGO BOLDにMicroservice化で解決しようとしていますが、その中で認められた問題点と解決策を示していきます。0) なぜMicroservices化に踏み切ったのか1) 複雑に絡み合ったswitch文となった業務フローを読み解く2) 分散トランザクションで発生するであろうエラーとの戦い3) 会計システムへの影響をいかに減らすか",
+            "outlineJa": "メルカリの売上金も電子マネーとして使えるようになるメルペイ。もちろんメルカリでの買い物でも使える予定ですが、そこで問題となったのがメルカリ上での決済処理。増築に増築を重ねたモノリシックなプログラムが、新しい決済手段の導入の前に立ちはだかります。そこで、私達はGO BOLDにMicroservice化で解決しようとしていますが、その中で認められた問題点と解決策を示していきます。0) なぜMicroservices化に踏み切ったのか1) 複雑に絡み合ったswitch文となった業務フローを読み解く2) 分散トランザクションで発生するであろうエラーとの戦い3) 会計システムへの影響をいかに減らすか",
+            "lang": "jp",
+            "tags": [
+                "Merpay",
+                "Microservices"
+            ],
+            "speakers": [
+                {
+                    "id": "yuichiro_saito",
+                    "name": "Yuichiro Saito",
+                    "nameJa": "斎藤 祐一郎",
+                    "company": "merpay",
+                    "position": "Backend Software Engineer",
+                    "positionJa": "Backend Software Engineer",
+                    "profile": "1981年、大阪府生まれ。筑波大学大学院 ビジネス科学研究科 経営システム科学専攻 博士前期課程修了。大手SIerでプログラマを担当し、その後各種Webサービス運営会社でソフトウェアエンジニア・プロダクトマネジャを歴任。メルカリではバックエンドソフトウェアエンジニアとして、US、JPプロダクトの出品・決済・配送・不正対策の開発担当者を経て、現在、メルペイの決済システム開発担当者として従事。著書に「Webアプリエンジニア養成読本」(共著, 技術評論社, 2014年)と「ITインフラ監視[実践]入門」(単著, 技術評論社, 2016年)がある。",
+                    "profileJa": "1981年、大阪府生まれ。筑波大学大学院 ビジネス科学研究科 経営システム科学専攻 博士前期課程修了。大手SIerでプログラマを担当し、その後各種Webサービス運営会社でソフトウェアエンジニア・プロダクトマネジャを歴任。メルカリではバックエンドソフトウェアエンジニアとして、US、JPプロダクトの出品・決済・配送・不正対策の開発担当者を経て、現在、メルペイの決済システム開発担当者として従事。著書に「Webアプリエンジニア養成読本」(共著, 技術評論社, 2014年)と「ITインフラ監視[実践]入門」(単著, 技術評論社, 2016年)がある。",
+                    "iconUrl": "",
+                    "twitterId": "koemu",
+                    "githubId": "koemu"
+                }
+            ]
+        },
+        {
+            "id": 17,
+            "type": "session",
+            "place": "TrackA",
+            "startTime": "2018-10-04T15:00:00+09:00",
+            "endTime": "2018-10-04T15:30:00+09:00",
+            "title": "ViewControllerのTypeEraseを実装する",
+            "titleJa": "ViewControllerのTypeEraseを実装する",
+            "outline": "我々はiOSDCで発表したMicroViewControllerに加えてMicroFrameworksの考え方も導入してアプリケーションを開発しています。MicroFrameworksに付き物なのが循環依存の問題ですが、MicroViewControllerの型を導入することで、「ViewControllerに対してTypeErasureを実装する」ことが可能になりました。我々はこれをViewControllerRequestと名付けて利用しています。循環依存の問題を解決し、更にはリファクタリングの工数を大幅に縮めた虎の子「ViewControllerRequest」について、お話しします。",
+            "outlineJa": "我々はiOSDCで発表したMicroViewControllerに加えてMicroFrameworksの考え方も導入してアプリケーションを開発しています。MicroFrameworksに付き物なのが循環依存の問題ですが、MicroViewControllerの型を導入することで、「ViewControllerに対してTypeErasureを実装する」ことが可能になりました。我々はこれをViewControllerRequestと名付けて利用しています。循環依存の問題を解決し、更にはリファクタリングの工数を大幅に縮めた虎の子「ViewControllerRequest」について、お話しします。",
+            "lang": "jp",
+            "tags": [
+                "iOS",
+                "Rearchitecture"
+            ],
+            "speakers": [
+                {
+                    "id": "nobuo_saito",
+                    "name": "Nobuo Saito",
+                    "nameJa": "齋藤 暢郎",
+                    "company": "mercari",
+                    "position": "iOS Engineer",
+                    "positionJa": "iOS Engineer",
+                    "profile": "tarunonです。型と料理とゲームが好き。",
+                    "profileJa": "tarunonです。型と料理とゲームが好き。",
+                    "iconUrl": "",
+                    "twitterId": "tarunon",
+                    "githubId": "tarunon"
+                }
+            ]
+        },
+        {
+            "id": 18,
+            "type": "session",
+            "place": "TrackB",
+            "startTime": "2018-10-04T15:00:00+09:00",
+            "endTime": "2018-10-04T15:30:00+09:00",
+            "title": "GO BOLD DAY",
+            "titleJa": "GO BOLD DAY",
+            "outline": "GO BOLD is one of our core values at Mercari.To put it in action, we dedicate special days to drop what we're working on and get out of our comfort zone by experimenting with new ideas and technologies. The results are always fascinating!",
+            "outlineJa": "GO BOLD is one of our core values at Mercari.To put it in action, we dedicate special days to drop what we're working on and get out of our comfort zone by experimenting with new ideas and technologies. The results are always fascinating!",
+            "lang": "en",
+            "tags": [
+                "GoBold"
+            ],
+            "speakers": [
+                {
+                    "id": "dani_arnaout",
+                    "name": "Dani Arnaout",
+                    "nameJa": "",
+                    "company": "Mercari US",
+                    "position": "Engineering Manager",
+                    "positionJa": "Engineering Manager",
+                    "profile": "Dani is an engineering manager at Mercari focusing on building a strong global engineering team.He is a renowned software engineer worldwide through his contributions at tech blogs, tech talks, and his mentorship at hackathons. His side venture Abstract Layer, the programming AI that automates software development, has landed him on Forbes’s 2018 30 under 30 list in Enterprise Technology.",
+                    "profileJa": "Dani is an engineering manager at Mercari focusing on building a strong global engineering team.He is a renowned software engineer worldwide through his contributions at tech blogs, tech talks, and his mentorship at hackathons. His side venture Abstract Layer, the programming AI that automates software development, has landed him on Forbes’s 2018 30 under 30 list in Enterprise Technology.",
+                    "iconUrl": "",
+                    "twitterId": "dani_arnaout",
+                    "githubId": "daniArnaout"
+                }
+            ]
+        },
+        {
+            "id": 19,
+            "type": "session",
+            "place": "TrackB",
+            "startTime": "2018-10-04T15:00:00+09:00",
+            "endTime": "2018-10-04T15:30:00+09:00",
+            "title": "Learning to think like a Machine: How Machine Learning changes the way that we solve problems",
+            "titleJa": "Learning to think like a Machine: How Machine Learning changes the way that we solve problems",
+            "outline": "There are many obvious use-cases of Machine Learning like text and image analysis, but how about subtle AI solutions to everyday issues? At Mercari US, the ML team wants to change the way we solve problems, using a \"bottom-up\" data-driven approach. I would like to showcase our project that uses simple machine learning algorithms in a creative way and share a new paradigm for engineering solutions.",
+            "outlineJa": "There are many obvious use-cases of Machine Learning like text and image analysis, but how about subtle AI solutions to everyday issues? At Mercari US, the ML team wants to change the way we solve problems, using a \"bottom-up\" data-driven approach. I would like to showcase our project that uses simple machine learning algorithms in a creative way and share a new paradigm for engineering solutions.",
+            "lang": "en",
+            "tags": [
+                "MachineLearning"
+            ],
+            "speakers": [
+                {
+                    "id": "jeff_hara",
+                    "name": "Jeff Hara",
+                    "nameJa": "原 ジェフ",
+                    "company": "mercari",
+                    "position": "機械学習エンジニア・Machine Learning Engineer",
+                    "positionJa": "機械学習エンジニア・Machine Learning Engineer",
+                    "profile": "New hire at Mercari since July. I just graduated from Stanford University with a degree in Computer Science and Philosophy, and my area of focus was in artificial intelligence. I have been working with the ML team in Palo Alto to build AI solutions, and I still have a lot to learn.",
+                    "profileJa": "New hire at Mercari since July. I just graduated from Stanford University with a degree in Computer Science and Philosophy, and my area of focus was in artificial intelligence. I have been working with the ML team in Palo Alto to build AI solutions, and I still have a lot to learn.",
+                    "iconUrl": "",
+                    "twitterId": "",
+                    "githubId": "kchro"
+                }
+            ]
+        },
+        {
+            "id": 20,
+            "type": "session",
+            "place": "TrackA",
+            "startTime": "2018-10-04T16:00:00+09:00",
+            "endTime": "2018-10-04T16:30:00+09:00",
+            "title": "Listing Service: モノリスからマイクロサービスへ",
+            "titleJa": "Listing Service: モノリスからマイクロサービスへ",
+            "outline": "メルカリで現在進められているマイクロサービス化の1つとして出品機能のマイクロサービス化があります。PHP & モノリスのコードを可能な限り互換性を保ちながらGo & マイクロサービスに移植するにあたり、どのように開発を進めているのかを紹介します。",
+            "outlineJa": "メルカリで現在進められているマイクロサービス化の1つとして出品機能のマイクロサービス化があります。PHP & モノリスのコードを可能な限り互換性を保ちながらGo & マイクロサービスに移植するにあたり、どのように開発を進めているのかを紹介します。",
+            "lang": "jp",
+            "tags": [
+                "Microservices"
+            ],
+            "speakers": [
+                {
+                    "id": "taihei_morikuni",
+                    "name": "Taihei Morikuni",
+                    "nameJa": "森國 泰平",
+                    "company": "mercari",
+                    "position": "Software Engineer, Backend",
+                    "positionJa": "Software Engineer, Backend",
+                    "profile": "2017年10月に株式会社ソウゾウに入社し「メルカリ カウル」のバックエンド開発を担当。現在は株式会社メルカリにて、マイクロサービスの1つである「Listing Service」の開発を行っている。Goとアプリケーションアーキテクチャに興味があり、mercari.goのオーガナイザーを担当している。",
+                    "profileJa": "2017年10月に株式会社ソウゾウに入社し「メルカリ カウル」のバックエンド開発を担当。現在は株式会社メルカリにて、マイクロサービスの1つである「Listing Service」の開発を行っている。Goとアプリケーションアーキテクチャに興味があり、mercari.goのオーガナイザーを担当している。",
+                    "iconUrl": "",
+                    "twitterId": "inukirom",
+                    "githubId": "morikuni"
+                }
+            ]
+        },
+        {
+            "id": 21,
+            "type": "session",
+            "place": "TrackA",
+            "startTime": "2018-10-04T16:00:00+09:00",
+            "endTime": "2018-10-04T16:30:00+09:00",
+            "title": "Customer Experience Improvement",
+            "titleJa": "Customer Experience Improvement",
+            "outline": "メルカリはCustomer Supportを特に重視しており、アプリケーションの成長と共にCustomer Supportチームも大きく成長しお客様の体験向上の為に日々尽力しています。社員数の半数以上にもなるCustomer Supportチームがどのようなシステムを使用しているのか、MAU:1,075万人から行われる出品や取り引きをどのようにモニタリングしているのか、そしてMicroservice化が進んでいく今Customer Supportのシステムをどのように進化をさせていくかについて話します。",
+            "outlineJa": "メルカリはCustomer Supportを特に重視しており、アプリケーションの成長と共にCustomer Supportチームも大きく成長しお客様の体験向上の為に日々尽力しています。社員数の半数以上にもなるCustomer Supportチームがどのようなシステムを使用しているのか、MAU:1,075万人から行われる出品や取り引きをどのようにモニタリングしているのか、そしてMicroservice化が進んでいく今Customer Supportのシステムをどのように進化をさせていくかについて話します。",
+            "lang": "jp",
+            "tags": [
+                "Microservices",
+                "CRE"
+            ],
+            "speakers": [
+                {
+                    "id": "shingo_ichikawa",
+                    "name": "Shingo Ichikawa",
+                    "nameJa": "市川 慎吾",
+                    "company": "mercari",
+                    "position": "Backend Engineer",
+                    "positionJa": "Backend Engineer",
+                    "profile": "CXI(Customer Experience Improvement)チームとして入社し、メルカリの安心・安全を支えるCustomer Supportのメンバーが使用するシステムの開発を行ってきました。 その後CRE > MicroserviceDevelopmentとチームが変わりながら、マイクロサービス化や商品監視に機械学習を導入する取り組み等を行っています。",
+                    "profileJa": "CXI(Customer Experience Improvement)チームとして入社し、メルカリの安心・安全を支えるCustomer Supportのメンバーが使用するシステムの開発を行ってきました。 その後CRE > MicroserviceDevelopmentとチームが変わりながら、マイクロサービス化や商品監視に機械学習を導入する取り組み等を行っています。",
+                    "iconUrl": "",
+                    "twitterId": "ichikawa_0829",
+                    "githubId": "s-ichikawa"
+                }
+            ]
+        },
+        {
+            "id": 22,
+            "type": "session",
+            "place": "TrackB",
+            "startTime": "2018-10-04T16:00:00+09:00",
+            "endTime": "2018-10-04T16:30:00+09:00",
+            "title": "Search precision tuning with query rewriting Subtitle: Internship at mercari",
+            "titleJa": "Search precision tuning with query rewriting Subtitle: Internship at mercari",
+            "outline": "Finding the right balance for precision and recall is necessary in search systems. I’ll introduce our project of tuning search precision with query rewriting.検索では適合率と再現率のバランスが鍵となります。ここでは、メルカリで行っているクエリリライトによる適合率の調整についてご紹介します。",
+            "outlineJa": "Finding the right balance for precision and recall is necessary in search systems. I’ll introduce our project of tuning search precision with query rewriting.検索では適合率と再現率のバランスが鍵となります。ここでは、メルカリで行っているクエリリライトによる適合率の調整についてご紹介します。",
+            "lang": "en",
+            "tags": [
+                "Search",
+                "Internship"
+            ],
+            "speakers": [
+                {
+                    "id": "yuto_yagi",
+                    "name": "Yuto Yagi",
+                    "nameJa": "八木 悠斗",
+                    "company": "mercari",
+                    "position": "Product Management Intern (Search)",
+                    "positionJa": "Product Management Intern (Search)",
+                    "profile": "***編集、割愛していただいて構いません***As a product management intern in mercari search team, he drafted and implemented various projects related to search. He was a member of Japanese delegates to the International Linguistics Olympiad in 2015 and 2016. Bowdoin College ‘21. 2018年夏にメルカリの検索チームでプロダクトマネジメントインターンとして、様々な検索関連の施策に携わる。元国際言語学オリンピック日本代表。現在ボウドウィン大学2年生。",
+                    "profileJa": "***編集、割愛していただいて構いません***As a product management intern in mercari search team, he drafted and implemented various projects related to search. He was a member of Japanese delegates to the International Linguistics Olympiad in 2015 and 2016. Bowdoin College ‘21. 2018年夏にメルカリの検索チームでプロダクトマネジメントインターンとして、様々な検索関連の施策に携わる。元国際言語学オリンピック日本代表。現在ボウドウィン大学2年生。",
+                    "iconUrl": "",
+                    "twitterId": "yutoyag",
+                    "githubId": "yutoyagi"
+                }
+            ]
+        },
+        {
+            "id": 23,
+            "type": "session",
+            "place": "TrackB",
+            "startTime": "2018-10-04T16:00:00+09:00",
+            "endTime": "2018-10-04T16:30:00+09:00",
+            "title": "量子情報時代の通信技術：量子インターネット",
+            "titleJa": "量子情報時代の通信技術：量子インターネット",
+            "outline": "量子情報時代の通信について概説する。量子インターネットは今のインターネットとは異なる原理（量子力学）で動き、任意の2ノード間にエンタングルメントを生成する基盤である。当然、利点も異なる。例えば、「完全に安全な暗号通信」を実現するための基盤となる。また、量子コンピュータは、エンタングルメントと重ね合わせを用いて大量の状態を同時に扱う。この特性上、量子メモリサイズが重要である。量子コンピュータ同士を通信で繋げて分散量子計算を行うことで、より大きな計算力を得られる。また、エンタングルメントは量子力学の基本的な物理特性なので、様々な科学実験にも役立つ。この他、現在の量子インターネットの研究開発状況についても触れる。このセッションを通して、将来の通信の姿に少しでも想いを馳せてもらえたら幸いである。",
+            "outlineJa": "量子情報時代の通信について概説する。量子インターネットは今のインターネットとは異なる原理（量子力学）で動き、任意の2ノード間にエンタングルメントを生成する基盤である。当然、利点も異なる。例えば、「完全に安全な暗号通信」を実現するための基盤となる。また、量子コンピュータは、エンタングルメントと重ね合わせを用いて大量の状態を同時に扱う。この特性上、量子メモリサイズが重要である。量子コンピュータ同士を通信で繋げて分散量子計算を行うことで、より大きな計算力を得られる。また、エンタングルメントは量子力学の基本的な物理特性なので、様々な科学実験にも役立つ。この他、現在の量子インターネットの研究開発状況についても触れる。このセッションを通して、将来の通信の姿に少しでも想いを馳せてもらえたら幸いである。",
+            "lang": "jp",
+            "tags": [
+                "QuantumInternet"
+            ],
+            "speakers": [
+                {
+                    "id": "shota_nagayama",
+                    "name": "Shota Nagayama",
+                    "nameJa": "永山 翔太",
+                    "company": "mercari",
+                    "position": "R4D Senior Researcher",
+                    "positionJa": "R4D Senior Researcher",
+                    "profile": "博士（政策・メディア）。慶應義塾大学村井純研究室で多様性を謳って量子エラー訂正符号および量子コンピュータアーキテクチャの研究に取り組んでいたものの、結局インターネットの面白さにやられて量子インターネットアーキテクチャへ。機械学習でポスドク留学し異分野を経験した後、2018年4月より株式会社メルカリで量子インターネットのリソースマネジメント研究に従事。",
+                    "profileJa": "博士（政策・メディア）。慶應義塾大学村井純研究室で多様性を謳って量子エラー訂正符号および量子コンピュータアーキテクチャの研究に取り組んでいたものの、結局インターネットの面白さにやられて量子インターネットアーキテクチャへ。機械学習でポスドク留学し異分野を経験した後、2018年4月より株式会社メルカリで量子インターネットのリソースマネジメント研究に従事。",
+                    "iconUrl": "",
+                    "twitterId": "open_shota_ngym",
+                    "githubId": "ngym"
+                }
+            ]
+        },
+        {
+            "id": 24,
+            "type": "session",
+            "place": "TrackA",
+            "startTime": "2018-10-04T16:40:00+09:00",
+            "endTime": "2018-10-04T17:10:00+09:00",
+            "title": "Web Application as a Microservice",
+            "titleJa": "Web Application as a Microservice",
+            "outline": "メルカリWebはメルカリの成長を支える一角として開発され、約2年間メルカリと共に成長してきました。このメルカリWebをWebにまつわる技術の進化や拡大するフロントエンドチームといった変化に強くするためにJP Web Rearchitectチームが誕生しました。このトークではJP Web Rearchitectで実現する新たなアーキテクチャとその詳細、そしてそれを実現した先にある未来についてお話します。",
+            "outlineJa": "メルカリWebはメルカリの成長を支える一角として開発され、約2年間メルカリと共に成長してきました。このメルカリWebをWebにまつわる技術の進化や拡大するフロントエンドチームといった変化に強くするためにJP Web Rearchitectチームが誕生しました。このトークではJP Web Rearchitectで実現する新たなアーキテクチャとその詳細、そしてそれを実現した先にある未来についてお話します。",
+            "lang": "jp",
+            "tags": [
+                "Frontend",
+                "Microservices"
+            ],
+            "speakers": [
+                {
+                    "id": "sota_sugiura",
+                    "name": "Sota Sugiura",
+                    "nameJa": "杉浦 颯太",
+                    "company": "mercari",
+                    "position": "Backend Engineer, Tech Lead, JP Web Re-architecture",
+                    "positionJa": "Backend Engineer, Tech Lead, JP Web Re-architecture",
+                    "profile": "2017年1月入社。最初の3ヶ月間はUSチームに所属し、USメルカリの成長に尽力。2017年4月よりJPチームに異動し、昨年7月にリリースされたメルカリチャンネルのチームに立ち上げ当初から参画。Backendエンジニアとして開発を行う。 今年の7月よりWebのRearchitectチームに異動。念願のJavaScriptエンジニアとして日々開発中。",
+                    "profileJa": "2017年1月入社。最初の3ヶ月間はUSチームに所属し、USメルカリの成長に尽力。2017年4月よりJPチームに異動し、昨年7月にリリースされたメルカリチャンネルのチームに立ち上げ当初から参画。Backendエンジニアとして開発を行う。 今年の7月よりWebのRearchitectチームに異動。念願のJavaScriptエンジニアとして日々開発中。",
+                    "iconUrl": "",
+                    "twitterId": "sota1235",
+                    "githubId": "sota1235"
+                }
+            ]
+        },
+        {
+            "id": 25,
+            "type": "session",
+            "place": "TrackB",
+            "startTime": "2018-10-04T16:40:00+09:00",
+            "endTime": "2018-10-04T17:10:00+09:00",
+            "title": "Shifting Security to the Left the Right Way",
+            "titleJa": "Shifting Security to the Left the Right Way",
+            "outline": "As software development evolves, it is vital to shifting security “to the left” earlier in the software development life cycle (SDLC) to make application security move faster with lower cost. This session will discuss on why application security needs to shift left and how to build a modern security engineering organization with a shift-left approach.",
+            "outlineJa": "As software development evolves, it is vital to shifting security “to the left” earlier in the software development life cycle (SDLC) to make application security move faster with lower cost. This session will discuss on why application security needs to shift left and how to build a modern security engineering organization with a shift-left approach.",
+            "lang": "en",
+            "tags": [
+                "Security"
+            ],
+            "speakers": [
+                {
+                    "id": "yannarak_wannasai",
+                    "name": "Yannarak Wannasai",
+                    "nameJa": "Yannarak Wannasai",
+                    "company": "mercari",
+                    "position": "Engineering Manager of Security Team",
+                    "positionJa": "Engineering Manager of Security Team",
+                    "profile": "Yannarak Wannasai is a subject-matter expert in application security at Mercari, Inc. He has 13 years of extensive experience in IT Industry, focused on Secure Software Development Lifecycle (SSDLC). He spoke at some security events, including OWASP, CSA, and APKIC. ",
+                    "profileJa": "Yannarak Wannasai is a subject-matter expert in application security at Mercari, Inc. He has 13 years of extensive experience in IT Industry, focused on Secure Software Development Lifecycle (SSDLC). He spoke at some security events, including OWASP, CSA, and APKIC. ",
+                    "iconUrl": "",
+                    "twitterId": "yannarak",
+                    "githubId": "yannarak"
+                }
+            ]
+        },
+        {
+            "id": 26,
+            "type": "session",
+            "place": "TrackA",
+            "startTime": "2018-10-04T17:20:00+09:00",
+            "endTime": "2018-10-04T17:50:00+09:00",
+            "title": "数十億規模のデータと機械学習で描く未来",
+            "titleJa": "数十億規模のデータと機械学習で描く未来",
+            "outline": "累計出品数が10億品を超え、近年の機械学習・ディープラーニング分野の目覚ましい発展と相まって、データ活用への注目と期待がますます高まっている。多様な商品データや行動データを利用した複数のプロジェクトが進行しており、出品時の画像認識や、不正の自動検知といった機能がすでにサービス内で稼働している。本セッションでは、それらのアルゴリズムと実行基盤の紹介、および、一部の開発中の機能について述べる。",
+            "outlineJa": "累計出品数が10億品を超え、近年の機械学習・ディープラーニング分野の目覚ましい発展と相まって、データ活用への注目と期待がますます高まっている。多様な商品データや行動データを利用した複数のプロジェクトが進行しており、出品時の画像認識や、不正の自動検知といった機能がすでにサービス内で稼働している。本セッションでは、それらのアルゴリズムと実行基盤の紹介、および、一部の開発中の機能について述べる。",
+            "lang": "jp",
+            "tags": [
+                "MachineLearning",
+                "Kando"
+            ],
+            "speakers": [
+                {
+                    "id": "takuma_yamaguchi",
+                    "name": "Takuma Yamaguchi",
+                    "nameJa": "山口 拓真",
+                    "company": "mercari",
+                    "position": "機械学習エンジニア",
+                    "positionJa": "機械学習エンジニア",
+                    "profile": "学生時代より、パターン認識・機械学習の研究に従事。博士(工学)。画像認識、コンピュータビジョン、音声認識などの研究をはじめ、オペレーションズリサーチ手法に基づく鉄道運賃計算アルゴリズム研究なども担当。ソーシャルゲーム会社でのデータ分析基盤の開発・運用を経て、2016年より株式会社メルカリで画像系を中心とした機械学習分野を担当し、出品時の画像認識機能などを開発。",
+                    "profileJa": "学生時代より、パターン認識・機械学習の研究に従事。博士(工学)。画像認識、コンピュータビジョン、音声認識などの研究をはじめ、オペレーションズリサーチ手法に基づく鉄道運賃計算アルゴリズム研究なども担当。ソーシャルゲーム会社でのデータ分析基盤の開発・運用を経て、2016年より株式会社メルカリで画像系を中心とした機械学習分野を担当し、出品時の画像認識機能などを開発。",
+                    "iconUrl": "",
+                    "twitterId": "ku_mo_nn",
+                    "githubId": "kumon"
+                }
+            ]
+        },
+        {
+            "id": 27,
+            "type": "session",
+            "place": "TrackB",
+            "startTime": "2018-10-04T17:20:00+09:00",
+            "endTime": "2018-10-04T17:50:00+09:00",
+            "title": "CSAT Score - 極度改善(しなさい) -",
+            "titleJa": "CSAT Score - 極度改善(しなさい) -",
+            "outline": "US版メルカリでは、一年前からお客様のカスタマーサポート満足度を計測するために、CSAT(Customer Satisfaction) Surveyを実施してスコアを算出しはじめました。このスコアリングは、サンフランシスコ(現パロアルト)/ポートランド/東京の3拠点で議論を重ねて育て続けられ、今ではCompany OKRへ組み込まれるようになり、社内で大切にしているモノサシへと進化しました。そんな私たちのモノサシが、この一年でどのように実装内容が変化していったか、プロダクト開発の意思決定に影響を与えていったかご紹介いたします。",
+            "outlineJa": "US版メルカリでは、一年前からお客様のカスタマーサポート満足度を計測するために、CSAT(Customer Satisfaction) Surveyを実施してスコアを算出しはじめました。このスコアリングは、サンフランシスコ(現パロアルト)/ポートランド/東京の3拠点で議論を重ねて育て続けられ、今ではCompany OKRへ組み込まれるようになり、社内で大切にしているモノサシへと進化しました。そんな私たちのモノサシが、この一年でどのように実装内容が変化していったか、プロダクト開発の意思決定に影響を与えていったかご紹介いたします。",
+            "lang": "jp",
+            "tags": [
+                "CRE"
+            ],
+            "speakers": [
+                {
+                    "id": "takako_ohshima",
+                    "name": "Takako Ohshima",
+                    "nameJa": "大島 孝子",
+                    "company": "mercari",
+                    "position": "Machine Learning Engineer / Machine Learning Team",
+                    "positionJa": "Machine Learning Engineer / Machine Learning Team",
+                    "profile": "セキュリティ・キャンプ/未踏ソフトウェア創造事業で技術に濃い学生時代を過ごし、2012年に株式会社サイバーエージェント新卒入社。同年、渡米して複数のアドテクプロダクト開発に従事する。2014年にIoTで米国最大級のハッカソンで全米優勝。2017年2月にUSのMercari,Inc.へ入社し、CXIチームでCS Toolをはじめとするツール周りの開発を担当。今年5月よりUSで新設されたMachine Learningチームへ参加し、現在はUSプロダクトのデータパイプラインの向上に注力している。",
+                    "profileJa": "セキュリティ・キャンプ/未踏ソフトウェア創造事業で技術に濃い学生時代を過ごし、2012年に株式会社サイバーエージェント新卒入社。同年、渡米して複数のアドテクプロダクト開発に従事する。2014年にIoTで米国最大級のハッカソンで全米優勝。2017年2月にUSのMercari,Inc.へ入社し、CXIチームでCS Toolをはじめとするツール周りの開発を担当。今年5月よりUSで新設されたMachine Learningチームへ参加し、現在はUSプロダクトのデータパイプラインの向上に注力している。",
+                    "iconUrl": "",
+                    "twitterId": "hatone",
+                    "githubId": "hatone"
+                }
+            ]
+        },
+        {
+            "id": 28,
+            "type": "session",
+            "place": "TrackA",
+            "startTime": "2018-10-04T18:00:00+09:00",
+            "endTime": "2018-10-04T18:30:00+09:00",
+            "title": "メルカリにおける検索サービスの現在と未来",
+            "titleJa": "メルカリにおける検索サービスの現在と未来",
+            "outline": "検索チームでは、昨年からサジェスト・関連ワード・おすすめタブなど、検索機能を開発・改善してきました。世界を目指すチームの紹介と具体的な各機能の開発についてご紹介します。",
+            "outlineJa": "検索チームでは、昨年からサジェスト・関連ワード・おすすめタブなど、検索機能を開発・改善してきました。世界を目指すチームの紹介と具体的な各機能の開発についてご紹介します。",
+            "lang": "jp",
+            "tags": [
+                "Microservices",
+                "Search"
+            ],
+            "speakers": [
+                {
+                    "id": "kenji_sugiki",
+                    "name": "Kenji Sugiki",
+                    "nameJa": "杉木 健二",
+                    "company": "mercari",
+                    "position": "Software Engineer (Search)",
+                    "positionJa": "Software Engineer (Search)",
+                    "profile": "2010年よりWeb系大企業やスタートアップで、大規模データ処理・機械学習を活用したサービス開発やデータサイエンス業務に従事。2017年より株式会社メルカリに入社し、サーチ・レコメンド・API実装などバックエンド全般の業務を担当。大学時代は、自然言語処理・情報検索に関する研究に従事。博士（情報科学）。",
+                    "profileJa": "2010年よりWeb系大企業やスタートアップで、大規模データ処理・機械学習を活用したサービス開発やデータサイエンス業務に従事。2017年より株式会社メルカリに入社し、サーチ・レコメンド・API実装などバックエンド全般の業務を担当。大学時代は、自然言語処理・情報検索に関する研究に従事。博士（情報科学）。",
+                    "iconUrl": "",
+                    "twitterId": "",
+                    "githubId": "sugiki"
+                },
+                {
+                    "id": "yanpeng_lin",
+                    "name": "Yanpeng Lin",
+                    "nameJa": "藺 彦鵬",
+                    "company": "mercari",
+                    "position": "Software Engineer",
+                    "positionJa": "Software Engineer",
+                    "profile": "Majored computing science at Kobe University, Graduate school of informatics. Joined Rakuten from 2013 to 2015 focused on Rakuten ICHIBA ranking system development. After that, joined MonotaRO as a machine learning engineer committed on improving search quality and recommender systems. Now at Mercari,  scratching search LtR system and models.",
+                    "profileJa": "Majored computing science at Kobe University, Graduate school of informatics. Joined Rakuten from 2013 to 2015 focused on Rakuten ICHIBA ranking system development. After that, joined MonotaRO as a machine learning engineer committed on improving search quality and recommender systems. Now at Mercari,  scratching search LtR system and models.",
+                    "iconUrl": "",
+                    "twitterId": "",
+                    "githubId": "ypenglyn"
+                }
+            ]
+        },
+        {
+            "id": 29,
+            "type": "session",
+            "place": "TrackB",
+            "startTime": "2018-10-04T18:00:00+09:00",
+            "endTime": "2018-10-04T18:30:00+09:00",
+            "title": "Building Elastic Team しなやかなチームをつくる",
+            "titleJa": "Building Elastic Team しなやかなチームをつくる",
+            "outline": "メルカリでは今年からプラットフォームごとに技術ロードマップを策定し、技術的な観点からもプロダクトへ貢献できるような取り組みをしています。US版Mercari Androidチームはスケールしても機動力の高いしなやかなチームを作ることを目指し、技術ロードマップを策定しました。本セッションではどのように技術ロードマップが策定され推進されてきたのかをテックリードの役割も交えてお話します。",
+            "outlineJa": "メルカリでは今年からプラットフォームごとに技術ロードマップを策定し、技術的な観点からもプロダクトへ貢献できるような取り組みをしています。US版Mercari Androidチームはスケールしても機動力の高いしなやかなチームを作ることを目指し、技術ロードマップを策定しました。本セッションではどのように技術ロードマップが策定され推進されてきたのかをテックリードの役割も交えてお話します。",
+            "lang": "jp",
+            "tags": [
+                "Android"
+            ],
+            "speakers": [
+                {
+                    "id": "tomoaki_imai",
+                    "name": "Tomoaki Imai",
+                    "nameJa": "今井 智章",
+                    "company": "mercari",
+                    "position": "Android Tech Lead",
+                    "positionJa": "Android Tech Lead",
+                    "profile": "2014年にメルカリにジョイン。2016年からUSに移り住み、US版メルカリのプロダクト開発を行っている。カレーとランニングが大好き。",
+                    "profileJa": "2014年にメルカリにジョイン。2016年からUSに移り住み、US版メルカリのプロダクト開発を行っている。カレーとランニングが大好き。",
+                    "iconUrl": "",
+                    "twitterId": "tomoaki_imai",
+                    "githubId": "tomoima525"
+                }
+            ]
+        },
+        {
+            "id": 30,
+            "type": "session",
+            "place": "TrackB",
+            "startTime": "2018-10-04T18:00:00+09:00",
+            "endTime": "2018-10-04T18:30:00+09:00",
+            "title": "High 意識 Android - US App : Evolution",
+            "titleJa": "High 意識 Android - US App : Evolution",
+            "outline": "2018年、US Androidチームは大きな変革を遂げました。2017年はTokyo & San Francisco 合わせて3人体制という極少数精鋭チームで走り切りましたが、2018年、ついにメンバーの数が倍になりました。これにより、個々人の能力に重点を置いていた「公安9課モデル」から、チーム x チーム で更なる高みを目指すステージに移ったのです。時差や距離といった制約の中でより高いパフォーマンスを追求し続けながら、Tokyo & Palo Altoの2拠点で開発を進めるMercari USチームならではの技術選定とチームワークについて、お時間の許す限り紹介します。",
+            "outlineJa": "2018年、US Androidチームは大きな変革を遂げました。2017年はTokyo & San Francisco 合わせて3人体制という極少数精鋭チームで走り切りましたが、2018年、ついにメンバーの数が倍になりました。これにより、個々人の能力に重点を置いていた「公安9課モデル」から、チーム x チーム で更なる高みを目指すステージに移ったのです。時差や距離といった制約の中でより高いパフォーマンスを追求し続けながら、Tokyo & Palo Altoの2拠点で開発を進めるMercari USチームならではの技術選定とチームワークについて、お時間の許す限り紹介します。",
+            "lang": "jp",
+            "tags": [
+                "Android"
+            ],
+            "speakers": [
+                {
+                    "id": "matthew_vern",
+                    "name": "Matthew Vern",
+                    "nameJa": "Matthew Vern",
+                    "company": "mercari",
+                    "position": "Software Engineer",
+                    "positionJa": "Software Engineer",
+                    "profile": "Matthew is an Android Engineer working on the Mercari US product.",
+                    "profileJa": "Matthew is an Android Engineer working on the Mercari US product.",
+                    "iconUrl": "",
+                    "twitterId": "callipan",
+                    "githubId": "panpanini"
+                },
+                {
+                    "id": "atsuko_fukui",
+                    "name": "Atsuko Fukui",
+                    "nameJa": "福井 敦子",
+                    "company": "mercari",
+                    "position": "Android Engineer",
+                    "positionJa": "Android Engineer",
+                    "profile": "Android組み込み開発、Webサービス開発の経験を経て2018年3月メルカリにジョイン。現在はUS向けのプロダクト開発に従事。ビールとKotlinが好きです。",
+                    "profileJa": "Android組み込み開発、Webサービス開発の経験を経て2018年3月メルカリにジョイン。現在はUS向けのプロダクト開発に従事。ビールとKotlinが好きです。",
+                    "iconUrl": "",
+                    "twitterId": "muumuumuumuu",
+                    "githubId": "atsuko-fukui"
+                }
+            ]
+        }
+    ]
+}
