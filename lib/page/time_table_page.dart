@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mtc2018_app/page/session_detail.dart';
+import 'package:mtc2018_app/page/speaker_detail.dart';
 import 'package:mtc2018_app/model/session.dart';
 import 'package:mtc2018_app/model/speaker.dart';
 
@@ -35,18 +36,15 @@ class TimeTablePage extends StatelessWidget {
             )
           );
         },
-        child: Padding(
-          padding: const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0, bottom: 10.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              buildSessionTimeRange(timeRange),
-              buildSessionTitle(title),
-              buildSessionTypeLabels(typeLabels),
-              buildSessionText(text),
-              buildSessionSpeakerInformation(speakerName, speakerType)
-            ],
-          )
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Container(padding: const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0, bottom: 10.0), child: buildSessionTimeRange(timeRange)),
+            Container(padding: const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 10.0), child: buildSessionTitle(title)),
+            Container(padding: const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 10.0), child: buildSessionTypeLabels(typeLabels)),
+            Container(padding: const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 10.0), child: buildSessionText(text)),
+            Container(padding: const EdgeInsets.only(bottom: 20.0), child: buildSessionSpeakerInformation(context, speakerName, speakerType))
+          ],
         )
       )
     );
@@ -89,18 +87,22 @@ class TimeTablePage extends StatelessWidget {
     );
   }
 
-  Widget buildSessionSpeakerInformation(String speakerName, String speakerType) {
-    return Container(
-      decoration: BoxDecoration(
-        border: Border(top: BorderSide(width: 1.0)),
-        color: Color(0xDDDDDD)
-      ),
-      child: ListTile(
-        contentPadding: const EdgeInsets.all(0.0),
-        leading: const Icon(Icons.android, color: Colors.black, size: 40.0),
-        title: Text(speakerName, style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
-        subtitle: Text(speakerType, style: TextStyle(color: Colors.black)),
-        // trailing: IconButton(icon: const Icon(Icons.favorite_border), color: Colors.black, onPressed: () { AlertDialog(title: Text('Go to the session!'), content: Text('Hey!')); }),
+  Widget buildSessionSpeakerInformation(BuildContext context, String speakerName, String speakerType) {
+    return FlatButton(
+      onPressed: (){
+      }, 
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border(top: BorderSide(width: 1.0)),
+          color: Color(0xDDDDDD)
+        ),
+        child: ListTile(
+          contentPadding: const EdgeInsets.all(0.0),
+          leading: const Icon(Icons.android, color: Colors.black, size: 40.0),
+          title: Text(speakerName, style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
+          subtitle: Text(speakerType, style: TextStyle(color: Colors.black)),
+          // trailing: IconButton(icon: const Icon(Icons.favorite_border), color: Colors.black, onPressed: () { AlertDialog(title: Text('Go to the session!'), content: Text('Hey!')); }),
+        )
       )
     );
   }
