@@ -3,18 +3,35 @@ import 'package:mtc2018_app/page/time_table_page.dart';
 import 'package:mtc2018_app/page/content_page.dart';
 import 'package:mtc2018_app/page/about_page.dart';
 import 'package:mtc2018_app/page/news_page.dart';
+import 'package:mtc2018_app/colors.dart';
 
 void main() => runApp(MyApp());
+
+final ThemeData _kMtcTheme = _buildMtcTheme();
+
+ThemeData _buildMtcTheme() {
+  final ThemeData base = ThemeData.dark();
+  return base.copyWith(
+    accentColor: kMtcSecondaryRed,
+    primaryColor: kMtcPrimaryGrey,
+    buttonColor: kMtcSecondaryRed,
+    scaffoldBackgroundColor: kMtcBackgroundGrey,
+    textSelectionColor: kMtcSecondaryRed,
+    errorColor: kMtcSecondaryRed,
+    canvasColor: kMtcPrimaryGrey,
+    // textTheme: _buildShrineTextTheme(base.textTheme),
+    // primaryTextTheme: _buildShrineTextTheme(base.primaryTextTheme),
+    // accentTextTheme: _buildShrineTextTheme(base.accentTextTheme),
+    primaryIconTheme: base.iconTheme.copyWith(color: kMtcIcon),
+  );
+}
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Mercari Tech Conf',
-      theme: ThemeData(
-          brightness: Brightness.dark,
-          primaryColor: Colors.grey[800], // TODO: change color
-          accentColor: Colors.grey[200]),
+      theme: _kMtcTheme,
       home: MainPage(),
     );
   }
@@ -54,6 +71,7 @@ class _MainPageState extends State<MainPage> {
         elevation: 4.0,
       ),
       bottomNavigationBar: BottomNavigationBar(
+        fixedColor: Colors.white,
         items: [
           BottomNavigationBarItem(
             title: Text("TimeTable"),
