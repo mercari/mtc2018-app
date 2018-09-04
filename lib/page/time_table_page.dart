@@ -91,12 +91,12 @@ class TimeTablePage extends StatelessWidget {
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10.0),
             border: const Border(
-              top: const BorderSide(width: 1.0),
-              left: const BorderSide(width: 1.0),
-              bottom: const BorderSide(width: 1.0),
-              right: const BorderSide(width: 1.0),
+              top: const BorderSide(width: 1.0, color: kMtcSecondaryRed),
+              left: const BorderSide(width: 1.0, color: kMtcSecondaryRed),
+              bottom: const BorderSide(width: 1.0, color: kMtcSecondaryRed),
+              right: const BorderSide(width: 1.0, color: kMtcSecondaryRed),
             )),
-        child: Text(tag, style: TextStyle(color: Colors.black)));
+        child: Text(tag, style: TextStyle(color: kMtcSecondaryRed)));
   }
 
   Widget buildSessionText(String text) {
