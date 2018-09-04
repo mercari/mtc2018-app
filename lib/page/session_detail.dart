@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:mtc2018_app/model/session.dart';
 import 'package:mtc2018_app/model/speaker.dart';
 import "package:intl/intl.dart";
+import 'package:mtc2018_app/widget/link_button.dart';
 
 class SessionDetailPage extends StatelessWidget {
-  Session session;
-  final DateFormat formatter = DateFormat("HH:mm");
+  final Session session;
 
-  SessionDetailPage(Session session) {
-    this.session = session;
-  }
+  const SessionDetailPage({
+    Key key,
+    this.session,
+  }) : super(key: key);
 
   Widget buildBody() {
     return Container(
@@ -33,6 +34,7 @@ class SessionDetailPage extends StatelessWidget {
   }
 
   Widget buildSummary() {
+    var formatter = DateFormat("HH:mm");
     var start = DateTime.parse(session.startTime).toLocal();
     var end = DateTime.parse(session.endTime).toLocal();
 
@@ -109,34 +111,24 @@ class SessionDetailPage extends StatelessWidget {
           Container(
               margin: const EdgeInsets.only(bottom: 20.0),
               child: Text(speaker.profile)),
-          buildLinkLabels(speaker)
+          buildLinkButtons(speaker)
         ]);
   }
 
-  Widget buildLinkLabels(Speaker speaker) {
-    List<Widget> containers = ['Twitter', 'GitHub'].map((title) {
-      return buildLinkLabel(title);
-    }).toList();
-    return Container(
-        padding: const EdgeInsets.all(0.0), child: Row(children: containers));
-  }
+  Widget buildLinkButtons(Speaker speaker) {
+    var twitterId = speaker.twitterId;
+    var githubId = speaker.githubId;
+    //TODO: Use icons
+    var twitterLinkButton = LinkButton(
+        title: "twitter @$twitterId", url: "https://twitter.com/$twitterId");
+    var githubLinkButton = LinkButton(
+        title: "github $githubId", url: "https://github.com/$githubId");
 
-  Widget buildLinkLabel(String title) {
     return Container(
-        margin: const EdgeInsets.only(right: 10.0),
         padding: const EdgeInsets.all(0.0),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10.0),
-            border: const Border(
-              top: const BorderSide(width: 1.0, color: Colors.white),
-              left: const BorderSide(width: 1.0, color: Colors.white),
-              bottom: const BorderSide(width: 1.0, color: Colors.white),
-              right: const BorderSide(width: 1.0, color: Colors.white),
-            )),
-        child: FlatButton(
-            onPressed: () {},
-            child: Text(title, style: TextStyle(color: Colors.white)),
-            textTheme: ButtonTextTheme.primary));
+        child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [twitterLinkButton, githubLinkButton]));
   }
 
   Widget buildSessionSpeakerInformation(Speaker speaker) {

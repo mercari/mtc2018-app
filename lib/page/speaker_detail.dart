@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:mtc2018_app/model/speaker.dart';
+import 'package:mtc2018_app/widget/link_button.dart';
 
 class SpeakerDetailPage extends StatelessWidget {
-  Speaker speaker;
+  final Speaker speaker;
 
-  SpeakerDetailPage(Speaker speaker) {
-    this.speaker = speaker;
-  }
+  const SpeakerDetailPage({Key key, this.speaker}) : super(key: key);
 
   Widget buildBody() {
     return Container(
@@ -31,34 +30,23 @@ class SpeakerDetailPage extends StatelessWidget {
           Container(
               margin: const EdgeInsets.only(bottom: 20.0),
               child: Text(speaker.profile)),
-          buildLinkLabels()
+          buildLinkButtons(speaker)
         ]);
   }
 
-  Widget buildLinkLabels() {
-    List<Widget> containers = ['Twitter', 'GitHub'].map((title) {
-      return buildLinkLabel(title);
-    }).toList();
-    return Container(
-        padding: const EdgeInsets.all(0.0), child: Row(children: containers));
-  }
+  Widget buildLinkButtons(Speaker speaker) {
+    var twitterId = speaker.twitterId;
+    var githubId = speaker.githubId;
+    var twitterLinkButton =
+        LinkButton(title: "@$twitterId", url: "https://twitter.com/$twitterId");
+    var githubLinkButton =
+        LinkButton(title: "$githubId", url: "https://github.com/$githubId");
 
-  Widget buildLinkLabel(String title) {
     return Container(
-        margin: const EdgeInsets.only(right: 10.0),
         padding: const EdgeInsets.all(0.0),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10.0),
-            border: const Border(
-              top: const BorderSide(width: 1.0, color: Colors.white),
-              left: const BorderSide(width: 1.0, color: Colors.white),
-              bottom: const BorderSide(width: 1.0, color: Colors.white),
-              right: const BorderSide(width: 1.0, color: Colors.white),
-            )),
-        child: FlatButton(
-            onPressed: () {},
-            child: Text(title, style: TextStyle(color: Colors.white)),
-            textTheme: ButtonTextTheme.primary));
+        child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [twitterLinkButton, githubLinkButton]));
   }
 
   Widget buildSessionSpeakerInformation() {

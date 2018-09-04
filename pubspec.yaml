@@ -11,6 +11,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
   json_annotation: ^0.2.3
+  url_launcher: ^3.0.3
 
 dev_dependencies:
   flutter_test:
