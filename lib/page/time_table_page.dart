@@ -19,7 +19,7 @@ class TimeTablePage extends StatelessWidget {
                   MaterialPageRoute(
                       settings: RouteSettings(name: '/session_detail'),
                       builder: (context) {
-                        return SessionDetailPage(session);
+                        return SessionDetailPage(session: session);
                       }));
             },
             child: Column(
@@ -120,7 +120,7 @@ class TimeTablePage extends StatelessWidget {
               MaterialPageRoute(
                   settings: RouteSettings(name: '/speaker_detail'),
                   builder: (context) {
-                    return SpeakerDetailPage(speaker);
+                    return SpeakerDetailPage(speaker: speaker);
                   }));
         },
         child: Container(
@@ -146,8 +146,7 @@ class TimeTablePage extends StatelessWidget {
         child: DefaultTabController(
             length: 2,
             child: FutureBuilder(
-                future: DefaultAssetBundle
-                    .of(context)
+                future: DefaultAssetBundle.of(context)
                     .loadString("data/contents.json"),
                 builder: (context, snapshot) {
                   var contents = json.decode(snapshot.data.toString());
