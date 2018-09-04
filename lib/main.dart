@@ -32,7 +32,7 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Icon(Icons.android),
+        title: Image.asset('images/ios_icn.png'),
         actions: [
           IconButton(
             icon: Icon(Icons.notifications),
