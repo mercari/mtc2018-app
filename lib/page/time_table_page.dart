@@ -5,6 +5,7 @@ import 'package:mtc2018_app/model/session.dart';
 import 'package:mtc2018_app/model/speaker.dart';
 import 'dart:convert';
 import "package:intl/intl.dart";
+import '../colors.dart';
 
 class TimeTablePage extends StatelessWidget {
   final DateFormat formatter = DateFormat("HH:mm");
@@ -90,12 +91,12 @@ class TimeTablePage extends StatelessWidget {
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10.0),
             border: const Border(
-              top: const BorderSide(width: 1.0),
-              left: const BorderSide(width: 1.0),
-              bottom: const BorderSide(width: 1.0),
-              right: const BorderSide(width: 1.0),
+              top: const BorderSide(width: 1.0, color: kMtcSecondaryRed),
+              left: const BorderSide(width: 1.0, color: kMtcSecondaryRed),
+              bottom: const BorderSide(width: 1.0, color: kMtcSecondaryRed),
+              right: const BorderSide(width: 1.0, color: kMtcSecondaryRed),
             )),
-        child: Text(tag, style: TextStyle(color: Colors.black)));
+        child: Text(tag, style: TextStyle(color: kMtcSecondaryRed)));
   }
 
   Widget buildSessionText(String text) {
@@ -161,7 +162,10 @@ class TimeTablePage extends StatelessWidget {
                       sessions.where((s) => s.place == "TrackB");
                   return Scaffold(
                     appBar: TabBar(
-                        tabs: [Tab(text: "TRACK A"), Tab(text: "TRACK B")]),
+                      tabs: [Tab(text: "TRACK A"), Tab(text: "TRACK B")],
+                      labelColor: kMtcSecondaryRed,
+                      indicatorColor: kMtcSecondaryRed,
+                    ),
                     body: TabBarView(
                       children: [
                         ListView(

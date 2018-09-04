@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mtc2018_app/model/speaker.dart';
 import 'package:mtc2018_app/widget/link_button.dart';
+import '../colors.dart';
 
 class SpeakerDetailPage extends StatelessWidget {
   final Speaker speaker;
@@ -12,6 +13,7 @@ class SpeakerDetailPage extends StatelessWidget {
         margin: EdgeInsets.only(top: 20.0, bottom: 20.0),
         child: ListView(children: <Widget>[
           Card(
+              color: Colors.white,
               child: Container(
                   margin: const EdgeInsets.only(bottom: 10.0),
                   padding: const EdgeInsets.only(
@@ -29,7 +31,8 @@ class SpeakerDetailPage extends StatelessWidget {
               child: buildSessionSpeakerInformation()),
           Container(
               margin: const EdgeInsets.only(bottom: 20.0),
-              child: Text(speaker.profile)),
+              child: Text(speaker.profile,
+                  style: TextStyle(color: kMtcPrimaryGrey))),
           buildLinkButtons(speaker)
         ]);
   }
@@ -55,8 +58,10 @@ class SpeakerDetailPage extends StatelessWidget {
       contentPadding: const EdgeInsets.all(0.0),
       // leading: const Icon(Icons.android, color: Colors.white, size: 40.0),
       title: Text(speaker.name,
-          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
-      subtitle: Text(speaker.position, style: TextStyle(color: Colors.white)),
+          style:
+              TextStyle(fontWeight: FontWeight.bold, color: kMtcPrimaryGrey)),
+      subtitle:
+          Text(speaker.position, style: TextStyle(color: kMtcPrimaryGrey)),
       // trailing: IconButton(icon: const Icon(Icons.favorite_border), color: Colors.black, onPressed: () { AlertDialog(title: Text('Go to the session!'), content: Text('Hey!')); }),
     ));
   }

@@ -3,6 +3,7 @@ import 'package:mtc2018_app/model/session.dart';
 import 'package:mtc2018_app/model/speaker.dart';
 import "package:intl/intl.dart";
 import 'package:mtc2018_app/widget/link_button.dart';
+import '../colors.dart';
 
 class SessionDetailPage extends StatelessWidget {
   final Session session;
@@ -26,6 +27,7 @@ class SessionDetailPage extends StatelessWidget {
               child: buildContent()),
           Card(
               child: Container(
+                  color: Colors.white,
                   margin: const EdgeInsets.only(bottom: 10.0),
                   padding: const EdgeInsets.only(
                       left: 20.0, right: 20.0, bottom: 12.0, top: 12.0),
@@ -46,24 +48,25 @@ class SessionDetailPage extends StatelessWidget {
         type: MaterialType.canvas,
         shadowColor: Colors.white,
         child: Container(
+            color: kMtcBackgroundGrey,
             child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Container(
-                margin: const EdgeInsets.only(bottom: 5.0),
-                child: Text(timeRangeString,
-                    style: const TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: 14.0))),
-            Container(
-                margin: const EdgeInsets.only(bottom: 10.0),
-                child: Text(session.title,
-                    style: const TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: 22.0))),
-            Container(
-                margin: const EdgeInsets.only(bottom: 10.0),
-                child: buildSessionTags(session.tags)),
-          ],
-        )));
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                    margin: const EdgeInsets.only(bottom: 5.0),
+                    child: Text(timeRangeString,
+                        style: const TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 14.0))),
+                Container(
+                    margin: const EdgeInsets.only(bottom: 10.0),
+                    child: Text(session.title,
+                        style: const TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 22.0))),
+                Container(
+                    margin: const EdgeInsets.only(bottom: 10.0),
+                    child: buildSessionTags(session.tags)),
+              ],
+            )));
   }
 
   Widget buildSessionTags(List<String> tags) {
@@ -80,12 +83,12 @@ class SessionDetailPage extends StatelessWidget {
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10.0),
             border: const Border(
-              top: const BorderSide(width: 1.0, color: Colors.white),
-              left: const BorderSide(width: 1.0, color: Colors.white),
-              bottom: const BorderSide(width: 1.0, color: Colors.white),
-              right: const BorderSide(width: 1.0, color: Colors.white),
+              top: const BorderSide(width: 1.0, color: kMtcSecondaryRed),
+              left: const BorderSide(width: 1.0, color: kMtcSecondaryRed),
+              bottom: const BorderSide(width: 1.0, color: kMtcSecondaryRed),
+              right: const BorderSide(width: 1.0, color: kMtcSecondaryRed),
             )),
-        child: Text(tag, style: TextStyle(color: Colors.white)));
+        child: Text(tag, style: TextStyle(color: kMtcSecondaryRed)));
   }
 
   Widget buildContent() {
@@ -110,7 +113,8 @@ class SessionDetailPage extends StatelessWidget {
               child: buildSessionSpeakerInformation(speaker)),
           Container(
               margin: const EdgeInsets.only(bottom: 20.0),
-              child: Text(speaker.profile)),
+              child: Text(speaker.profile,
+                  style: TextStyle(color: kMtcPrimaryGrey))),
           buildLinkButtons(speaker)
         ]);
   }
@@ -137,8 +141,10 @@ class SessionDetailPage extends StatelessWidget {
       contentPadding: const EdgeInsets.all(0.0),
       // leading: const Icon(Icons.android, color: Colors.white, size: 40.0),
       title: Text(speaker.name,
-          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
-      subtitle: Text(speaker.position, style: TextStyle(color: Colors.white)),
+          style:
+              TextStyle(fontWeight: FontWeight.bold, color: kMtcPrimaryGrey)),
+      subtitle:
+          Text(speaker.position, style: TextStyle(color: kMtcPrimaryGrey)),
       // trailing: IconButton(icon: const Icon(Icons.favorite_border), color: Colors.black, onPressed: () { AlertDialog(title: Text('Go to the session!'), content: Text('Hey!')); }),
     ));
   }
