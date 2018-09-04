@@ -65,7 +65,7 @@ class SpeakerDetailPage extends StatelessWidget {
     return Container(
         child: ListTile(
       contentPadding: const EdgeInsets.all(0.0),
-      leading: const Icon(Icons.android, color: Colors.white, size: 40.0),
+      // leading: const Icon(Icons.android, color: Colors.white, size: 40.0),
       title: Text(speaker.name,
           style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
       subtitle: Text(speaker.position, style: TextStyle(color: Colors.white)),
