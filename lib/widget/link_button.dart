@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../colors.dart';
 
 class LinkButton extends StatelessWidget {
   final String title;
@@ -19,14 +20,14 @@ class LinkButton extends StatelessWidget {
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10.0),
             border: const Border(
-              top: const BorderSide(width: 1.0, color: Colors.white),
-              left: const BorderSide(width: 1.0, color: Colors.white),
-              bottom: const BorderSide(width: 1.0, color: Colors.white),
-              right: const BorderSide(width: 1.0, color: Colors.white),
+              top: const BorderSide(width: 1.0, color: kMtcSecondaryRed),
+              left: const BorderSide(width: 1.0, color: kMtcSecondaryRed),
+              bottom: const BorderSide(width: 1.0, color: kMtcSecondaryRed),
+              right: const BorderSide(width: 1.0, color: kMtcSecondaryRed),
             )),
         child: FlatButton(
             onPressed: _launchURL,
-            child: Text(title, style: TextStyle(color: Colors.white)),
+            child: Text(title, style: TextStyle(color: kMtcSecondaryRed)),
             textTheme: ButtonTextTheme.primary));
   }
 
