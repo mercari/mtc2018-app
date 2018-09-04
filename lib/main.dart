@@ -32,12 +32,11 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('M'),
+        title: Icon(Icons.android),
         actions: [
           IconButton(
             icon: Icon(Icons.notifications),
             onPressed: () {
-              print("pressed");
               Navigator.push(
                   context,
                   MaterialPageRoute(

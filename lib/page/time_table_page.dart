@@ -22,19 +22,32 @@ class TimeTablePage extends StatelessWidget {
                         return SessionDetailPage(session);
                       }));
             },
-            child: Padding(
-                padding: const EdgeInsets.only(
-                    top: 20.0, left: 20.0, right: 20.0, bottom: 10.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    buildSessionTimeRange(session.startTime, session.endTime),
-                    buildSessionTitle(session.title),
-                    buildSessionTags(session.tags),
-                    buildSessionText(session.outline),
-                    buildSessionSpeakersInformation(session.speakers)
-                  ],
-                ))));
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                    padding: const EdgeInsets.only(
+                        top: 20.0, left: 20.0, right: 20.0, bottom: 10.0),
+                    child: buildSessionTimeRange(
+                        session.startTime, session.endTime)),
+                Container(
+                    padding: const EdgeInsets.only(
+                        left: 20.0, right: 20.0, bottom: 10.0),
+                    child: buildSessionTitle(session.title)),
+                Container(
+                    padding: const EdgeInsets.only(
+                        left: 20.0, right: 20.0, bottom: 10.0),
+                    child: buildSessionTags(session.tags)),
+                Container(
+                    padding: const EdgeInsets.only(
+                        left: 20.0, right: 20.0, bottom: 10.0),
+                    child: buildSessionText(session.outline)),
+                Container(
+                    padding: const EdgeInsets.only(bottom: 20.0),
+                    child: buildSessionSpeakersInformation(
+                        context, session.speakers))
+              ],
+            )));
   }
 
   Widget buildSessionTimeRange(String startTime, String endTime) {
@@ -91,28 +104,39 @@ class TimeTablePage extends StatelessWidget {
         child: Text(text, style: TextStyle(color: Colors.black)));
   }
 
-  Widget buildSessionSpeakersInformation(List<Speaker> speakers) {
-    List<Container> containers = speakers.map((speaker) {
-      return buildSessionSpeakerInformation(speaker);
+  Widget buildSessionSpeakersInformation(
+      BuildContext context, List<Speaker> speakers) {
+    List<Widget> containers = speakers.map((speaker) {
+      return buildSessionSpeakerInformation(context, speaker);
     }).toList();
     return Container(child: Column(children: containers));
   }
 
-  Container buildSessionSpeakerInformation(Speaker speaker) {
-    return Container(
-        decoration: BoxDecoration(
-            border: Border(top: BorderSide(width: 1.0)),
-            color: Color(0xDDDDDD)),
-        child: ListTile(
-          contentPadding: const EdgeInsets.all(0.0),
-          //leading: const Icon(Icons.android, color: Colors.black, size: 40.0), // TODO: Revert icon
-          title: Text(speaker.name,
-              style:
-                  TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
-          subtitle:
-              Text(speaker.position, style: TextStyle(color: Colors.black)),
-          // trailing: IconButton(icon: const Icon(Icons.favorite_border), color: Colors.black, onPressed: () { AlertDialog(title: Text('Go to the session!'), content: Text('Hey!')); }),
-        ));
+  Widget buildSessionSpeakerInformation(BuildContext context, Speaker speaker) {
+    return FlatButton(
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  settings: RouteSettings(name: '/speaker_detail'),
+                  builder: (context) {
+                    return SpeakerDetailPage(speaker);
+                  }));
+        },
+        child: Container(
+            decoration: BoxDecoration(
+                border: Border(top: BorderSide(width: 1.0)),
+                color: Color(0xDDDDDD)),
+            child: ListTile(
+              contentPadding: const EdgeInsets.all(0.0),
+              //leading: const Icon(Icons.android, color: Colors.black, size: 40.0), // TODO: Revert icon
+              title: Text(speaker.name,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.black)),
+              subtitle:
+                  Text(speaker.position, style: TextStyle(color: Colors.black)),
+              // trailing: IconButton(icon: const Icon(Icons.favorite_border), color: Colors.black, onPressed: () { AlertDialog(title: Text('Go to the session!'), content: Text('Hey!')); }),
+            )));
   }
 
   @override
@@ -122,7 +146,8 @@ class TimeTablePage extends StatelessWidget {
         child: DefaultTabController(
             length: 2,
             child: FutureBuilder(
-                future: DefaultAssetBundle.of(context)
+                future: DefaultAssetBundle
+                    .of(context)
                     .loadString("data/contents.json"),
                 builder: (context, snapshot) {
                   var contents = json.decode(snapshot.data.toString());
