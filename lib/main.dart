@@ -79,7 +79,8 @@ class _MainPageState extends State<MainPage> {
           ),
           // BottomNavigationBarItem(
           //     title: Text("Contents"), icon: Icon(Icons.home)),
-          BottomNavigationBarItem(title: Text("About"), icon: Icon(Icons.info)),
+          BottomNavigationBarItem(
+              title: Text("About"), icon: Image.asset('images/about_icn.png')),
         ],
         onTap: _onSelectTab,
         currentIndex: _currentIndex,
