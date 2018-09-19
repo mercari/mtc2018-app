@@ -32,17 +32,16 @@ class TimeTablePage extends StatelessWidget {
                     child: buildSessionTimeRange(
                         session.startTime, session.endTime)),
                 Container(
-                    padding: const EdgeInsets.only(
-                        left: 20.0, right: 20.0, bottom: 10.0),
+                    padding: const EdgeInsets.only(left: 20.0, right: 20.0),
                     child: buildSessionTitle(session.title)),
                 Container(
                     padding: const EdgeInsets.only(
                         left: 20.0, right: 20.0, bottom: 10.0),
-                    child: buildSessionTags(session.tags)),
+                    child: buildSessionText(session.outline)),
                 Container(
                     padding: const EdgeInsets.only(
-                        left: 20.0, right: 20.0, bottom: 10.0),
-                    child: buildSessionText(session.outline)),
+                        left: 20.0, right: 20.0, bottom: 20.0),
+                    child: buildSessionTags(session.tags)),
                 Container(
                     padding: const EdgeInsets.only(bottom: 20.0),
                     child: buildSessionSpeakersInformation(
