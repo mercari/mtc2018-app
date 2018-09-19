@@ -1,7 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:mtc2018_app/graphql/news.dart';
 import '../colors.dart';
 
-class NewsPage extends StatelessWidget {
+class NewsPage extends StatefulWidget {
+  const NewsPage({ Key key }) : super(key: key);
+
+  @override
+  _NewsPageState createState() => new _NewsPageState();
+}
+class _NewsPageState extends State<NewsPage> {
+  List<News> newsList = [];
+
+  @override
+  void initState() {
+    super.initState();
+    fetchNews().then((newsList) {
+      this.setState(() {
+        this.newsList = newsList;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -10,7 +29,7 @@ class NewsPage extends StatelessWidget {
       ),
       body: ListView(
         padding: EdgeInsets.all(16.0),
-        children: [
+        children: this.newsList.map((news) => 
           Card(
               color: Colors.white,
               child: Container(
@@ -26,26 +45,25 @@ class NewsPage extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Webページが公開されました',
+                                news.messageJa,
                                 style: TextStyle(
                                     fontSize: 16.0,
                                     color: kMtcPrimaryGrey,
                                     fontWeight: FontWeight.bold),
                               ),
                               Container(height: 4.0),
-                              Text('2018/08/29',
+                              Text(news.date,
                                   style: TextStyle(
                                       fontSize: 12.0, color: kMtcPrimaryGrey))
                             ])
                       ],
                     ),
                     Container(height: 12.0),
-                    Text("Mercari Tech Conf 2018のWebページが公開されました。",
+                    Text(news.messageJa,
                         style: TextStyle(color: kMtcPrimaryGrey)),
                   ],
                 ),
-              ))
-        ],
+              ))).toList(),
       ),
     );
   }
