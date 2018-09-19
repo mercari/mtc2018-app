@@ -32,17 +32,16 @@ class TimeTablePage extends StatelessWidget {
                     child: buildSessionTimeRange(
                         session.startTime, session.endTime)),
                 Container(
-                    padding: const EdgeInsets.only(
-                        left: 20.0, right: 20.0, bottom: 10.0),
+                    padding: const EdgeInsets.only(left: 20.0, right: 20.0),
                     child: buildSessionTitle(session.title)),
                 Container(
                     padding: const EdgeInsets.only(
                         left: 20.0, right: 20.0, bottom: 10.0),
-                    child: buildSessionTags(session.tags)),
+                    child: buildSessionText(session.outline)),
                 Container(
                     padding: const EdgeInsets.only(
-                        left: 20.0, right: 20.0, bottom: 10.0),
-                    child: buildSessionText(session.outline)),
+                        left: 20.0, right: 20.0, bottom: 20.0),
+                    child: buildSessionTags(session.tags)),
                 Container(
                     padding: const EdgeInsets.only(bottom: 20.0),
                     child: buildSessionSpeakersInformation(
@@ -130,13 +129,23 @@ class TimeTablePage extends StatelessWidget {
                 color: Color(0xDDDDDD)),
             child: ListTile(
               contentPadding: const EdgeInsets.all(0.0),
-              //leading: const Icon(Icons.android, color: Colors.black, size: 40.0), // TODO: Revert icon
+              leading: CircleAvatar(
+                backgroundImage: new NetworkImage(speaker.iconUrl),
+                radius: 25.0,
+              ),
               title: Text(speaker.name,
                   style: TextStyle(
                       fontWeight: FontWeight.bold, color: Colors.black)),
               subtitle:
                   Text(speaker.position, style: TextStyle(color: Colors.black)),
-              // trailing: IconButton(icon: const Icon(Icons.favorite_border), color: Colors.black, onPressed: () { AlertDialog(title: Text('Go to the session!'), content: Text('Hey!')); }),
+              // trailing: IconButton(
+              //     icon: const Icon(Icons.favorite_border),
+              //     color: Colors.black,
+              //     onPressed: () {
+              //       AlertDialog(
+              //           title: Text('Go to the session!'),
+              //           content: Text('Hey!'));
+              //     }),
             )));
   }
 
