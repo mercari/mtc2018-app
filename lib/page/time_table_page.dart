@@ -130,13 +130,23 @@ class TimeTablePage extends StatelessWidget {
                 color: Color(0xDDDDDD)),
             child: ListTile(
               contentPadding: const EdgeInsets.all(0.0),
-              //leading: const Icon(Icons.android, color: Colors.black, size: 40.0), // TODO: Revert icon
+              leading: CircleAvatar(
+                backgroundImage: new NetworkImage(speaker.iconUrl),
+                radius: 25.0,
+              ),
               title: Text(speaker.name,
                   style: TextStyle(
                       fontWeight: FontWeight.bold, color: Colors.black)),
               subtitle:
                   Text(speaker.position, style: TextStyle(color: Colors.black)),
-              // trailing: IconButton(icon: const Icon(Icons.favorite_border), color: Colors.black, onPressed: () { AlertDialog(title: Text('Go to the session!'), content: Text('Hey!')); }),
+              // trailing: IconButton(
+              //     icon: const Icon(Icons.favorite_border),
+              //     color: Colors.black,
+              //     onPressed: () {
+              //       AlertDialog(
+              //           title: Text('Go to the session!'),
+              //           content: Text('Hey!'));
+              //     }),
             )));
   }
 
