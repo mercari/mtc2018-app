@@ -44,7 +44,7 @@ class SessionCard extends StatelessWidget {
                     child: buildSessionText(session.outline)),
                 Container(
                     padding: const EdgeInsets.only(
-                        left: 20.0, right: 20.0, bottom: 20.0),
+                        left: 20.0, right: 20.0, bottom: 12.0),
                     child: buildSessionTags(session.tags)),
                 Container(
                     padding: const EdgeInsets.only(bottom: 20.0),
@@ -85,18 +85,18 @@ class SessionCard extends StatelessWidget {
     List<Container> containers = tags.map((tag) {
       return buildSessionTag(tag);
     }).toList();
-    return Container(child: Row(children: containers));
+    return Container(child: Wrap(children: containers));
   }
 
   Container buildSessionTag(String tag) {
     return Container(
-        child: FlatButton(
-            padding: EdgeInsets.all(0.0),
-            onPressed: () {
+        margin: EdgeInsets.fromLTRB(0.0, 0.0, 4.0, 8.0),
+        child: GestureDetector(
+            onTap: () {
               onTagPressed(tag);
             },
             child: Container(
-                padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+                padding: EdgeInsets.symmetric(vertical: 4.0, horizontal: 8.0),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(100.0),
                     border: const Border(
