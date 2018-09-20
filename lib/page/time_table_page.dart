@@ -33,9 +33,9 @@ class TimeTablePage extends StatelessWidget {
     Navigator.push(
         context,
         MaterialPageRoute(
-            settings: RouteSettings(name: '/category_time_table'),
+            settings: RouteSettings(name: '/tag_time_table'),
             builder: (context) {
-              return TagTimeTablePage(sessions: [], categoryName: "Hello");
+              return TagTimeTablePage(sessions: [], tagName: tagName);
             }));
   }
 

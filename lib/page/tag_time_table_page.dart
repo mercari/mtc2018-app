@@ -7,9 +7,9 @@ import '../widget/session_card.dart';
 
 class TagTimeTablePage extends StatelessWidget {
   final List<Session> sessions;
-  final String categoryName;
+  final String tagName;
 
-  const TagTimeTablePage({Key key, this.sessions, this.categoryName})
+  const TagTimeTablePage({Key key, this.sessions, this.tagName})
       : super(key: key);
 
   _onSpeakerPressed(BuildContext context, Speaker speaker) {
@@ -52,6 +52,6 @@ class TagTimeTablePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text(categoryName)), body: buildBody(context));
+        appBar: AppBar(title: Text(tagName)), body: buildBody(context));
   }
 }
