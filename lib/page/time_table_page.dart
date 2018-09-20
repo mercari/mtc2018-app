@@ -6,10 +6,36 @@ import 'package:mtc2018_app/model/session.dart';
 import 'package:mtc2018_app/model/speaker.dart';
 import 'dart:convert';
 import '../colors.dart';
+import 'dart:async' show Future;
+import 'package:flutter/services.dart' show rootBundle;
 import '../widget/session_card.dart';
 
-class TimeTablePage extends StatelessWidget {
-  _onSpeakerPressed(BuildContext context, Speaker speaker) {
+class TimeTablePage extends StatefulWidget {
+  @override
+  _TimeTablePageState createState() => _TimeTablePageState();
+}
+
+class _TimeTablePageState extends State<TimeTablePage> {
+  List<Session> _sessions = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _loadSessions();
+  }
+
+  void _loadSessions() async {
+    String jsonString = await rootBundle.loadString("data/contents.json");
+    var contents = json.decode(jsonString);
+    var sessions = (contents["sessions"] as List)
+        .map((session) => Session.fromJson(session))
+        .toList();
+    setState(() {
+      _sessions = sessions;
+    });
+  }
+
+  void _onSpeakerPressed(BuildContext context, Speaker speaker) {
     Navigator.push(
         context,
         MaterialPageRoute(
@@ -19,7 +45,7 @@ class TimeTablePage extends StatelessWidget {
             }));
   }
 
-  _onCardPressed(BuildContext context, Session session) {
+  void _onCardPressed(BuildContext context, Session session) {
     Navigator.push(
         context,
         MaterialPageRoute(
@@ -29,7 +55,7 @@ class TimeTablePage extends StatelessWidget {
             }));
   }
 
-  _onTagPressed(BuildContext context, String tagName) {
+  void _onTagPressed(BuildContext context, String tagName) {
     Navigator.push(
         context,
         MaterialPageRoute(
@@ -41,65 +67,53 @@ class TimeTablePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var trackASessions = _sessions.where((s) => s.place == "TrackA");
+    var trackBSessions = _sessions.where((s) => s.place == "TrackB");
+
     return Container(
         child: DefaultTabController(
             length: 2,
-            child: FutureBuilder(
-                future: DefaultAssetBundle.of(context)
-                    .loadString("data/contents.json"),
-                builder: (context, snapshot) {
-                  var contents = json.decode(snapshot.data.toString());
-                  if (contents == null) {
-                    return Text(""); // TODO: Show loading
-                  }
-                  var sessions = (contents["sessions"] as List)
-                      .map((session) => Session.fromJson(session));
-                  var trackASessions =
-                      sessions.where((s) => s.place == "TrackA");
-                  var trackBSessions =
-                      sessions.where((s) => s.place == "TrackB");
-                  return Scaffold(
-                    appBar: TabBar(
-                      tabs: [Tab(text: "TRACK A"), Tab(text: "TRACK B")],
-                      labelColor: kMtcSecondaryRed,
-                      indicatorColor: kMtcSecondaryRed,
-                    ),
-                    body: TabBarView(
-                      children: [
-                        ListView(
-                            padding: EdgeInsets.all(16.0),
-                            children: trackASessions.map((session) {
-                              return SessionCard(
-                                session: session,
-                                onCardPressed: () {
-                                  _onCardPressed(context, session);
-                                },
-                                onSpeakerPressed: (speaker) {
-                                  _onSpeakerPressed(context, speaker);
-                                },
-                                onTagPressed: (tag) {
-                                  _onTagPressed(context, tag);
-                                },
-                              );
-                            }).toList()),
-                        ListView(
-                            padding: EdgeInsets.all(16.0),
-                            children: trackBSessions.map((session) {
-                              return SessionCard(
-                                  session: session,
-                                  onCardPressed: () {
-                                    _onCardPressed(context, session);
-                                  },
-                                  onSpeakerPressed: (speaker) {
-                                    _onSpeakerPressed(context, speaker);
-                                  },
-                                  onTagPressed: (tag) {
-                                    _onTagPressed(context, tag);
-                                  });
-                            }).toList()),
-                      ],
-                    ),
-                  );
-                })));
+            child: Scaffold(
+              appBar: TabBar(
+                tabs: [Tab(text: "TRACK A"), Tab(text: "TRACK B")],
+                labelColor: kMtcSecondaryRed,
+                indicatorColor: kMtcSecondaryRed,
+              ),
+              body: TabBarView(
+                children: [
+                  ListView(
+                      padding: EdgeInsets.all(16.0),
+                      children: trackASessions.map((session) {
+                        return SessionCard(
+                          session: session,
+                          onCardPressed: () {
+                            _onCardPressed(context, session);
+                          },
+                          onSpeakerPressed: (speaker) {
+                            _onSpeakerPressed(context, speaker);
+                          },
+                          onTagPressed: (tag) {
+                            _onTagPressed(context, tag);
+                          },
+                        );
+                      }).toList()),
+                  ListView(
+                      padding: EdgeInsets.all(16.0),
+                      children: trackBSessions.map((session) {
+                        return SessionCard(
+                            session: session,
+                            onCardPressed: () {
+                              _onCardPressed(context, session);
+                            },
+                            onSpeakerPressed: (speaker) {
+                              _onSpeakerPressed(context, speaker);
+                            },
+                            onTagPressed: (tag) {
+                              _onTagPressed(context, tag);
+                            });
+                      }).toList()),
+                ],
+              ),
+            )));
   }
 }
