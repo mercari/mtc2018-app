@@ -31,6 +31,7 @@ class SocialUserButton extends StatelessWidget {
     return Container(
         child: FlatButton(
             onPressed: _launchURL,
+            padding: EdgeInsets.all(0.0),
             child: Row(children: [
               Icon(
                 icon,

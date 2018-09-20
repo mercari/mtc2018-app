@@ -47,7 +47,7 @@ class SpeakerDetailPage extends StatelessWidget {
         url: "https://github.com/$githubId");
 
     return Container(
-        padding: const EdgeInsets.symmetric(vertical: 24.0, horizontal: 8.0),
+        padding: const EdgeInsets.all(24.0),
         width: double.infinity,
         decoration: BoxDecoration(
           color: kMtcAboutSectionBackgroundGrey,
