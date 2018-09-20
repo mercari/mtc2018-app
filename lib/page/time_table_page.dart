@@ -6,7 +6,6 @@ import 'package:mtc2018_app/model/session.dart';
 import 'package:mtc2018_app/model/speaker.dart';
 import 'dart:convert';
 import '../colors.dart';
-import 'dart:async' show Future;
 import 'package:flutter/services.dart' show rootBundle;
 import '../widget/session_card.dart';
 
@@ -25,6 +24,7 @@ class _TimeTablePageState extends State<TimeTablePage> {
   }
 
   void _loadSessions() async {
+    // TODO: Fetch from api
     String jsonString = await rootBundle.loadString("data/contents.json");
     var contents = json.decode(jsonString);
     var sessions = (contents["sessions"] as List)
@@ -61,7 +61,7 @@ class _TimeTablePageState extends State<TimeTablePage> {
         MaterialPageRoute(
             settings: RouteSettings(name: '/tag_time_table'),
             builder: (context) {
-              return TagTimeTablePage(sessions: [], tagName: tagName);
+              return TagTimeTablePage(tagName: tagName);
             }));
   }
 
