@@ -6,14 +6,20 @@ import '../colors.dart';
 
 typedef void CardPressedCallback();
 typedef void SpeakerPressedCallback(Speaker speaker);
+typedef void TagPressedCallback(String tag);
 
 class SessionCard extends StatelessWidget {
   final Session session;
   final CardPressedCallback onCardPressed;
   final SpeakerPressedCallback onSpeakerPressed;
+  final TagPressedCallback onTagPressed;
 
   const SessionCard(
-      {Key key, this.session, this.onCardPressed, this.onSpeakerPressed})
+      {Key key,
+      this.session,
+      this.onCardPressed,
+      this.onSpeakerPressed,
+      this.onTagPressed})
       : super(key: key);
 
   @override
@@ -34,8 +40,7 @@ class SessionCard extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 20.0, right: 20.0),
                     child: buildSessionTitle(session.title)),
                 Container(
-                    padding: const EdgeInsets.only(
-                        left: 20.0, right: 20.0, bottom: 10.0),
+                    padding: const EdgeInsets.only(left: 20.0, right: 20.0),
                     child: buildSessionText(session.outline)),
                 Container(
                     padding: const EdgeInsets.only(
@@ -85,17 +90,27 @@ class SessionCard extends StatelessWidget {
 
   Container buildSessionTag(String tag) {
     return Container(
-        margin: const EdgeInsets.all(2.0),
-        padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 3.0),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10.0),
-            border: const Border(
-              top: const BorderSide(width: 1.0, color: kMtcSecondaryRed),
-              left: const BorderSide(width: 1.0, color: kMtcSecondaryRed),
-              bottom: const BorderSide(width: 1.0, color: kMtcSecondaryRed),
-              right: const BorderSide(width: 1.0, color: kMtcSecondaryRed),
-            )),
-        child: Text(tag, style: TextStyle(color: kMtcSecondaryRed)));
+        child: FlatButton(
+            padding: EdgeInsets.all(0.0),
+            onPressed: () {
+              onTagPressed(tag);
+            },
+            child: Container(
+                padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(100.0),
+                    border: const Border(
+                      top:
+                          const BorderSide(width: 1.0, color: kMtcSecondaryRed),
+                      left:
+                          const BorderSide(width: 1.0, color: kMtcSecondaryRed),
+                      bottom:
+                          const BorderSide(width: 1.0, color: kMtcSecondaryRed),
+                      right:
+                          const BorderSide(width: 1.0, color: kMtcSecondaryRed),
+                    )),
+                child:
+                    Text("#$tag", style: TextStyle(color: kMtcSecondaryRed)))));
   }
 
   Widget buildSessionText(String text) {

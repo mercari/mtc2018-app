@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mtc2018_app/page/time_table_page.dart';
-import 'package:mtc2018_app/page/content_page.dart';
 import 'package:mtc2018_app/page/about_page.dart';
 import 'package:mtc2018_app/page/news_page.dart';
 import 'package:mtc2018_app/colors.dart';

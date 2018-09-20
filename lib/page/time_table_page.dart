@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mtc2018_app/page/session_detail.dart';
 import 'package:mtc2018_app/page/speaker_detail.dart';
+import 'package:mtc2018_app/page/tag_time_table_page.dart';
 import 'package:mtc2018_app/model/session.dart';
 import 'package:mtc2018_app/model/speaker.dart';
 import 'dart:convert';
@@ -28,10 +29,19 @@ class TimeTablePage extends StatelessWidget {
             }));
   }
 
+  _onTagPressed(BuildContext context, String tagName) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            settings: RouteSettings(name: '/category_time_table'),
+            builder: (context) {
+              return TagTimeTablePage(sessions: [], categoryName: "Hello");
+            }));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: const EdgeInsets.all(0.0),
         child: DefaultTabController(
             length: 2,
             child: FutureBuilder(
@@ -57,28 +67,36 @@ class TimeTablePage extends StatelessWidget {
                     body: TabBarView(
                       children: [
                         ListView(
+                            padding: EdgeInsets.all(16.0),
                             children: trackASessions.map((session) {
-                          return SessionCard(
-                            session: session,
-                            onCardPressed: () {
-                              _onCardPressed(context, session);
-                            },
-                            onSpeakerPressed: (speaker) {
-                              _onSpeakerPressed(context, speaker);
-                            },
-                          );
-                        }).toList()),
+                              return SessionCard(
+                                session: session,
+                                onCardPressed: () {
+                                  _onCardPressed(context, session);
+                                },
+                                onSpeakerPressed: (speaker) {
+                                  _onSpeakerPressed(context, speaker);
+                                },
+                                onTagPressed: (tag) {
+                                  _onTagPressed(context, tag);
+                                },
+                              );
+                            }).toList()),
                         ListView(
+                            padding: EdgeInsets.all(16.0),
                             children: trackBSessions.map((session) {
-                          return SessionCard(
-                              session: session,
-                              onCardPressed: () {
-                                _onCardPressed(context, session);
-                              },
-                              onSpeakerPressed: (speaker) {
-                                _onSpeakerPressed(context, speaker);
-                              });
-                        }).toList()),
+                              return SessionCard(
+                                  session: session,
+                                  onCardPressed: () {
+                                    _onCardPressed(context, session);
+                                  },
+                                  onSpeakerPressed: (speaker) {
+                                    _onSpeakerPressed(context, speaker);
+                                  },
+                                  onTagPressed: (tag) {
+                                    _onTagPressed(context, tag);
+                                  });
+                            }).toList()),
                       ],
                     ),
                   );
