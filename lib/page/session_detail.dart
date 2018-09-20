@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mtc2018_app/model/session.dart';
 import 'package:mtc2018_app/model/speaker.dart';
 import "package:intl/intl.dart";
-import 'package:mtc2018_app/widget/link_button.dart';
+import 'package:mtc2018_app/widget/social_user_button.dart';
 import '../colors.dart';
 
 class SessionDetailPage extends StatelessWidget {
@@ -15,23 +15,16 @@ class SessionDetailPage extends StatelessWidget {
 
   Widget buildBody() {
     return Container(
-        margin: EdgeInsets.only(top: 20.0, bottom: 20.0),
+        margin: EdgeInsets.only(top: 20.0),
         child: ListView(children: <Widget>[
           Container(
-              margin: const EdgeInsets.only(bottom: 10.0),
               padding: const EdgeInsets.only(left: 20.0, right: 20.0),
               child: buildSummary()),
           Container(
-              margin: const EdgeInsets.only(top: 30.0, bottom: 30.0),
+              margin: const EdgeInsets.only(top: 30.0),
               padding: const EdgeInsets.only(left: 20.0, right: 20.0),
-              child: buildContent()),
-          Card(
-              child: Container(
-                  color: Colors.white,
-                  margin: const EdgeInsets.only(bottom: 10.0),
-                  padding: const EdgeInsets.only(
-                      left: 20.0, right: 20.0, bottom: 12.0, top: 12.0),
-                  child: buildSpeakersInformation(session.speakers)))
+              color: Colors.white,
+              child: buildContent(session.outline, session.speakers))
         ]));
   }
 
@@ -46,7 +39,6 @@ class SessionDetailPage extends StatelessWidget {
 
     return Material(
         type: MaterialType.canvas,
-        shadowColor: Colors.white,
         child: Container(
             color: kMtcBackgroundGrey,
             child: Column(
@@ -91,8 +83,16 @@ class SessionDetailPage extends StatelessWidget {
         child: Text(tag, style: TextStyle(color: kMtcSecondaryRed)));
   }
 
-  Widget buildContent() {
-    return Text(session.outline, style: TextStyle(fontSize: 16.0));
+  Widget buildContent(String outline, List<Speaker> speakers) {
+    return Container(
+        padding: EdgeInsets.symmetric(vertical: 32.0, horizontal: 0.0),
+        child: Column(children: [
+          Container(
+              padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 24.0),
+              child: Text(outline,
+                  style: TextStyle(fontSize: 14.0, color: kMtcPrimaryGrey))),
+          buildSpeakersInformation(speakers)
+        ]));
   }
 
   Widget buildSpeakersInformation(List<Speaker> speakers) {
@@ -100,36 +100,44 @@ class SessionDetailPage extends StatelessWidget {
       return buildSpeakerInformation(speaker);
     }).toList();
     return Container(
-        padding: const EdgeInsets.all(0.0),
+        decoration: BoxDecoration(
+          color: kMtcAboutSectionBackgroundGrey,
+          borderRadius: BorderRadius.circular(8.0),
+        ),
         child: Column(children: containers));
   }
 
   Widget buildSpeakerInformation(Speaker speaker) {
-    return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Container(
-              margin: const EdgeInsets.only(bottom: 10.0),
-              child: buildSessionSpeakerInformation(speaker)),
-          Container(
-              margin: const EdgeInsets.only(bottom: 20.0),
-              child: Text(speaker.profile,
-                  style: TextStyle(color: kMtcPrimaryGrey))),
-          buildLinkButtons(speaker)
-        ]);
+    return Container(
+        padding: EdgeInsets.all(24.0),
+        child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                  margin: const EdgeInsets.only(bottom: 10.0),
+                  child: buildSessionSpeakerInformation(speaker)),
+              Container(
+                  margin: const EdgeInsets.only(bottom: 20.0),
+                  child: Text(speaker.profile,
+                      style:
+                          TextStyle(color: kMtcPrimaryGrey, fontSize: 12.0))),
+              buildLinkButtons(speaker)
+            ]));
   }
 
   Widget buildLinkButtons(Speaker speaker) {
     var twitterId = speaker.twitterId;
     var githubId = speaker.githubId;
-    //TODO: Use icons
-    var twitterLinkButton = LinkButton(
-        title: "twitter @$twitterId", url: "https://twitter.com/$twitterId");
-    var githubLinkButton = LinkButton(
-        title: "github $githubId", url: "https://github.com/$githubId");
+    var twitterLinkButton = SocialUserButton(
+        title: "@$twitterId",
+        type: SocialType.twitter,
+        url: "https://twitter.com/$twitterId");
+    var githubLinkButton = SocialUserButton(
+        title: "$githubId",
+        type: SocialType.github,
+        url: "https://github.com/$githubId");
 
     return Container(
-        padding: const EdgeInsets.all(0.0),
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [twitterLinkButton, githubLinkButton]));
@@ -139,13 +147,15 @@ class SessionDetailPage extends StatelessWidget {
     return Container(
         child: ListTile(
       contentPadding: const EdgeInsets.all(0.0),
-      // leading: const Icon(Icons.android, color: Colors.white, size: 40.0),
+      leading: CircleAvatar(
+        backgroundImage: new NetworkImage(speaker.iconUrl),
+        radius: 25.0,
+      ),
       title: Text(speaker.name,
           style:
               TextStyle(fontWeight: FontWeight.bold, color: kMtcPrimaryGrey)),
       subtitle:
           Text(speaker.position, style: TextStyle(color: kMtcPrimaryGrey)),
-      // trailing: IconButton(icon: const Icon(Icons.favorite_border), color: Colors.black, onPressed: () { AlertDialog(title: Text('Go to the session!'), content: Text('Hey!')); }),
     ));
   }
 

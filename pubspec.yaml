@@ -12,6 +12,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   json_annotation: ^0.2.3
   url_launcher: ^3.0.3
+  font_awesome_flutter: ^8.0.1
 
 dev_dependencies:
   flutter_test:

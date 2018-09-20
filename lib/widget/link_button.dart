@@ -18,7 +18,7 @@ class LinkButton extends StatelessWidget {
         margin: const EdgeInsets.symmetric(vertical: 4.0),
         padding: const EdgeInsets.all(0.0),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10.0),
+            borderRadius: BorderRadius.circular(100.0),
             border: const Border(
               top: const BorderSide(width: 1.0, color: kMtcSecondaryRed),
               left: const BorderSide(width: 1.0, color: kMtcSecondaryRed),
