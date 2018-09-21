@@ -1,4 +1,4 @@
-import 'package:mtc2018_app/model/speaker.dart';
+import 'speaker.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'session.g.dart';
@@ -19,7 +19,7 @@ class Session extends Object with _$SessionSerializerMixin {
       this.tags,
       this.speakers);
 
-  int id;
+  String id;
   String type;
   String place;
   String startTime;

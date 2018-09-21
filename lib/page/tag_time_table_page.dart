@@ -1,41 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:mtc2018_app/page/session_detail.dart';
 import 'package:mtc2018_app/page/speaker_detail.dart';
-import 'package:mtc2018_app/model/session.dart';
-import 'package:mtc2018_app/model/speaker.dart';
-import '../widget/session_card.dart';
-import 'dart:convert';
-import 'package:flutter/services.dart' show rootBundle;
+import 'package:mtc2018_app/graphql/session.dart';
+import 'package:mtc2018_app/graphql/speaker.dart';
+import 'package:mtc2018_app/widget/session_card.dart';
 
-class TagTimeTablePage extends StatefulWidget {
+class TagTimeTablePage extends StatelessWidget {
   final String tagName;
+  final List<Session> sessions;
 
-  const TagTimeTablePage({Key key, this.tagName}) : super(key: key);
-
-  @override
-  _TagTimeTablePageState createState() => _TagTimeTablePageState();
-}
-
-class _TagTimeTablePageState extends State<TagTimeTablePage> {
-  List<Session> _sessions = [];
-
-  @override
-  void initState() {
-    super.initState();
-    _loadSessions();
-  }
-
-  void _loadSessions() async {
-    String jsonString = await rootBundle.loadString("data/contents.json");
-    var contents = json.decode(jsonString);
-    var sessions = (contents["sessions"] as List)
-        .map((session) => Session.fromJson(session))
-        .where((session) => session.tags.contains(widget.tagName))
-        .toList();
-    setState(() {
-      _sessions = sessions;
-    });
-  }
+  const TagTimeTablePage({Key key, this.tagName, this.sessions})
+      : super(key: key);
 
   _onSpeakerPressed(BuildContext context, Speaker speaker) {
     Navigator.push(
@@ -63,11 +38,12 @@ class _TagTimeTablePageState extends State<TagTimeTablePage> {
         MaterialPageRoute(
             settings: RouteSettings(name: '/tag_time_table'),
             builder: (context) {
-              return TagTimeTablePage(tagName: tagName);
+              return TagTimeTablePage(tagName: tagName, sessions: sessions);
             }));
   }
 
   Widget buildBody(BuildContext context) {
+    var _sessions = sessions.where((s) => s.tags.contains(tagName));
     return Container(
         margin: const EdgeInsets.all(16.0),
         child: ListView(
@@ -90,6 +66,10 @@ class _TagTimeTablePageState extends State<TagTimeTablePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text(widget.tagName)), body: buildBody(context));
+        appBar: AppBar(
+          title: Text(tagName),
+          centerTitle: false,
+        ),
+        body: buildBody(context));
   }
 }

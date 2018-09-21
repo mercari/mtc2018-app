@@ -8,7 +8,7 @@ part of 'session.dart';
 
 Session _$SessionFromJson(Map<String, dynamic> json) {
   return new Session(
-      json['id'] as int,
+      json['id'] as String,
       json['type'] as String,
       json['place'] as String,
       json['startTime'] as String,
@@ -27,7 +27,7 @@ Session _$SessionFromJson(Map<String, dynamic> json) {
 }
 
 abstract class _$SessionSerializerMixin {
-  int get id;
+  String get id;
   String get type;
   String get place;
   String get startTime;
