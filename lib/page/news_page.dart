@@ -3,16 +3,18 @@ import "package:mtc2018_app/model/news.dart";
 import "package:mtc2018_app/colors.dart";
 import "package:mtc2018_app/api/client.dart";
 import "package:mtc2018_app/localize.dart";
+import "package:mtc2018_app/repository/repository.dart";
 
 class NewsPage extends StatefulWidget {
-  const NewsPage({Key key}) : super(key: key);
+  final Repository repository;
+  const NewsPage({Key key, this.repository}) : super(key: key);
 
   @override
   _NewsPageState createState() => new _NewsPageState();
 }
 
 class _NewsPageState extends State<NewsPage> {
-  List<News> newsList = [];
+  List<News> _newsList = [];
 
   @override
   void initState() {
@@ -21,15 +23,25 @@ class _NewsPageState extends State<NewsPage> {
   }
 
   void _init() async {
-    var client = Client();
-    var news = await client.fetchNews();
+    final newsList = await widget.repository.getNewsList();
     setState(() {
-      this.newsList = news;
+      _newsList = newsList;
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    if (_newsList.length == 0) {
+      return Scaffold(
+          appBar: AppBar(
+            title: Text(MtcLocalizations.of(context).newsTitle),
+            centerTitle: false,
+          ),
+          body: Center(
+            child: CircularProgressIndicator(),
+          ));
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text(MtcLocalizations.of(context).newsTitle),
@@ -37,7 +49,7 @@ class _NewsPageState extends State<NewsPage> {
       ),
       body: ListView(
         padding: EdgeInsets.all(16.0),
-        children: this.newsList.map((news) {
+        children: _newsList.map((news) {
           Locale currentLocale = Localizations.localeOf(context);
           var message = currentLocale.languageCode == "ja"
               ? news.messageJa
@@ -49,7 +61,7 @@ class _NewsPageState extends State<NewsPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
+                    Wrap(
                       children: [
                         Column(
                             crossAxisAlignment: CrossAxisAlignment.start,

@@ -65,6 +65,12 @@ class _TimeTablePageState extends State<TimeTablePage> {
 
   @override
   Widget build(BuildContext context) {
+    if (_sessions.length == 0) {
+      return Center(
+        child: CircularProgressIndicator(),
+      );
+    }
+
     // TODO: Fix place later
     var trackASessions =
         _sessions; //_sessions.where((s) => s.place == "TrackA");

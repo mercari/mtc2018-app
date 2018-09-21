@@ -57,8 +57,8 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   var _currentIndex = 0;
 
-  static final Cache _cache = MemCache<List<Session>>();
-  static final Repository _repository = CachingRepository(cache: _cache);
+  static final Cache _cache = MemCache();
+  static final Repository _repository = CacheRepository(cache: _cache);
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +74,8 @@ class _MainPageState extends State<MainPage> {
                   context,
                   MaterialPageRoute(
                       settings: RouteSettings(name: "/news"),
-                      builder: (context) => new NewsPage()));
+                      builder: (context) =>
+                          new NewsPage(repository: _repository)));
             },
           ),
           // IconButton(
