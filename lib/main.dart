@@ -29,7 +29,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Mercari Tech Conf',
       theme: _kMtcTheme,
       home: MainPage(),
       localizationsDelegates: [

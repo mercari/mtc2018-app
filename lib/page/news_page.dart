@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mtc2018_app/graphql/news.dart';
 import 'package:mtc2018_app/colors.dart';
 import 'package:mtc2018_app/graphql/client.dart';
+import 'package:mtc2018_app/localize.dart';
 
 class NewsPage extends StatefulWidget {
   const NewsPage({Key key}) : super(key: key);
@@ -25,65 +26,54 @@ class _NewsPageState extends State<NewsPage> {
     setState(() {
       this.newsList = news;
     });
-
-    var sessions = await client.fetchSessions();
-    print(sessions);
-
-    sessions.forEach((s) {
-      print(s.title);
-      print(s.tags);
-      print(s.lang);
-      print(s.type);
-      print(s.place);
-    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("お知らせ"),
+        title: Text(MtcLocalizations.of(context).newsTitle),
         centerTitle: false,
       ),
       body: ListView(
         padding: EdgeInsets.all(16.0),
-        children: this
-            .newsList
-            .map((news) => Card(
-                color: Colors.white,
-                child: Container(
-                  padding: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 24.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          // Icon(Icons.account_circle),
-                          // Container(width: 8.0),
-                          Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  news.messageJa,
+        children: this.newsList.map((news) {
+          Locale currentLocale = Localizations.localeOf(context);
+          var message = currentLocale.languageCode == "ja"
+              ? news.messageJa
+              : news.message;
+          return Card(
+              color: Colors.white,
+              child: Container(
+                padding: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 24.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                message,
+                                style: TextStyle(
+                                    fontSize: 16.0,
+                                    color: kMtcPrimaryGrey,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Container(height: 4.0),
+                              Text(news.date,
                                   style: TextStyle(
-                                      fontSize: 16.0,
-                                      color: kMtcPrimaryGrey,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                Container(height: 4.0),
-                                Text(news.date,
-                                    style: TextStyle(
-                                        fontSize: 12.0, color: kMtcPrimaryGrey))
-                              ])
-                        ],
-                      ),
-                      Container(height: 12.0),
-                      Text(news.messageJa,
-                          style: TextStyle(color: kMtcPrimaryGrey)),
-                    ],
-                  ),
-                )))
-            .toList(),
+                                      fontSize: 12.0, color: kMtcPrimaryGrey))
+                            ])
+                      ],
+                    ),
+                    Container(height: 12.0),
+                    Text(message, style: TextStyle(color: kMtcPrimaryGrey)),
+                  ],
+                ),
+              ));
+        }).toList(),
       ),
     );
   }

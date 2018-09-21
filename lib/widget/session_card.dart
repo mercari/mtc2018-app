@@ -24,6 +24,12 @@ class SessionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Locale currentLocale = Localizations.localeOf(context);
+    var title =
+        currentLocale.languageCode == "ja" ? session.titleJa : session.title;
+    var outline = currentLocale.languageCode == "ja"
+        ? session.outlineJa
+        : session.outline;
     return Card(
         color: Colors.white,
         child: FlatButton(
@@ -38,10 +44,10 @@ class SessionCard extends StatelessWidget {
                         session.startTime, session.endTime)),
                 Container(
                     padding: const EdgeInsets.only(left: 20.0, right: 20.0),
-                    child: buildSessionTitle(session.title)),
+                    child: buildSessionTitle(title)),
                 Container(
                     padding: const EdgeInsets.only(left: 20.0, right: 20.0),
-                    child: buildSessionText(session.outline)),
+                    child: buildSessionText(outline)),
                 Container(
                     padding: const EdgeInsets.only(
                         left: 20.0, right: 20.0, bottom: 12.0),
@@ -128,6 +134,13 @@ class SessionCard extends StatelessWidget {
   }
 
   Widget buildSessionSpeakerInformation(BuildContext context, Speaker speaker) {
+    Locale currentLocale = Localizations.localeOf(context);
+    var name =
+        currentLocale.languageCode == "ja" ? speaker.nameJa : speaker.name;
+    var position = currentLocale.languageCode == "ja"
+        ? speaker.positionJa
+        : speaker.position;
+
     return FlatButton(
         onPressed: () {
           onSpeakerPressed(speaker);
@@ -142,11 +155,10 @@ class SessionCard extends StatelessWidget {
                 backgroundImage: new NetworkImage(speaker.iconUrl),
                 radius: 25.0,
               ),
-              title: Text(speaker.name,
+              title: Text(name,
                   style: TextStyle(
                       fontWeight: FontWeight.bold, color: Colors.black)),
-              subtitle:
-                  Text(speaker.position, style: TextStyle(color: Colors.black)),
+              subtitle: Text(position, style: TextStyle(color: Colors.black)),
               // trailing: IconButton(
               //     icon: const Icon(Icons.favorite_border),
               //     color: Colors.black,

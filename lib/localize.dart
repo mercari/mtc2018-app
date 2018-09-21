@@ -13,15 +13,15 @@ class MtcLocalizations {
 
   static Map<String, Map<String, String>> _localizedValues = {
     'en': {
-      'title': 'Hello World',
+      'news_title': 'News',
     },
     'ja': {
-      'title': 'ハローワールド',
+      'news_title': 'お知らせ',
     },
   };
 
-  String get title {
-    return _localizedValues[locale.languageCode]['title'];
+  String get newsTitle {
+    return _localizedValues[locale.languageCode]['news_title'];
   }
 }
 
