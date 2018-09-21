@@ -2,16 +2,16 @@ import "dart:async";
 import "dart:collection";
 import "cache.dart";
 
-class MemCache<T> extends Cache<T> {
-  final map = HashMap<String, T>();
+class MemCache<T> extends Cache {
+  final map = HashMap<String, Object>();
 
   @override
-  Future<T> get(String key) {
+  Future<Object> get(String key) {
     return Future.value(map[key]);
   }
 
   @override
-  put(String key, object) {
+  put(String key, Object object) {
     map[key] = object;
   }
 }
