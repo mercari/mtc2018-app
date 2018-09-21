@@ -1,19 +1,16 @@
-class News {
-  final String id;
-  final String date;
-  final String message;
-  final String messageJa;
-  final String link;
+import 'package:json_annotation/json_annotation.dart';
 
-  News({this.id, this.date, this.message, this.messageJa, this.link});
+part 'news.g.dart';
 
-  factory News.fromJson(Map<String, dynamic> json) {
-    return News(
-      id: json['id'],
-      date: json['date'],
-      message: json['message'],
-      messageJa: json['messageJa'],
-      link: json['link'],
-    );
-  }
+@JsonSerializable()
+class News extends Object with _$NewsSerializerMixin {
+  News(this.id, this.date, this.message, this.messageJa, this.link);
+
+  String id;
+  String date;
+  String message;
+  String messageJa;
+  String link;
+
+  factory News.fromJson(Map<String, dynamic> json) => _$NewsFromJson(json);
 }

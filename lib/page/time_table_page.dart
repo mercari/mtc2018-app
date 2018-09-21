@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:mtc2018_app/page/session_detail.dart';
 import 'package:mtc2018_app/page/speaker_detail.dart';
 import 'package:mtc2018_app/page/tag_time_table_page.dart';
-import 'package:mtc2018_app/model/session.dart';
-import 'package:mtc2018_app/model/speaker.dart';
-import 'dart:convert';
+import 'package:mtc2018_app/graphql/session.dart';
+import 'package:mtc2018_app/graphql/speaker.dart';
 import '../colors.dart';
-import 'package:flutter/services.dart' show rootBundle;
 import '../widget/session_card.dart';
+import 'package:mtc2018_app/graphql/client.dart';
 
 class TimeTablePage extends StatefulWidget {
   @override
@@ -24,12 +23,8 @@ class _TimeTablePageState extends State<TimeTablePage> {
   }
 
   void _loadSessions() async {
-    // TODO: Fetch from api
-    String jsonString = await rootBundle.loadString("data/contents.json");
-    var contents = json.decode(jsonString);
-    var sessions = (contents["sessions"] as List)
-        .map((session) => Session.fromJson(session))
-        .toList();
+    var client = Client();
+    var sessions = await client.fetchSessions();
     setState(() {
       _sessions = sessions;
     });
@@ -61,14 +56,16 @@ class _TimeTablePageState extends State<TimeTablePage> {
         MaterialPageRoute(
             settings: RouteSettings(name: '/tag_time_table'),
             builder: (context) {
-              return TagTimeTablePage(tagName: tagName);
+              return TagTimeTablePage(tagName: tagName, sessions: _sessions);
             }));
   }
 
   @override
   Widget build(BuildContext context) {
-    var trackASessions = _sessions.where((s) => s.place == "TrackA");
-    var trackBSessions = _sessions.where((s) => s.place == "TrackB");
+    // TODO: Fix place later
+    var trackASessions =
+        _sessions; //_sessions.where((s) => s.place == "TrackA");
+    var trackBSessions = []; //_sessions.where((s) => s.place == "TrackB");
 
     return Container(
         child: DefaultTabController(

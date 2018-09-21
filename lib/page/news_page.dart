@@ -25,6 +25,17 @@ class _NewsPageState extends State<NewsPage> {
     setState(() {
       this.newsList = news;
     });
+
+    var sessions = await client.fetchSessions();
+    print(sessions);
+
+    sessions.forEach((s) {
+      print(s.title);
+      print(s.tags);
+      print(s.lang);
+      print(s.type);
+      print(s.place);
+    });
   }
 
   @override
@@ -32,6 +43,7 @@ class _NewsPageState extends State<NewsPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("お知らせ"),
+        centerTitle: false,
       ),
       body: ListView(
         padding: EdgeInsets.all(16.0),

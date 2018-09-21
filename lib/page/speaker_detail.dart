@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mtc2018_app/model/speaker.dart';
+import 'package:mtc2018_app/graphql/speaker.dart';
 import 'package:mtc2018_app/widget/social_user_button.dart';
 import '../colors.dart';
 
@@ -80,6 +80,10 @@ class SpeakerDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text(speaker.name)), body: buildBody());
+        appBar: AppBar(
+          title: Text(speaker.name),
+          centerTitle: false,
+        ),
+        body: buildBody());
   }
 }

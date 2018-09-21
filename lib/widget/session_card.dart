@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mtc2018_app/model/session.dart';
-import 'package:mtc2018_app/model/speaker.dart';
+import 'package:mtc2018_app/graphql/session.dart';
+import 'package:mtc2018_app/graphql/speaker.dart';
 import "package:intl/intl.dart";
 import '../colors.dart';
 
@@ -137,7 +137,7 @@ class SessionCard extends StatelessWidget {
                 border: Border(top: BorderSide(width: 1.0)),
                 color: Color(0xDDDDDD)),
             child: ListTile(
-              contentPadding: const EdgeInsets.all(0.0),
+              contentPadding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
               leading: CircleAvatar(
                 backgroundImage: new NetworkImage(speaker.iconUrl),
                 radius: 25.0,
