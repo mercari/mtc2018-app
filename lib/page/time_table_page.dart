@@ -4,8 +4,8 @@ import 'package:mtc2018_app/page/speaker_detail.dart';
 import 'package:mtc2018_app/page/tag_time_table_page.dart';
 import 'package:mtc2018_app/graphql/session.dart';
 import 'package:mtc2018_app/graphql/speaker.dart';
-import '../colors.dart';
-import '../widget/session_card.dart';
+import 'package:mtc2018_app/colors.dart';
+import 'package:mtc2018_app/widget/session_card.dart';
 import 'package:mtc2018_app/graphql/client.dart';
 
 class TimeTablePage extends StatefulWidget {

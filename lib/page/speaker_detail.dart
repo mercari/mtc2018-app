@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mtc2018_app/graphql/speaker.dart';
 import 'package:mtc2018_app/widget/social_user_button.dart';
-import '../colors.dart';
+import 'package:mtc2018_app/colors.dart';
 
 class SpeakerDetailPage extends StatelessWidget {
   final Speaker speaker;

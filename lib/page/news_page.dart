@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mtc2018_app/graphql/news.dart';
-import '../colors.dart';
+import 'package:mtc2018_app/colors.dart';
 import 'package:mtc2018_app/graphql/client.dart';
 
 class NewsPage extends StatefulWidget {

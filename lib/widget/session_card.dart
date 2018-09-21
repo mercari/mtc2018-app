@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mtc2018_app/graphql/session.dart';
 import 'package:mtc2018_app/graphql/speaker.dart';
 import "package:intl/intl.dart";
-import '../colors.dart';
+import 'package:mtc2018_app/colors.dart';
 
 typedef void CardPressedCallback();
 typedef void SpeakerPressedCallback(Speaker speaker);

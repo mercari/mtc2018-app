@@ -3,7 +3,7 @@ import 'package:mtc2018_app/graphql/session.dart';
 import 'package:mtc2018_app/graphql/speaker.dart';
 import "package:intl/intl.dart";
 import 'package:mtc2018_app/widget/social_user_button.dart';
-import '../colors.dart';
+import 'package:mtc2018_app/colors.dart';
 
 class SessionDetailPage extends StatelessWidget {
   final Session session;

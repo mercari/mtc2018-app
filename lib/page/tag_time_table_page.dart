@@ -3,7 +3,7 @@ import 'package:mtc2018_app/page/session_detail.dart';
 import 'package:mtc2018_app/page/speaker_detail.dart';
 import 'package:mtc2018_app/graphql/session.dart';
 import 'package:mtc2018_app/graphql/speaker.dart';
-import '../widget/session_card.dart';
+import 'package:mtc2018_app/widget/session_card.dart';
 
 class TagTimeTablePage extends StatelessWidget {
   final String tagName;
