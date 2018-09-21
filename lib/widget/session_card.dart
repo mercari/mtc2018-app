@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:mtc2018_app/graphql/session.dart';
-import 'package:mtc2018_app/graphql/speaker.dart';
+import "package:flutter/material.dart";
+import "package:mtc2018_app/model/session.dart";
+import "package:mtc2018_app/model/speaker.dart";
 import "package:intl/intl.dart";
-import 'package:mtc2018_app/colors.dart';
+import "package:mtc2018_app/colors.dart";
 
 typedef void CardPressedCallback();
 typedef void SpeakerPressedCallback(Speaker speaker);
@@ -164,8 +164,8 @@ class SessionCard extends StatelessWidget {
               //     color: Colors.black,
               //     onPressed: () {
               //       AlertDialog(
-              //           title: Text('Go to the session!'),
-              //           content: Text('Hey!'));
+              //           title: Text("Go to the session!"),
+              //           content: Text("Hey!"));
               //     }),
             )));
   }

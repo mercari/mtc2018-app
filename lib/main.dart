@@ -1,11 +1,16 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:mtc2018_app/page/time_table_page.dart';
-import 'package:mtc2018_app/page/about_page.dart';
-import 'package:mtc2018_app/page/news_page.dart';
-import 'package:mtc2018_app/page/content_page.dart';
-import 'package:mtc2018_app/colors.dart';
-import 'package:mtc2018_app/localize.dart';
+import "package:flutter/material.dart";
+import "package:flutter_localizations/flutter_localizations.dart";
+import "package:mtc2018_app/page/time_table_page.dart";
+import "package:mtc2018_app/page/about_page.dart";
+import "package:mtc2018_app/page/news_page.dart";
+import "package:mtc2018_app/page/content_page.dart";
+import "package:mtc2018_app/colors.dart";
+import "package:mtc2018_app/localize.dart";
+import "package:mtc2018_app/cache/memcache.dart";
+import "package:mtc2018_app/cache/cache.dart";
+import "package:mtc2018_app/repository/cache_repository.dart";
+import "package:mtc2018_app/repository/repository.dart";
+import "package:mtc2018_app/model/session.dart";
 
 void main() => runApp(MyApp());
 
@@ -37,8 +42,8 @@ class MyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
       ],
       supportedLocales: [
-        const Locale('en', ''), // English
-        const Locale('ja', ''), // Japanese
+        const Locale("en", ""), // English
+        const Locale("ja", ""), // Japanese
       ],
     );
   }
@@ -52,11 +57,14 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   var _currentIndex = 0;
 
+  static final Cache _cache = MemCache<List<Session>>();
+  static final Repository _repository = CachingRepository(cache: _cache);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Image.asset('images/navbar_icn.png'),
+        title: Image.asset("images/navbar_icn.png"),
         centerTitle: false,
         actions: [
           IconButton(
@@ -89,8 +97,8 @@ class _MainPageState extends State<MainPage> {
               title: Text("CONTENTS"), icon: Icon(Icons.local_activity)),
           BottomNavigationBarItem(
               title: Text("ABOUT"),
-              icon: Image.asset('images/about_icn.png'),
-              activeIcon: Image.asset('images/about_icn_active.png')),
+              icon: Image.asset("images/about_icn.png"),
+              activeIcon: Image.asset("images/about_icn_active.png")),
         ],
         onTap: _onSelectTab,
         currentIndex: _currentIndex,
@@ -102,7 +110,9 @@ class _MainPageState extends State<MainPage> {
   Widget _buildPage() {
     switch (_currentIndex) {
       case 0:
-        return TimeTablePage();
+        return TimeTablePage(
+          repository: _repository,
+        );
       case 1:
         return ContentPage();
       case 2:
