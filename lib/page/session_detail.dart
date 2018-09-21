@@ -159,21 +159,21 @@ class SessionDetailPage extends StatelessWidget {
   }
 
   Widget buildLinkButtons(Speaker speaker) {
-    var twitterId = speaker.twitterId;
     var githubId = speaker.githubId;
-    var twitterLinkButton = SocialUserButton(
-        title: "@$twitterId",
-        type: SocialType.twitter,
-        url: "https://twitter.com/$twitterId");
+    var twitterId = speaker.twitterId;
     var githubLinkButton = SocialUserButton(
         title: "$githubId",
         type: SocialType.github,
         url: "https://github.com/$githubId");
+    var twitterLinkButton = SocialUserButton(
+        title: "@$twitterId",
+        type: SocialType.twitter,
+        url: "https://twitter.com/$twitterId");
 
     return Container(
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [twitterLinkButton, githubLinkButton]));
+            children: [githubLinkButton, twitterLinkButton]));
   }
 
   @override
