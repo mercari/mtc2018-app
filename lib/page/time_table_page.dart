@@ -25,6 +25,14 @@ class _TimeTablePageState extends State<TimeTablePage> {
   void _loadSessions() async {
     var client = Client();
     var sessions = await client.fetchSessions();
+    Locale currentLocale = Localizations.localeOf(context);
+
+    if (currentLocale.languageCode == "ja") {
+      sessions = sessions.where((s) => s.lang == "jp").toList();
+    } else {
+      sessions = sessions.where((s) => s.lang != "jp").toList();
+    }
+
     setState(() {
       _sessions = sessions;
     });

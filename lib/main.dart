@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:mtc2018_app/page/time_table_page.dart';
 import 'package:mtc2018_app/page/about_page.dart';
 import 'package:mtc2018_app/page/news_page.dart';
 import 'package:mtc2018_app/page/content_page.dart';
 import 'package:mtc2018_app/colors.dart';
+import 'package:mtc2018_app/localize.dart';
 
 void main() => runApp(MyApp());
 
@@ -19,9 +21,6 @@ ThemeData _buildMtcTheme() {
     textSelectionColor: kMtcSecondaryRed,
     errorColor: kMtcSecondaryRed,
     canvasColor: kMtcPrimaryGrey,
-    // textTheme: _buildShrineTextTheme(base.textTheme),
-    // primaryTextTheme: _buildShrineTextTheme(base.primaryTextTheme),
-    // accentTextTheme: _buildShrineTextTheme(base.accentTextTheme),
     primaryIconTheme: base.iconTheme.copyWith(color: kMtcIcon),
   );
 }
@@ -33,6 +32,15 @@ class MyApp extends StatelessWidget {
       title: 'Mercari Tech Conf',
       theme: _kMtcTheme,
       home: MainPage(),
+      localizationsDelegates: [
+        const MtcLocalizationsDelegate(),
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: [
+        const Locale('en', ''), // English
+        const Locale('ja', ''), // Japanese
+      ],
     );
   }
 }
