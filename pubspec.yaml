@@ -39,10 +39,10 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-   - images/map_tmp.png
    - images/about_icn.png
-   - images/ios_icn.png
+   - images/about_icn_active.png
    - images/about_logo.png
+   - images/navbar_icn.png
    - data/contents.json
 
   # An image asset can refer to one or more resolution-specific "variants", see

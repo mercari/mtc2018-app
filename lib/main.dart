@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mtc2018_app/page/time_table_page.dart';
 import 'package:mtc2018_app/page/about_page.dart';
 import 'package:mtc2018_app/page/news_page.dart';
+import 'package:mtc2018_app/page/content_page.dart';
 import 'package:mtc2018_app/colors.dart';
 
 void main() => runApp(MyApp());
@@ -48,7 +49,8 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Image.asset('images/ios_icn.png'),
+        title: Image.asset('images/navbar_icn.png'),
+        centerTitle: false,
         actions: [
           IconButton(
             icon: Icon(Icons.notifications),
@@ -73,13 +75,15 @@ class _MainPageState extends State<MainPage> {
         fixedColor: Colors.white,
         items: [
           BottomNavigationBarItem(
-            title: Text("TimeTable"),
-            icon: Icon(Icons.list),
+            title: Text("TIME TABLE"),
+            icon: Icon(Icons.event_note),
           ),
-          // BottomNavigationBarItem(
-          //     title: Text("Contents"), icon: Icon(Icons.home)),
           BottomNavigationBarItem(
-              title: Text("About"), icon: Image.asset('images/about_icn.png')),
+              title: Text("CONTENTS"), icon: Icon(Icons.local_activity)),
+          BottomNavigationBarItem(
+              title: Text("ABOUT"),
+              icon: Image.asset('images/about_icn.png'),
+              activeIcon: Image.asset('images/about_icn_active.png')),
         ],
         onTap: _onSelectTab,
         currentIndex: _currentIndex,
@@ -92,9 +96,9 @@ class _MainPageState extends State<MainPage> {
     switch (_currentIndex) {
       case 0:
         return TimeTablePage();
-      // case 1:
-      //   return ContentPage();
       case 1:
+        return ContentPage();
+      case 2:
         return AboutPage();
       default:
         return Text("No page");
