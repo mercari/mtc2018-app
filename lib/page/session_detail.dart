@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:mtc2018_app/graphql/session.dart';
-import 'package:mtc2018_app/graphql/speaker.dart';
+import "package:flutter/material.dart";
+import "package:mtc2018_app/model/session.dart";
+import "package:mtc2018_app/model/speaker.dart";
 import "package:intl/intl.dart";
-import 'package:mtc2018_app/widget/social_user_button.dart';
-import 'package:mtc2018_app/colors.dart';
+import "package:mtc2018_app/widget/social_user_button.dart";
+import "package:mtc2018_app/colors.dart";
 
 class SessionDetailPage extends StatelessWidget {
   final Session session;

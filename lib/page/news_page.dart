@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:mtc2018_app/graphql/news.dart';
-import 'package:mtc2018_app/colors.dart';
-import 'package:mtc2018_app/graphql/client.dart';
-import 'package:mtc2018_app/localize.dart';
+import "package:flutter/material.dart";
+import "package:mtc2018_app/model/news.dart";
+import "package:mtc2018_app/colors.dart";
+import "package:mtc2018_app/api/client.dart";
+import "package:mtc2018_app/localize.dart";
 
 class NewsPage extends StatefulWidget {
   const NewsPage({Key key}) : super(key: key);

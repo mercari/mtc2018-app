@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:mtc2018_app/colors.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'dart:io' show Platform;
-import 'package:mtc2018_app/localize.dart';
+import "package:flutter/material.dart";
+import "package:mtc2018_app/colors.dart";
+import "package:url_launcher/url_launcher.dart";
+import "dart:io" show Platform;
+import "package:mtc2018_app/localize.dart";
 
 var _horizontalSpace = 24.0;
 
@@ -16,7 +16,7 @@ class AboutPage extends StatelessWidget {
     return ListView(children: [
       Container(
         padding: EdgeInsets.fromLTRB(88.0, 72.0, 88.0, 56.0),
-        child: Image.asset('images/about_logo.png'),
+        child: Image.asset("images/about_logo.png"),
       ),
       Container(
           padding: EdgeInsets.fromLTRB(
@@ -60,11 +60,11 @@ class AboutPage extends StatelessWidget {
                       onPressed: () async {
                         // Android
                         var url =
-                            'geo:35.6604311,139.7287178?z=10&q=%e5%85%ad%e6%9c%ac%e6%9c%a8%e3%82%a2%e3%82%ab%e3%83%87%e3%83%9f%e3%83%bc%e3%83%92%e3%83%ab%e3%82%ba';
+                            "geo:35.6604311,139.7287178?z=10&q=%e5%85%ad%e6%9c%ac%e6%9c%a8%e3%82%a2%e3%82%ab%e3%83%87%e3%83%9f%e3%83%bc%e3%83%92%e3%83%ab%e3%82%ba";
                         if (Platform.isIOS) {
                           // iOS
                           url =
-                              'http://maps.apple.com/?sll=35.6604311,139.7287178&z=10&q=%e5%85%ad%e6%9c%ac%e6%9c%a8%e3%82%a2%e3%82%ab%e3%83%87%e3%83%9f%e3%83%bc%e3%83%92%e3%83%ab%e3%82%ba';
+                              "http://maps.apple.com/?sll=35.6604311,139.7287178&z=10&q=%e5%85%ad%e6%9c%ac%e6%9c%a8%e3%82%a2%e3%82%ab%e3%83%87%e3%83%9f%e3%83%bc%e3%83%92%e3%83%ab%e3%82%ba";
                         }
                         if (await canLaunch(url)) {
                           await launch(url);

@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:mtc2018_app/page/session_detail.dart';
-import 'package:mtc2018_app/page/speaker_detail.dart';
-import 'package:mtc2018_app/graphql/session.dart';
-import 'package:mtc2018_app/graphql/speaker.dart';
-import 'package:mtc2018_app/widget/session_card.dart';
+import "package:flutter/material.dart";
+import "package:mtc2018_app/page/session_detail.dart";
+import "package:mtc2018_app/page/speaker_detail.dart";
+import "package:mtc2018_app/model/session.dart";
+import "package:mtc2018_app/model/speaker.dart";
+import "package:mtc2018_app/widget/session_card.dart";
 
 class TagTimeTablePage extends StatelessWidget {
   final String tagName;
@@ -16,7 +16,7 @@ class TagTimeTablePage extends StatelessWidget {
     Navigator.push(
         context,
         MaterialPageRoute(
-            settings: RouteSettings(name: '/speaker_detail'),
+            settings: RouteSettings(name: "/speaker_detail"),
             builder: (context) {
               return SpeakerDetailPage(speaker: speaker);
             }));
@@ -26,7 +26,7 @@ class TagTimeTablePage extends StatelessWidget {
     Navigator.push(
         context,
         MaterialPageRoute(
-            settings: RouteSettings(name: '/session_detail'),
+            settings: RouteSettings(name: "/session_detail"),
             builder: (context) {
               return SessionDetailPage(session: session);
             }));
@@ -36,7 +36,7 @@ class TagTimeTablePage extends StatelessWidget {
     Navigator.push(
         context,
         MaterialPageRoute(
-            settings: RouteSettings(name: '/tag_time_table'),
+            settings: RouteSettings(name: "/tag_time_table"),
             builder: (context) {
               return TagTimeTablePage(tagName: tagName, sessions: sessions);
             }));

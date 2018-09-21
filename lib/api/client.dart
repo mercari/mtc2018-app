@@ -1,10 +1,10 @@
-import 'package:http/http.dart' as http;
-import 'news.dart';
-import 'dart:convert';
-import 'dart:async';
-import 'session.dart';
+import "package:http/http.dart" as http;
+import "package:mtc2018_app/model/news.dart";
+import "dart:convert";
+import "dart:async";
+import "package:mtc2018_app/model/session.dart";
 
-String _url = 'https://techconf.mercari.com/2018/api/query';
+String _url = "https://techconf.mercari.com/2018/api/query";
 
 class Client {
   static final Client _singleton = new Client._internal();
@@ -34,21 +34,21 @@ class Client {
 """;
     var response = await _client.post(_url,
         body: json.encode({
-          'query': _query,
+          "query": _query,
         }));
     if (response.statusCode == 200) {
       var decoded = json.decode(utf8.decode(response.bodyBytes));
-      List<dynamic> nodes = decoded['data']['newsList']['nodes'];
+      List<dynamic> nodes = decoded["data"]["newsList"]["nodes"];
       return nodes.map((n) => News.fromJson(n)).toList();
     } else {
       // エラーが起きたらデフォルトのやつを表示しておく
       return [
         News(
             "1",
-            '2018-09-04',
-            'Mercari Tech Conf 2018のWebページが公開されました。',
-            'Mercari Tech Conf 2018のWebページが公開されました。',
-            'https://techconf.mercari.com/2018')
+            "2018-09-04",
+            "Mercari Tech Conf 2018のWebページが公開されました。",
+            "Mercari Tech Conf 2018のWebページが公開されました。",
+            "https://techconf.mercari.com/2018")
       ];
     }
   }
@@ -89,11 +89,11 @@ class Client {
 
     var response = await _client.post(_url,
         body: json.encode({
-          'query': _query,
+          "query": _query,
         }));
     if (response.statusCode == 200) {
       var decoded = json.decode(utf8.decode(response.bodyBytes));
-      List<dynamic> nodes = decoded['data']['sessionList']['nodes'];
+      List<dynamic> nodes = decoded["data"]["sessionList"]["nodes"];
       return nodes.map((n) => Session.fromJson(n)).toList();
     } else {
       return [];
