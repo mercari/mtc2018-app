@@ -7,6 +7,7 @@ import "package:mtc2018_app/model/speaker.dart";
 import "package:mtc2018_app/colors.dart";
 import "package:mtc2018_app/widget/session_card.dart";
 import "package:mtc2018_app/repository/repository.dart";
+import "dart:async";
 
 class TimeTablePage extends StatefulWidget {
   final Repository repository;
@@ -18,18 +19,82 @@ class TimeTablePage extends StatefulWidget {
 }
 
 class _TimeTablePageState extends State<TimeTablePage> {
-  List<Session> _sessions = [];
+  List<Session> _sessionList = [];
 
   @override
   void initState() {
     super.initState();
-    _loadSessions();
+    _loadSessionList();
   }
 
-  void _loadSessions() async {
-    final sessions = await widget.repository.getSessionList();
+  @override
+  Widget build(BuildContext context) {
+    if (_sessionList.length == 0) {
+      return Center(
+        child: CircularProgressIndicator(),
+      );
+    }
+
+    // TODO: Fix place later
+    var trackASessions =
+        _sessionList; //_sessionList.where((s) => s.place == "TrackA");
+    var trackBSessions = []; //_sessionList.where((s) => s.place == "TrackB");
+
+    return Container(
+        child: DefaultTabController(
+            length: 2,
+            child: Scaffold(
+              appBar: TabBar(
+                tabs: [Tab(text: "TRACK A"), Tab(text: "TRACK B")],
+                labelColor: kMtcSecondaryRed,
+                indicatorColor: kMtcSecondaryRed,
+              ),
+              body: TabBarView(
+                children: [
+                  RefreshIndicator(
+                      onRefresh: _handleRefresh,
+                      child: ListView(
+                          padding: EdgeInsets.all(16.0),
+                          children: trackASessions.map((session) {
+                            return SessionCard(
+                              session: session,
+                              onCardPressed: () {
+                                _onCardPressed(context, session);
+                              },
+                              onSpeakerPressed: (speaker) {
+                                _onSpeakerPressed(context, speaker);
+                              },
+                              onTagPressed: (tag) {
+                                _onTagPressed(context, tag);
+                              },
+                            );
+                          }).toList())),
+                  RefreshIndicator(
+                      onRefresh: _handleRefresh,
+                      child: ListView(
+                          padding: EdgeInsets.all(16.0),
+                          children: trackBSessions.map((session) {
+                            return SessionCard(
+                                session: session,
+                                onCardPressed: () {
+                                  _onCardPressed(context, session);
+                                },
+                                onSpeakerPressed: (speaker) {
+                                  _onSpeakerPressed(context, speaker);
+                                },
+                                onTagPressed: (tag) {
+                                  _onTagPressed(context, tag);
+                                });
+                          }).toList())),
+                ],
+              ),
+            )));
+  }
+
+  void _loadSessionList() async {
+    final sessionList = await widget.repository.getSessionList();
     setState(() {
-      _sessions = sessions;
+      _sessionList = sessionList;
     });
   }
 
@@ -59,67 +124,15 @@ class _TimeTablePageState extends State<TimeTablePage> {
         MaterialPageRoute(
             settings: RouteSettings(name: "/tag_time_table"),
             builder: (context) {
-              return TagTimeTablePage(tagName: tagName, sessions: _sessions);
+              return TagTimeTablePage(
+                  tagName: tagName, sessionList: _sessionList);
             }));
   }
 
-  @override
-  Widget build(BuildContext context) {
-    if (_sessions.length == 0) {
-      return Center(
-        child: CircularProgressIndicator(),
-      );
-    }
-
-    // TODO: Fix place later
-    var trackASessions =
-        _sessions; //_sessions.where((s) => s.place == "TrackA");
-    var trackBSessions = []; //_sessions.where((s) => s.place == "TrackB");
-
-    return Container(
-        child: DefaultTabController(
-            length: 2,
-            child: Scaffold(
-              appBar: TabBar(
-                tabs: [Tab(text: "TRACK A"), Tab(text: "TRACK B")],
-                labelColor: kMtcSecondaryRed,
-                indicatorColor: kMtcSecondaryRed,
-              ),
-              body: TabBarView(
-                children: [
-                  ListView(
-                      padding: EdgeInsets.all(16.0),
-                      children: trackASessions.map((session) {
-                        return SessionCard(
-                          session: session,
-                          onCardPressed: () {
-                            _onCardPressed(context, session);
-                          },
-                          onSpeakerPressed: (speaker) {
-                            _onSpeakerPressed(context, speaker);
-                          },
-                          onTagPressed: (tag) {
-                            _onTagPressed(context, tag);
-                          },
-                        );
-                      }).toList()),
-                  ListView(
-                      padding: EdgeInsets.all(16.0),
-                      children: trackBSessions.map((session) {
-                        return SessionCard(
-                            session: session,
-                            onCardPressed: () {
-                              _onCardPressed(context, session);
-                            },
-                            onSpeakerPressed: (speaker) {
-                              _onSpeakerPressed(context, speaker);
-                            },
-                            onTagPressed: (tag) {
-                              _onTagPressed(context, tag);
-                            });
-                      }).toList()),
-                ],
-              ),
-            )));
+  Future<Null> _handleRefresh() async {
+    final sessionList = await widget.repository.refreshSessionList();
+    setState(() {
+      _sessionList = sessionList;
+    });
   }
 }
