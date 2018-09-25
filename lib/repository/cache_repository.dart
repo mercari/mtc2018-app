@@ -25,12 +25,26 @@ class CacheRepository extends Repository {
   }
 
   @override
+  Future<List<Session>> refreshSessionList() async {
+    final sessionList = await client.fetchSessions();
+    cache.put("SessionList", sessionList);
+    return sessionList;
+  }
+
+  @override
   Future<List<News>> getNewsList() async {
     final cachedNewsList = await cache.get("NewsList") as List<News>;
     if (cachedNewsList != null) {
       return cachedNewsList;
     }
 
+    final newsList = await client.fetchNews();
+    cache.put("NewsList", newsList);
+    return newsList;
+  }
+
+  @override
+  Future<List<News>> refreshNewsList() async {
     final newsList = await client.fetchNews();
     cache.put("NewsList", newsList);
     return newsList;

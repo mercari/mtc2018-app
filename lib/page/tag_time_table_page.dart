@@ -7,9 +7,9 @@ import "package:mtc2018_app/widget/session_card.dart";
 
 class TagTimeTablePage extends StatelessWidget {
   final String tagName;
-  final List<Session> sessions;
+  final List<Session> sessionList;
 
-  const TagTimeTablePage({Key key, this.tagName, this.sessions})
+  const TagTimeTablePage({Key key, this.tagName, this.sessionList})
       : super(key: key);
 
   _onSpeakerPressed(BuildContext context, Speaker speaker) {
@@ -38,12 +38,13 @@ class TagTimeTablePage extends StatelessWidget {
         MaterialPageRoute(
             settings: RouteSettings(name: "/tag_time_table"),
             builder: (context) {
-              return TagTimeTablePage(tagName: tagName, sessions: sessions);
+              return TagTimeTablePage(
+                  tagName: tagName, sessionList: sessionList);
             }));
   }
 
   Widget buildBody(BuildContext context) {
-    var _sessions = sessions.where((s) => s.tags.contains(tagName));
+    var _sessions = sessionList.where((s) => s.tags.contains(tagName));
     return Container(
         margin: const EdgeInsets.all(16.0),
         child: ListView(
