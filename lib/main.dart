@@ -78,12 +78,6 @@ class _MainPageState extends State<MainPage> {
                           new NewsPage(repository: _repository)));
             },
           ),
-          // IconButton(
-          //   icon: Icon(Icons.account_circle),
-          //   onPressed: () {
-          //     print("pressed");
-          //   },
-          // )
         ],
         elevation: 4.0,
       ),
