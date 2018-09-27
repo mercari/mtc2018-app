@@ -35,10 +35,8 @@ class _TimeTablePageState extends State<TimeTablePage> {
       );
     }
 
-    // TODO: Fix place later
-    var trackASessions =
-        _sessionList; //_sessionList.where((s) => s.place == "TrackA");
-    var trackBSessions = []; //_sessionList.where((s) => s.place == "TrackB");
+    var trackASessions = _sessionList.where((s) => s.place == "TrackA");
+    var trackBSessions = _sessionList.where((s) => s.place == "TrackB");
 
     return Container(
         child: DefaultTabController(
