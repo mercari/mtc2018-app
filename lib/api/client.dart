@@ -4,7 +4,16 @@ import "dart:convert";
 import "dart:async";
 import "package:mtc2018_app/model/session.dart";
 
-String _url = "https://techconf.mercari.com/2018/api/query";
+String _url = () {
+  var isDebug = false;
+  assert(isDebug = true);
+
+  if (isDebug) {
+    return "https://mtc2018.dev.citadelapps.com/2018/api/query";
+  } else {
+    return "https://techconf.mercari.com/2018/api/query";
+  }
+}();
 
 class Client {
   static final Client _singleton = new Client._internal();
