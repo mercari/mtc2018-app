@@ -10,7 +10,7 @@ import "package:mtc2018_app/cache/memcache.dart";
 import "package:mtc2018_app/cache/cache.dart";
 import "package:mtc2018_app/repository/cache_repository.dart";
 import "package:mtc2018_app/repository/repository.dart";
-import "package:mtc2018_app/model/session.dart";
+import 'package:firebase_messaging/firebase_messaging.dart';
 
 void main() => runApp(MyApp());
 
@@ -56,9 +56,31 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   var _currentIndex = 0;
+  FirebaseMessaging _firebaseMessaging = new FirebaseMessaging();
 
   static final Cache _cache = MemCache();
   static final Repository _repository = CacheRepository(cache: _cache);
+
+  @override
+  void initState() {
+    super.initState();
+    _firebaseMessaging.configure(
+      onMessage: (Map<String, dynamic> message) {
+        print('on message $message');
+      },
+      onResume: (Map<String, dynamic> message) {
+        print('on resume $message');
+      },
+      onLaunch: (Map<String, dynamic> message) {
+        print('on launch $message');
+      },
+    );
+    _firebaseMessaging.requestNotificationPermissions(
+        const IosNotificationSettings(sound: true, badge: true, alert: true));
+    _firebaseMessaging.getToken().then((token) {
+      print(token);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
