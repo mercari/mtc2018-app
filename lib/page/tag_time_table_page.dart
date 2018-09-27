@@ -1,22 +1,22 @@
-import 'package:flutter/material.dart';
-import 'package:mtc2018_app/page/session_detail.dart';
-import 'package:mtc2018_app/page/speaker_detail.dart';
-import 'package:mtc2018_app/model/session.dart';
-import 'package:mtc2018_app/model/speaker.dart';
-import '../widget/session_card.dart';
+import "package:flutter/material.dart";
+import "package:mtc2018_app/page/session_detail.dart";
+import "package:mtc2018_app/page/speaker_detail.dart";
+import "package:mtc2018_app/model/session.dart";
+import "package:mtc2018_app/model/speaker.dart";
+import "package:mtc2018_app/widget/session_card.dart";
 
 class TagTimeTablePage extends StatelessWidget {
-  final List<Session> sessions;
   final String tagName;
+  final List<Session> sessionList;
 
-  const TagTimeTablePage({Key key, this.sessions, this.tagName})
+  const TagTimeTablePage({Key key, this.tagName, this.sessionList})
       : super(key: key);
 
   _onSpeakerPressed(BuildContext context, Speaker speaker) {
     Navigator.push(
         context,
         MaterialPageRoute(
-            settings: RouteSettings(name: '/speaker_detail'),
+            settings: RouteSettings(name: "/speaker_detail"),
             builder: (context) {
               return SpeakerDetailPage(speaker: speaker);
             }));
@@ -26,17 +26,29 @@ class TagTimeTablePage extends StatelessWidget {
     Navigator.push(
         context,
         MaterialPageRoute(
-            settings: RouteSettings(name: '/session_detail'),
+            settings: RouteSettings(name: "/session_detail"),
             builder: (context) {
               return SessionDetailPage(session: session);
             }));
   }
 
+  void _onTagPressed(BuildContext context, String tagName) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            settings: RouteSettings(name: "/tag_time_table"),
+            builder: (context) {
+              return TagTimeTablePage(
+                  tagName: tagName, sessionList: sessionList);
+            }));
+  }
+
   Widget buildBody(BuildContext context) {
+    var _sessions = sessionList.where((s) => s.tags.contains(tagName));
     return Container(
         margin: const EdgeInsets.all(16.0),
         child: ListView(
-            children: sessions.map((session) {
+            children: _sessions.map((session) {
           return SessionCard(
             session: session,
             onCardPressed: () {
@@ -45,6 +57,9 @@ class TagTimeTablePage extends StatelessWidget {
             onSpeakerPressed: (speaker) {
               _onSpeakerPressed(context, speaker);
             },
+            onTagPressed: (tagName) {
+              _onTagPressed(context, tagName);
+            },
           );
         }).toList()));
   }
@@ -52,6 +67,10 @@ class TagTimeTablePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text(tagName)), body: buildBody(context));
+        appBar: AppBar(
+          title: Text(tagName),
+          centerTitle: false,
+        ),
+        body: buildBody(context));
   }
 }

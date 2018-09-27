@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:mtc2018_app/model/session.dart';
-import 'package:mtc2018_app/model/speaker.dart';
+import "package:flutter/material.dart";
+import "package:mtc2018_app/model/session.dart";
+import "package:mtc2018_app/model/speaker.dart";
 import "package:intl/intl.dart";
-import '../colors.dart';
+import "package:mtc2018_app/colors.dart";
 
 typedef void CardPressedCallback();
 typedef void SpeakerPressedCallback(Speaker speaker);
@@ -24,6 +24,12 @@ class SessionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Locale currentLocale = Localizations.localeOf(context);
+    var title =
+        currentLocale.languageCode == "ja" ? session.titleJa : session.title;
+    var outline = currentLocale.languageCode == "ja"
+        ? session.outlineJa
+        : session.outline;
     return Card(
         color: Colors.white,
         child: FlatButton(
@@ -38,13 +44,13 @@ class SessionCard extends StatelessWidget {
                         session.startTime, session.endTime)),
                 Container(
                     padding: const EdgeInsets.only(left: 20.0, right: 20.0),
-                    child: buildSessionTitle(session.title)),
+                    child: buildSessionTitle(title)),
                 Container(
                     padding: const EdgeInsets.only(left: 20.0, right: 20.0),
-                    child: buildSessionText(session.outline)),
+                    child: buildSessionText(outline)),
                 Container(
                     padding: const EdgeInsets.only(
-                        left: 20.0, right: 20.0, bottom: 20.0),
+                        left: 20.0, right: 20.0, bottom: 12.0),
                     child: buildSessionTags(session.tags)),
                 Container(
                     padding: const EdgeInsets.only(bottom: 20.0),
@@ -85,18 +91,18 @@ class SessionCard extends StatelessWidget {
     List<Container> containers = tags.map((tag) {
       return buildSessionTag(tag);
     }).toList();
-    return Container(child: Row(children: containers));
+    return Container(child: Wrap(children: containers));
   }
 
   Container buildSessionTag(String tag) {
     return Container(
-        child: FlatButton(
-            padding: EdgeInsets.all(0.0),
-            onPressed: () {
+        margin: EdgeInsets.fromLTRB(0.0, 0.0, 4.0, 8.0),
+        child: GestureDetector(
+            onTap: () {
               onTagPressed(tag);
             },
             child: Container(
-                padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+                padding: EdgeInsets.symmetric(vertical: 4.0, horizontal: 8.0),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(100.0),
                     border: const Border(
@@ -128,6 +134,13 @@ class SessionCard extends StatelessWidget {
   }
 
   Widget buildSessionSpeakerInformation(BuildContext context, Speaker speaker) {
+    Locale currentLocale = Localizations.localeOf(context);
+    var name =
+        currentLocale.languageCode == "ja" ? speaker.nameJa : speaker.name;
+    var position = currentLocale.languageCode == "ja"
+        ? speaker.positionJa
+        : speaker.position;
+
     return FlatButton(
         onPressed: () {
           onSpeakerPressed(speaker);
@@ -137,23 +150,22 @@ class SessionCard extends StatelessWidget {
                 border: Border(top: BorderSide(width: 1.0)),
                 color: Color(0xDDDDDD)),
             child: ListTile(
-              contentPadding: const EdgeInsets.all(0.0),
+              contentPadding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
               leading: CircleAvatar(
                 backgroundImage: new NetworkImage(speaker.iconUrl),
                 radius: 25.0,
               ),
-              title: Text(speaker.name,
+              title: Text(name,
                   style: TextStyle(
                       fontWeight: FontWeight.bold, color: Colors.black)),
-              subtitle:
-                  Text(speaker.position, style: TextStyle(color: Colors.black)),
+              subtitle: Text(position, style: TextStyle(color: Colors.black)),
               // trailing: IconButton(
               //     icon: const Icon(Icons.favorite_border),
               //     color: Colors.black,
               //     onPressed: () {
               //       AlertDialog(
-              //           title: Text('Go to the session!'),
-              //           content: Text('Hey!'));
+              //           title: Text("Go to the session!"),
+              //           content: Text("Hey!"));
               //     }),
             )));
   }

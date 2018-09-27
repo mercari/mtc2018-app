@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
-import '../colors.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import "package:flutter/material.dart";
+import "package:url_launcher/url_launcher.dart";
+import "package:mtc2018_app/colors.dart";
+import "package:font_awesome_flutter/font_awesome_flutter.dart";
 
 enum SocialType { github, twitter }
 

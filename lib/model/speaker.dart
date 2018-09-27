@@ -1,6 +1,6 @@
-import 'package:json_annotation/json_annotation.dart';
+import "package:json_annotation/json_annotation.dart";
 
-part 'speaker.g.dart';
+part "speaker.g.dart";
 
 @JsonSerializable()
 class Speaker extends Object with _$SpeakerSerializerMixin {
