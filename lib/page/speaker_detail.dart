@@ -61,14 +61,22 @@ class SpeakerDetailPage extends StatelessWidget {
   Widget buildLinkButtons(Speaker speaker) {
     var twitterId = speaker.twitterId;
     var githubId = speaker.githubId;
-    var twitterLinkButton = SocialUserButton(
-        title: "@$twitterId",
-        type: SocialType.twitter,
-        url: "https://twitter.com/$twitterId");
-    var githubLinkButton = SocialUserButton(
-        title: "$githubId",
-        type: SocialType.github,
-        url: "https://github.com/$githubId");
+
+    List<Widget> buttons = [];
+
+    if (githubId != "") {
+      buttons.add(SocialUserButton(
+          title: "$githubId",
+          type: SocialType.github,
+          url: "https://github.com/$githubId"));
+    }
+
+    if (twitterId != "") {
+      buttons.add(SocialUserButton(
+          title: "@$twitterId",
+          type: SocialType.twitter,
+          url: "https://twitter.com/$twitterId"));
+    }
 
     return Container(
         padding: const EdgeInsets.all(24.0),
@@ -78,8 +86,7 @@ class SpeakerDetailPage extends StatelessWidget {
           borderRadius: BorderRadius.circular(8.0),
         ),
         child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [githubLinkButton, twitterLinkButton]));
+            crossAxisAlignment: CrossAxisAlignment.start, children: buttons));
   }
 
   @override

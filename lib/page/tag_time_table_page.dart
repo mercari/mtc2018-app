@@ -4,12 +4,15 @@ import "package:mtc2018_app/page/speaker_detail.dart";
 import "package:mtc2018_app/model/session.dart";
 import "package:mtc2018_app/model/speaker.dart";
 import "package:mtc2018_app/widget/session_card.dart";
+import "package:mtc2018_app/repository/repository.dart";
 
 class TagTimeTablePage extends StatelessWidget {
   final String tagName;
   final List<Session> sessionList;
+  final Repository repository;
 
-  const TagTimeTablePage({Key key, this.tagName, this.sessionList})
+  const TagTimeTablePage(
+      {Key key, this.tagName, this.sessionList, this.repository})
       : super(key: key);
 
   _onSpeakerPressed(BuildContext context, Speaker speaker) {
@@ -28,7 +31,10 @@ class TagTimeTablePage extends StatelessWidget {
         MaterialPageRoute(
             settings: RouteSettings(name: "/session_detail"),
             builder: (context) {
-              return SessionDetailPage(session: session);
+              return SessionDetailPage(
+                repository: repository,
+                sessionId: session.id,
+              );
             }));
   }
 
