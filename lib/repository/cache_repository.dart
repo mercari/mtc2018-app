@@ -25,6 +25,19 @@ class CacheRepository extends Repository {
   }
 
   @override
+  Future<Session> getSessionById(String sessionId) async {
+    final cachedSeesionList = await cache.get("SessionList") as List<Session>;
+    if (cachedSeesionList != null) {
+      return cachedSeesionList.firstWhere((session) {
+        return session.id == sessionId;
+      });
+    }
+
+    final session = await client.fetchSessionById(sessionId);
+    return session;
+  }
+
+  @override
   Future<List<Session>> refreshSessionList() async {
     final sessionList = await client.fetchSessions();
     cache.put("SessionList", sessionList);

@@ -10,7 +10,10 @@ import "package:mtc2018_app/cache/memcache.dart";
 import "package:mtc2018_app/cache/cache.dart";
 import "package:mtc2018_app/repository/cache_repository.dart";
 import "package:mtc2018_app/repository/repository.dart";
-import 'package:firebase_messaging/firebase_messaging.dart';
+import "package:firebase_messaging/firebase_messaging.dart";
+import "package:mtc2018_app/model/session.dart";
+import "dart:async";
+import "package:mtc2018_app/page/session_detail.dart";
 
 void main() => runApp(MyApp());
 
@@ -67,16 +70,23 @@ class _MainPageState extends State<MainPage> {
     _firebaseMessaging.configure(
       onMessage: (Map<String, dynamic> message) {
         print('on message $message');
+        _showMessageDialog(message);
       },
       onResume: (Map<String, dynamic> message) {
         print('on resume $message');
+        _navigateToSessionDetail(message);
       },
       onLaunch: (Map<String, dynamic> message) {
         print('on launch $message');
+        _navigateToSessionDetail(message);
       },
     );
     _firebaseMessaging.requestNotificationPermissions(
         const IosNotificationSettings(sound: true, badge: true, alert: true));
+    _firebaseMessaging.onIosSettingsRegistered
+        .listen((IosNotificationSettings settings) {
+      print("Settings registered: $settings");
+    });
     _firebaseMessaging.getToken().then((token) {
       print(token);
     });
@@ -143,5 +153,54 @@ class _MainPageState extends State<MainPage> {
     setState(() {
       _currentIndex = index;
     });
+  }
+
+  Widget _buildDialog(BuildContext context, String message) {
+    return AlertDialog(
+      content: Text(message),
+      actions: <Widget>[
+        FlatButton(
+          child: Text(MtcLocalizations.of(context).close),
+          onPressed: () {
+            Navigator.pop(context, false);
+          },
+        ),
+        FlatButton(
+          child: Text(MtcLocalizations.of(context).show),
+          onPressed: () {
+            Navigator.pop(context, true);
+          },
+        ),
+      ],
+    );
+  }
+
+  void _showMessageDialog(Map<String, dynamic> message) {
+    showDialog<bool>(
+      context: context,
+      builder: (_) => _buildDialog(context, message["data"]["message"]),
+    ).then((bool shouldNavigate) {
+      if (shouldNavigate == true) {
+        _navigateToSessionDetail(message);
+      }
+    });
+  }
+
+  Future<Session> _sessionForMessage(Map<String, dynamic> message) async {
+    final String sessionId = message['data']['id'];
+    final Session session = await _repository.getSessionById(sessionId);
+    return session;
+  }
+
+  Future<Null> _navigateToSessionDetail(Map<String, dynamic> message) async {
+    final Session session = await _sessionForMessage(message);
+    _onSelectTab(0);
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            settings: RouteSettings(name: "/session_detail"),
+            builder: (context) {
+              return SessionDetailPage(session: session);
+            }));
   }
 }

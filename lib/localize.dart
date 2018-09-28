@@ -13,6 +13,8 @@ class MtcLocalizations {
 
   static Map<String, Map<String, String>> _localizedValues = {
     "en": {
+      "Close": "Close",
+      "Show": "Show",
       "news_title": "News",
       "about_description": """
 Mercari Tech Conf (MTC) is a technology conference introducing the future business direction and the technological challenges of the companies of the Mercari Group to fellow engineers.
@@ -38,6 +40,8 @@ Simultaneous interpretation into English and Japanese will be provided for all s
       "about_academyhills_site": "To the official website of Academyhills"
     },
     "ja": {
+      "Close": "閉じる",
+      "Show": "表示する",
       "news_title": "お知らせ",
       "about_description": """
 Mercari Tech Conf（MTC）は、株式会社メルカリをはじめとするメルカリグループ各社が、これから目指す方向や、これから取り組む技術的なチャレンジについてご紹介するエンジニア向けの技術カンファレンスです。
@@ -62,6 +66,14 @@ Mercari Tech Conf（MTC）は、株式会社メルカリをはじめとするメ
       "about_academyhills_site": "アカデミーヒルズ公式サイトへ"
     },
   };
+
+  String get close {
+    return _localizedValues[locale.languageCode]["Close"];
+  }
+
+  String get show {
+    return _localizedValues[locale.languageCode]["Show"];
+  }
 
   String get newsTitle {
     return _localizedValues[locale.languageCode]["news_title"];

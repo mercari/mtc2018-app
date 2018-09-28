@@ -108,4 +108,51 @@ class Client {
       return [];
     }
   }
+
+  Future<Session> fetchSessionById(String sessionId) async {
+    String _query = """
+    {
+      session(id: "$sessionId") {
+        node {
+          id
+          type
+          place
+          title
+          titleJa
+          startTime
+          endTime
+          outline
+          outlineJa
+          lang
+          tags
+          speakers {
+            id
+            name
+            nameJa
+            company
+            position
+            positionJa
+            profile
+            profileJa
+            iconUrl
+            twitterId
+            githubId
+          }
+        }
+      }
+    }
+    """;
+
+    var response = await _client.post(_url,
+        body: json.encode({
+          "query": _query,
+        }));
+    if (response.statusCode == 200) {
+      var decoded = json.decode(utf8.decode(response.bodyBytes));
+      dynamic node = decoded["data"]["session"]["node"];
+      return Session.fromJson(node);
+    } else {
+      return null;
+    }
+  }
 }
