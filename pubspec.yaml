@@ -47,6 +47,8 @@ flutter:
    - images/about_logo.png
    - images/navbar_icn.png
    - data/contents.json
+   - images/booth_a.png
+   - images/booth_b.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.

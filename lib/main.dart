@@ -11,9 +11,9 @@ import "package:mtc2018_app/cache/cache.dart";
 import "package:mtc2018_app/repository/cache_repository.dart";
 import "package:mtc2018_app/repository/repository.dart";
 import "package:firebase_messaging/firebase_messaging.dart";
-import "package:mtc2018_app/model/session.dart";
 import "dart:async";
 import "package:mtc2018_app/page/session_detail.dart";
+import "package:mtc2018_app/page/conference_map_page.dart";
 
 void main() => runApp(MyApp());
 
@@ -107,6 +107,19 @@ class _MainPageState extends State<MainPage> {
           ),
         ],
         elevation: 4.0,
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.map),
+        foregroundColor: Colors.white,
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return ConferenceMapPage();
+                  },
+                  fullscreenDialog: true));
+        },
       ),
       bottomNavigationBar: BottomNavigationBar(
         fixedColor: Colors.white,
