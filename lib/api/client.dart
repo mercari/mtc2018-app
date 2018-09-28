@@ -108,4 +108,52 @@ class Client {
       return [];
     }
   }
+
+//TODO
+  Future<List<Session>> fetchExhibitions() async {
+    String _query = """
+    {
+      sessionList {
+        nodes {
+          id
+          type
+          place
+          title
+          titleJa
+          startTime
+          endTime
+          outline
+          outlineJa
+          lang
+          tags
+          speakers {
+            id
+            name
+            nameJa
+            company
+            position
+            positionJa
+            profile
+            profileJa
+            iconUrl
+            twitterId
+            githubId
+          }
+        }
+      }
+    }
+    """;
+
+    var response = await _client.post(_url,
+        body: json.encode({
+          "query": _query,
+        }));
+    if (response.statusCode == 200) {
+      var decoded = json.decode(utf8.decode(response.bodyBytes));
+      List<dynamic> nodes = decoded["data"]["sessionList"]["nodes"];
+      return nodes.map((n) => Session.fromJson(n)).toList();
+    } else {
+      return [];
+    }
+  }
 }
