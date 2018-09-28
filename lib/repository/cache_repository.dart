@@ -30,6 +30,8 @@ class CacheRepository extends Repository {
     if (cachedSeesionList != null) {
       return cachedSeesionList.firstWhere((session) {
         return session.id == sessionId;
+      }, orElse: () {
+        return null;
       });
     }
 

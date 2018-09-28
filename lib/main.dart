@@ -69,24 +69,19 @@ class _MainPageState extends State<MainPage> {
     super.initState();
     _firebaseMessaging.configure(
       onMessage: (Map<String, dynamic> message) {
-        print('on message $message');
         _showMessageDialog(message);
       },
       onResume: (Map<String, dynamic> message) {
-        print('on resume $message');
         _navigateToSessionDetail(message);
       },
       onLaunch: (Map<String, dynamic> message) {
-        print('on launch $message');
         _navigateToSessionDetail(message);
       },
     );
     _firebaseMessaging.requestNotificationPermissions(
         const IosNotificationSettings(sound: true, badge: true, alert: true));
     _firebaseMessaging.onIosSettingsRegistered
-        .listen((IosNotificationSettings settings) {
-      print("Settings registered: $settings");
-    });
+        .listen((IosNotificationSettings settings) {});
     _firebaseMessaging.getToken().then((token) {
       print(token);
     });
@@ -176,9 +171,12 @@ class _MainPageState extends State<MainPage> {
   }
 
   void _showMessageDialog(Map<String, dynamic> message) {
+    if (!message.containsKey("message")) {
+      return;
+    }
     showDialog<bool>(
       context: context,
-      builder: (_) => _buildDialog(context, message["data"]["message"]),
+      builder: (_) => _buildDialog(context, message["message"]),
     ).then((bool shouldNavigate) {
       if (shouldNavigate == true) {
         _navigateToSessionDetail(message);
@@ -187,14 +185,19 @@ class _MainPageState extends State<MainPage> {
   }
 
   Future<Session> _sessionForMessage(Map<String, dynamic> message) async {
-    final String sessionId = message['data']['id'];
+    if (!message.containsKey("id")) {
+      return null;
+    }
+    final String sessionId = message['id'];
     final Session session = await _repository.getSessionById(sessionId);
     return session;
   }
 
   Future<Null> _navigateToSessionDetail(Map<String, dynamic> message) async {
     final Session session = await _sessionForMessage(message);
-    _onSelectTab(0);
+    if (session == null) {
+      return;
+    }
     Navigator.push(
         context,
         MaterialPageRoute(

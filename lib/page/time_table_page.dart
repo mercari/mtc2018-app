@@ -91,6 +91,7 @@ class _TimeTablePageState extends State<TimeTablePage> {
 
   void _loadSessionList() async {
     final sessionList = await widget.repository.getSessionList();
+    print(sessionList[0].id);
     setState(() {
       _sessionList = sessionList;
     });
