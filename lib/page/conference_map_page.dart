@@ -4,6 +4,24 @@ import "package:mtc2018_app/colors.dart";
 class ConferenceMapPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    List<String> boothA = [
+      "メルカリにおける量子アニーリングの研究",
+      "経営課題をエンジニアリングで解決、Corporate Solutions Engineering の取り組み",
+      "エキスパートチームの取り組み（Gopher道場、Go Fridayなど）",
+      "MTC App by Flutter",
+      "AQAチームによるテスト自動化及びZapier自動化ブース",
+      "クイズ・iOS app Rearchitecture",
+      "Welcome to Mercari US",
+      "Days in Mercari Android",
+      "We are the Machine Learning team!!"
+    ];
+    List<String> boothB = [
+      "Mercari & Microservices",
+      "研究開発組織「R4D」",
+      "Ask the Speaker"
+    ];
+
+    var boothIndex = 0;
     return Scaffold(
         appBar: AppBar(title: Text("Map"), centerTitle: false),
         body: Container(
@@ -20,7 +38,7 @@ class ConferenceMapPage extends StatelessWidget {
                     children: [
                       ListView(padding: EdgeInsets.all(16.0), children: [
                         Container(
-                          padding: EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 16.0),
+                          padding: EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 32.0),
                           child: Image.asset("images/booth_a.png"),
                         ),
                         Container(
@@ -29,51 +47,16 @@ class ConferenceMapPage extends StatelessWidget {
                             padding: EdgeInsets.all(24.0),
                             child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  // TODO: Refactor later
-                                  Text(
-                                    "1. メルカリにおける量子アニーリングの研究",
-                                    style: TextStyle(color: kMtcPrimaryGrey),
-                                  ),
-                                  Text(
-                                    "2. 経営課題をエンジニアリングで解決、Corporate Solutions Engineering の取り組み",
-                                    style: TextStyle(color: kMtcPrimaryGrey),
-                                  ),
-                                  Text(
-                                    "3. エキスパートチームの取り組み（Gopher道場、Go Fridayなど）",
-                                    style: TextStyle(color: kMtcPrimaryGrey),
-                                  ),
-                                  Text(
-                                    "4. MTC App by Flutter",
-                                    style: TextStyle(color: kMtcPrimaryGrey),
-                                  ),
-                                  Text(
-                                    "5. AQAチームによるテスト自動化及びZapier自動化ブース",
-                                    style: TextStyle(color: kMtcPrimaryGrey),
-                                  ),
-                                  Text(
-                                    "6. クイズ・iOS app Rearchitecture",
-                                    style: TextStyle(color: kMtcPrimaryGrey),
-                                  ),
-                                  Text(
-                                    "7. Welcome to Mercari US",
-                                    style: TextStyle(color: kMtcPrimaryGrey),
-                                  ),
-                                  Text(
-                                    "8. Days in Mercari Android",
-                                    style: TextStyle(color: kMtcPrimaryGrey),
-                                  ),
-                                  Text(
-                                    "9. We are the Machine Learning team!!",
-                                    style: TextStyle(color: kMtcPrimaryGrey),
-                                  ),
-                                ]),
+                                children: boothA.map((booth) {
+                                  boothIndex += 1;
+                                  return _buildBoothInfo(boothIndex, booth);
+                                }).toList()),
                           ),
                         )
                       ]),
                       ListView(padding: EdgeInsets.all(16.0), children: [
                         Container(
-                          padding: EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 16.0),
+                          padding: EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 32.0),
                           child: Image.asset("images/booth_b.png"),
                         ),
                         Container(
@@ -82,25 +65,47 @@ class ConferenceMapPage extends StatelessWidget {
                               padding: EdgeInsets.all(24.0),
                               child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    // TODO: Refactor later
-                                    Text(
-                                      "10. Mercari & Microservices",
-                                      style: TextStyle(color: kMtcPrimaryGrey),
-                                    ),
-                                    Text(
-                                      "11. 研究開発組織「R4D」",
-                                      style: TextStyle(color: kMtcPrimaryGrey),
-                                    ),
-                                    Text(
-                                      "12. Ask the Speaker",
-                                      style: TextStyle(color: kMtcPrimaryGrey),
-                                    ),
-                                  ]),
-                            ))
+                                  children: boothB.map((booth) {
+                                    boothIndex += 1;
+                                    return _buildBoothInfo(boothIndex, booth);
+                                  }).toList()),
+                            )),
+                        Container(
+                            padding: EdgeInsets.fromLTRB(0.0, 24.0, 0.0, 16.0),
+                            child: Text("Ask the Speakerについて",
+                                style: TextStyle(
+                                    color: kMtcPrimaryGrey,
+                                    fontSize: 20.0,
+                                    fontWeight: FontWeight.bold))),
+                        Container(
+                            padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 60.0),
+                            child: Text(
+                                "セッション後、登壇者と直接お話いただける場を設けています。SESSIONの疑問/質問などぜひ話しにお立ち寄りください。登壇者はSESSION終了後〜次のSESSIONが開始してから15分間までAsk the Speakerブースにいます。",
+                                style: TextStyle(
+                                    color: kMtcPrimaryGrey, fontSize: 14.0))),
                       ]),
                     ],
                   ),
                 ))));
+  }
+
+  Widget _buildBoothInfo(int index, String text) {
+    return Container(
+        padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 16.0),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+                padding: EdgeInsets.only(right: 12.0),
+                child: Text("$index. ",
+                    style: TextStyle(
+                        fontSize: 16.0,
+                        color: kMtcPrimaryGrey,
+                        fontWeight: FontWeight.bold))),
+            Flexible(
+                child: Text(text,
+                    style: TextStyle(color: kMtcPrimaryGrey, fontSize: 14.0)))
+          ],
+        ));
   }
 }
