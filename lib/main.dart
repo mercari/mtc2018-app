@@ -68,14 +68,14 @@ class _MainPageState extends State<MainPage> {
   void initState() {
     super.initState();
     _firebaseMessaging.configure(
-      onMessage: (Map<String, dynamic> message) {
+      onMessage: (Map<String, dynamic> message) async {
         _showMessageDialog(message);
       },
-      onResume: (Map<String, dynamic> message) {
+      onResume: (Map<String, dynamic> message) async {
         _navigateToSessionDetail(message);
       },
-      onLaunch: (Map<String, dynamic> message) {
-        _navigateToSessionDetail(message);
+      onLaunch: (Map<String, dynamic> message) async {
+        await _navigateToSessionDetailOnLaunch(message);
       },
     );
     _firebaseMessaging.requestNotificationPermissions(
@@ -184,26 +184,32 @@ class _MainPageState extends State<MainPage> {
     });
   }
 
-  Future<Session> _sessionForMessage(Map<String, dynamic> message) async {
-    if (!message.containsKey("id")) {
-      return null;
+  var retryCount = 0;
+  Future<Null> _navigateToSessionDetailOnLaunch(
+      Map<String, dynamic> message) async {
+    var sessionList = await _repository.getSessionList();
+    if (sessionList.length == 0 && retryCount < 3) {
+      retryCount += 1;
+      await new Future.delayed(const Duration(milliseconds: 300));
+      _navigateToSessionDetailOnLaunch(message);
+      return;
+    } else {
+      _navigateToSessionDetail(message);
     }
-    final String sessionId = message['id'];
-    final Session session = await _repository.getSessionById(sessionId);
-    return session;
   }
 
-  Future<Null> _navigateToSessionDetail(Map<String, dynamic> message) async {
-    final Session session = await _sessionForMessage(message);
-    if (session == null) {
+  void _navigateToSessionDetail(Map<String, dynamic> message) {
+    if (!message.containsKey("id")) {
       return;
     }
+    final String sessionId = message['id'];
     Navigator.push(
         context,
         MaterialPageRoute(
             settings: RouteSettings(name: "/session_detail"),
             builder: (context) {
-              return SessionDetailPage(session: session);
+              return SessionDetailPage(
+                  repository: _repository, sessionId: sessionId);
             }));
   }
 }

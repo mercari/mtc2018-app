@@ -91,7 +91,6 @@ class _TimeTablePageState extends State<TimeTablePage> {
 
   void _loadSessionList() async {
     final sessionList = await widget.repository.getSessionList();
-    print(sessionList[0].id);
     setState(() {
       _sessionList = sessionList;
     });
@@ -113,7 +112,10 @@ class _TimeTablePageState extends State<TimeTablePage> {
         MaterialPageRoute(
             settings: RouteSettings(name: "/session_detail"),
             builder: (context) {
-              return SessionDetailPage(session: session);
+              return SessionDetailPage(
+                repository: widget.repository,
+                sessionId: session.id,
+              );
             }));
   }
 
@@ -124,7 +126,9 @@ class _TimeTablePageState extends State<TimeTablePage> {
             settings: RouteSettings(name: "/tag_time_table"),
             builder: (context) {
               return TagTimeTablePage(
-                  tagName: tagName, sessionList: _sessionList);
+                  repository: widget.repository,
+                  tagName: tagName,
+                  sessionList: _sessionList);
             }));
   }
 

@@ -4,20 +4,40 @@ import "package:mtc2018_app/model/speaker.dart";
 import "package:intl/intl.dart";
 import "package:mtc2018_app/widget/social_user_button.dart";
 import "package:mtc2018_app/colors.dart";
+import "package:mtc2018_app/repository/repository.dart";
 
-class SessionDetailPage extends StatelessWidget {
-  final Session session;
+class SessionDetailPage extends StatefulWidget {
+  final Repository repository;
+  final String sessionId;
 
-  const SessionDetailPage({
-    Key key,
-    this.session,
-  }) : super(key: key);
+  const SessionDetailPage({Key key, this.repository, this.sessionId})
+      : super(key: key);
+
+  @override
+  _SessionDetailPageState createState() => _SessionDetailPageState();
+}
+
+class _SessionDetailPageState extends State<SessionDetailPage> {
+  Session _session;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadSession();
+  }
+
+  void _loadSession() async {
+    final session = await widget.repository.getSessionById(widget.sessionId);
+    setState(() {
+      _session = session;
+    });
+  }
 
   Widget buildBody(BuildContext context) {
     Locale currentLocale = Localizations.localeOf(context);
     var outline = currentLocale.languageCode == "ja"
-        ? session.outlineJa
-        : session.outline;
+        ? _session.outlineJa
+        : _session.outline;
 
     return Container(
         margin: EdgeInsets.only(top: 20.0),
@@ -29,14 +49,14 @@ class SessionDetailPage extends StatelessWidget {
               margin: const EdgeInsets.only(top: 30.0),
               padding: const EdgeInsets.only(left: 20.0, right: 20.0),
               color: Colors.white,
-              child: buildContent(context, outline, session.speakers))
+              child: buildContent(context, outline, _session.speakers))
         ]));
   }
 
   Widget buildSummary(BuildContext context) {
     var formatter = DateFormat("HH:mm");
-    var start = DateTime.parse(session.startTime).toLocal();
-    var end = DateTime.parse(session.endTime).toLocal();
+    var start = DateTime.parse(_session.startTime).toLocal();
+    var end = DateTime.parse(_session.endTime).toLocal();
 
     var startTimeString = formatter.format(start);
     var endTimeString = formatter.format(end);
@@ -44,7 +64,7 @@ class SessionDetailPage extends StatelessWidget {
 
     Locale currentLocale = Localizations.localeOf(context);
     var title =
-        currentLocale.languageCode == "ja" ? session.titleJa : session.title;
+        currentLocale.languageCode == "ja" ? _session.titleJa : _session.title;
 
     return Material(
         type: MaterialType.canvas,
@@ -65,7 +85,7 @@ class SessionDetailPage extends StatelessWidget {
                             fontWeight: FontWeight.bold, fontSize: 22.0))),
                 Container(
                     margin: const EdgeInsets.only(bottom: 10.0),
-                    child: buildSessionTags(session.tags)),
+                    child: buildSessionTags(_session.tags)),
               ],
             )));
   }
@@ -161,6 +181,8 @@ class SessionDetailPage extends StatelessWidget {
   Widget buildLinkButtons(Speaker speaker) {
     var githubId = speaker.githubId;
     var twitterId = speaker.twitterId;
+    print(githubId);
+    print(twitterId);
     var githubLinkButton = SocialUserButton(
         title: "$githubId",
         type: SocialType.github,
@@ -178,9 +200,15 @@ class SessionDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (_session == null) {
+      return Center(
+        child: CircularProgressIndicator(),
+      );
+    }
+
     return Scaffold(
         appBar: AppBar(
-          title: Text(session.title),
+          title: Text(_session.title),
           centerTitle: false,
         ),
         body: buildBody(context));
