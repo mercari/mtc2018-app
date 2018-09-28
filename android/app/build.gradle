@@ -28,7 +28,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.mercari.mtc2018app"
+        applicationId "com.mercari.techconf.app"
         minSdkVersion 16
         targetSdkVersion 27
         versionCode 1

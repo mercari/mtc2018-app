@@ -1,4 +1,4 @@
-package com.mercari.mtc2018app
+package com.mercari.techconf.app
 
 import android.os.Bundle
 
