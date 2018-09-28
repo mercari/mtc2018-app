@@ -46,7 +46,6 @@ flutter:
    - images/about_icn_active.png
    - images/about_logo.png
    - images/navbar_icn.png
-   - data/contents.json
    - images/booth_a.png
    - images/booth_b.png
 
