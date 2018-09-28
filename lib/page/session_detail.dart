@@ -181,21 +181,26 @@ class _SessionDetailPageState extends State<SessionDetailPage> {
   Widget buildLinkButtons(Speaker speaker) {
     var githubId = speaker.githubId;
     var twitterId = speaker.twitterId;
-    print(githubId);
-    print(twitterId);
-    var githubLinkButton = SocialUserButton(
-        title: "$githubId",
-        type: SocialType.github,
-        url: "https://github.com/$githubId");
-    var twitterLinkButton = SocialUserButton(
-        title: "@$twitterId",
-        type: SocialType.twitter,
-        url: "https://twitter.com/$twitterId");
+
+    List<Widget> buttons = [];
+
+    if (githubId != "") {
+      buttons.add(SocialUserButton(
+          title: "$githubId",
+          type: SocialType.github,
+          url: "https://github.com/$githubId"));
+    }
+
+    if (twitterId != "") {
+      buttons.add(SocialUserButton(
+          title: "@$twitterId",
+          type: SocialType.twitter,
+          url: "https://twitter.com/$twitterId"));
+    }
 
     return Container(
         child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [githubLinkButton, twitterLinkButton]));
+            crossAxisAlignment: CrossAxisAlignment.start, children: buttons));
   }
 
   @override
