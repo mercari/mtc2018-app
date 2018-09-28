@@ -1,24 +1,25 @@
 import "package:flutter/material.dart";
 import "package:mtc2018_app/colors.dart";
+import "package:mtc2018_app/localize.dart";
 
 class ConferenceMapPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<String> boothA = [
-      "メルカリにおける量子アニーリングの研究",
-      "経営課題をエンジニアリングで解決、Corporate Solutions Engineering の取り組み",
-      "エキスパートチームの取り組み（Gopher道場、Go Fridayなど）",
-      "MTC App by Flutter",
-      "AQAチームによるテスト自動化及びZapier自動化ブース",
-      "クイズ・iOS app Rearchitecture",
-      "Welcome to Mercari US",
-      "Days in Mercari Android",
-      "We are the Machine Learning team!!"
+      MtcLocalizations.of(context).booth1,
+      MtcLocalizations.of(context).booth2,
+      MtcLocalizations.of(context).booth3,
+      MtcLocalizations.of(context).booth4,
+      MtcLocalizations.of(context).booth5,
+      MtcLocalizations.of(context).booth6,
+      MtcLocalizations.of(context).booth7,
+      MtcLocalizations.of(context).booth8,
+      MtcLocalizations.of(context).booth9
     ];
     List<String> boothB = [
-      "Mercari & Microservices",
-      "研究開発組織「R4D」",
-      "Ask the Speaker"
+      MtcLocalizations.of(context).booth10,
+      MtcLocalizations.of(context).booth11,
+      MtcLocalizations.of(context).booth12
     ];
 
     var boothIndex = 0;
@@ -72,7 +73,8 @@ class ConferenceMapPage extends StatelessWidget {
                             )),
                         Container(
                             padding: EdgeInsets.fromLTRB(0.0, 24.0, 0.0, 16.0),
-                            child: Text("Ask the Speakerについて",
+                            child: Text(
+                                MtcLocalizations.of(context).askTheSpeakerTitle,
                                 style: TextStyle(
                                     color: kMtcPrimaryGrey,
                                     fontSize: 20.0,
@@ -80,7 +82,8 @@ class ConferenceMapPage extends StatelessWidget {
                         Container(
                             padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 60.0),
                             child: Text(
-                                "セッション後、登壇者と直接お話いただける場を設けています。SESSIONの疑問/質問などぜひ話しにお立ち寄りください。登壇者はSESSION終了後〜次のSESSIONが開始してから15分間までAsk the Speakerブースにいます。",
+                                MtcLocalizations.of(context)
+                                    .askTheSpeakerDescription,
                                 style: TextStyle(
                                     color: kMtcPrimaryGrey, fontSize: 14.0))),
                       ]),
