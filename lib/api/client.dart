@@ -160,7 +160,7 @@ class Client {
   Future<List<Exhibition>> fetchExhibitions() async {
     String _query = """
     {
-      exhibisionList {
+      exhibitionList {
         nodes {
           id
           place
