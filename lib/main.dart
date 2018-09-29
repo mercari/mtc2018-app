@@ -125,12 +125,11 @@ class _MainPageState extends State<MainPage> {
         fixedColor: Colors.white,
         items: [
           BottomNavigationBarItem(
-            title: Text("TIME TABLE"),
+            title: Text("TIMETABLE"),
             icon: Icon(Icons.event_note),
           ),
-          // TODO: Comment in
-          // BottomNavigationBarItem(
-          //     title: Text("CONTENTS"), icon: Icon(Icons.local_activity)),
+          BottomNavigationBarItem(
+              title: Text("CONTENTS"), icon: Icon(Icons.local_activity)),
           BottomNavigationBarItem(
               title: Text("ABOUT"),
               icon: Image.asset("images/about_icn.png"),
@@ -149,9 +148,8 @@ class _MainPageState extends State<MainPage> {
         return TimeTablePage(
           repository: _repository,
         );
-      // TODO: Comment In
-      // case 1:
-      //   return ContentPage();
+      case 1:
+        return ContentPage(repository: _repository);
       case 1:
         return AboutPage();
       default:
