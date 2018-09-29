@@ -48,6 +48,21 @@ flutter:
    - images/navbar_icn.png
    - images/booth_a.png
    - images/booth_b.png
+   - images/booth_a_01.png
+   - images/booth_a_02.png
+   - images/booth_a_03.png
+   - images/booth_a_04.png
+   - images/booth_a_05.png
+   - images/booth_a_06.png
+   - images/booth_a_07.png
+   - images/booth_a_08.png
+   - images/booth_a_09.png
+   - images/booth_b_10.png
+   - images/booth_b_11.png
+   - images/booth_b_12.png
+   - images/exhibition2.jpg
+   - images/exhibition7.png
+   - data/exhibitions.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.

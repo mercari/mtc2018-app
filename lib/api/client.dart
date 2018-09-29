@@ -4,6 +4,7 @@ import "dart:convert";
 import "dart:async";
 import "package:mtc2018_app/model/session.dart";
 import "package:mtc2018_app/model/exhibition.dart";
+import 'package:flutter/services.dart' show rootBundle;
 
 String _url = () {
   var isDebug = false;
@@ -158,32 +159,9 @@ class Client {
   }
 
   Future<List<Exhibition>> fetchExhibitions() async {
-    String _query = """
-    {
-      exhibisionList {
-        nodes {
-          id
-          place
-          title
-          titleJa
-          description
-          descriptionJa
-        }
-      }
-    }
-    """;
-
-    var response = await _client.post(_url,
-        body: json.encode({
-          "query": _query,
-        }));
-
-    if (response.statusCode == 200) {
-      var decoded = json.decode(utf8.decode(response.bodyBytes));
-      List<dynamic> nodes = decoded["data"]["exhibitionList"]["nodes"];
-      return nodes.map((n) => Exhibition.fromJson(n)).toList();
-    } else {
-      return [];
-    }
+    var jsonString = await rootBundle.loadString("data/exhibitions.json");
+    List<dynamic> exhibitions = json.decode(jsonString);
+    print(exhibitions);
+    return exhibitions.map((e) => Exhibition.fromJson(e)).toList();
   }
 }

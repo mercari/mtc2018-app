@@ -4,7 +4,8 @@ part "exhibition.g.dart";
 
 @JsonSerializable()
 class Exhibition extends Object with _$ExhibitionSerializerMixin {
-  Exhibition(this.id, this.place, this.title, this.titleJa, this.description, this.descriptionJa);
+  Exhibition(this.id, this.place, this.title, this.titleJa, this.description,
+      this.descriptionJa, this.exhibitionImage, this.boothImage);
 
   String id;
   String place;
@@ -12,6 +13,9 @@ class Exhibition extends Object with _$ExhibitionSerializerMixin {
   String titleJa;
   String description;
   String descriptionJa;
+  String exhibitionImage;
+  String boothImage;
 
-  factory Exhibition.fromJson(Map<String, dynamic> json) => _$ExhibitionFromJson(json);
+  factory Exhibition.fromJson(Map<String, dynamic> json) =>
+      _$ExhibitionFromJson(json);
 }
