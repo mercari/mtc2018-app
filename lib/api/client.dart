@@ -3,6 +3,7 @@ import "package:mtc2018_app/model/news.dart";
 import "dart:convert";
 import "dart:async";
 import "package:mtc2018_app/model/session.dart";
+import "package:mtc2018_app/model/exhibition.dart";
 
 String _url = () {
   var isDebug = false;
@@ -156,36 +157,17 @@ class Client {
     }
   }
 
-  //TODO
-  Future<List<Session>> fetchExhibitions() async {
+  Future<List<Exhibition>> fetchExhibitions() async {
     String _query = """
     {
-      sessionList {
+      exhibisionList {
         nodes {
           id
-          type
           place
           title
           titleJa
-          startTime
-          endTime
-          outline
-          outlineJa
-          lang
-          tags
-          speakers {
-            id
-            name
-            nameJa
-            company
-            position
-            positionJa
-            profile
-            profileJa
-            iconUrl
-            twitterId
-            githubId
-          }
+          description
+          descriptionJa
         }
       }
     }
@@ -195,10 +177,11 @@ class Client {
         body: json.encode({
           "query": _query,
         }));
+
     if (response.statusCode == 200) {
       var decoded = json.decode(utf8.decode(response.bodyBytes));
-      List<dynamic> nodes = decoded["data"]["sessionList"]["nodes"];
-      return nodes.map((n) => Session.fromJson(n)).toList();
+      List<dynamic> nodes = decoded["data"]["exhibitionList"]["nodes"];
+      return nodes.map((n) => Exhibition.fromJson(n)).toList();
     } else {
       return [];
     }
