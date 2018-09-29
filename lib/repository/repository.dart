@@ -5,6 +5,7 @@ import "package:mtc2018_app/model/exhibition.dart";
 
 abstract class Repository {
   Future<List<Session>> getSessionList();
+  Future<Session> getSessionById(String sessionId);
   Future<List<Session>> refreshSessionList();
   Future<List<News>> getNewsList();
   Future<List<News>> refreshNewsList();

@@ -13,6 +13,8 @@ class MtcLocalizations {
 
   static Map<String, Map<String, String>> _localizedValues = {
     "en": {
+      "Close": "Close",
+      "Show": "Show",
       "news_title": "News",
       "about_description": """
 Mercari Tech Conf (MTC) is a technology conference introducing the future business direction and the technological challenges of the companies of the Mercari Group to fellow engineers.
@@ -35,9 +37,27 @@ Simultaneous interpretation into English and Japanese will be provided for all s
           "Toei Route 01 bus (Shimbashi Station ⇔ Shibuya Station) : Exit at “EX-THEATER-ROPPONGI-MAE” (Approx. 16 min.)",
       "about_open_map": "Open map",
       "about_access_to_academyhills": "Access to the Academyhills",
-      "about_academyhills_site": "To the official website of Academyhills"
+      "about_academyhills_site": "To the official website of Academyhills",
+      "booth1": "Potential Applications of Quantum Annealing at Mercari",
+      "booth2":
+          "Solving Business Challenges with Engineering: Mercari’s Corporate Solutions Engineering Team",
+      "booth3": "Initiatives by the Expert Team (Gopher Dojo, Go Friday, etc.)",
+      "booth4": "MTC App by Flutter",
+      "booth5": "AQA Team Test Automation and Zapier Automation Booth",
+      "booth6": "iOS App Rearchitecture Quiz",
+      "booth7": "Welcome to Mercari US",
+      "booth8": "Days in Mercari Android",
+      "booth9": "We are the Machine Learning Team!",
+      "booth10": "Mercari & Microservices",
+      "booth11": "Research and development organization \"R4D\"",
+      "booth12": "Ask the Speaker",
+      "ask_the_speaker_title": "Ask the Speaker",
+      "ask_the_speaker_description":
+          "Ask the Speaker is an opportunity for you to talk directly to MTC speakers after their sessions. If you have any questions about a session, drop by after the session is finished and ask them anything! Speakers will move to the Ask the Speaker booth after their session ends, and remain there for the first 15 minutes of the following session."
     },
     "ja": {
+      "Close": "閉じる",
+      "Show": "表示する",
       "news_title": "お知らせ",
       "about_description": """
 Mercari Tech Conf（MTC）は、株式会社メルカリをはじめとするメルカリグループ各社が、これから目指す方向や、これから取り組む技術的なチャレンジについてご紹介するエンジニア向けの技術カンファレンスです。
@@ -59,9 +79,32 @@ Mercari Tech Conf（MTC）は、株式会社メルカリをはじめとするメ
           "都バス 都01系統【新橋駅前⇔渋谷駅前 】／「EXシアター六本木前」下車（約16分）",
       "about_open_map": "マップを開く",
       "about_access_to_academyhills": "アカデミーヒルズまでのアクセス",
-      "about_academyhills_site": "アカデミーヒルズ公式サイトへ"
+      "about_academyhills_site": "アカデミーヒルズ公式サイトへ",
+      "booth1": "メルカリにおける量子アニーリングの研究",
+      "booth2": "経営課題をエンジニアリングで解決、Corporate Solutions Engineering の取り組み",
+      "booth3": "エキスパートチームの取り組み（Gopher道場、Go Fridayなど）",
+      "booth4": "MTC App by Flutter",
+      "booth5": "AQAチームによるテスト自動化及びZapier自動化ブース",
+      "booth6": "クイズ・iOS app Rearchitecture",
+      "booth7": "Welcome to Mercari US",
+      "booth8": "Days in Mercari Android",
+      "booth9": "We are the Machine Learning team!!",
+      "booth10": "Mercari & Microservices",
+      "booth11": "研究開発組織「R4D」",
+      "booth12": "Ask the Speaker",
+      "ask_the_speaker_title": "Ask the Speakerについて",
+      "ask_the_speaker_description":
+          "セッション後、登壇者と直接お話いただける場を設けています。SESSIONの疑問/質問などぜひ話しにお立ち寄りください。登壇者はSESSION終了後〜次のSESSIONが開始してから15分間までAsk the Speakerブースにいます。"
     },
   };
+
+  String get close {
+    return _localizedValues[locale.languageCode]["Close"];
+  }
+
+  String get show {
+    return _localizedValues[locale.languageCode]["Show"];
+  }
 
   String get newsTitle {
     return _localizedValues[locale.languageCode]["news_title"];
@@ -123,6 +166,62 @@ Mercari Tech Conf（MTC）は、株式会社メルカリをはじめとするメ
 
   String get aboutAcademyhillsSite {
     return _localizedValues[locale.languageCode]["about_academyhills_site"];
+  }
+
+  String get booth1 {
+    return _localizedValues[locale.languageCode]["booth1"];
+  }
+
+  String get booth2 {
+    return _localizedValues[locale.languageCode]["booth2"];
+  }
+
+  String get booth3 {
+    return _localizedValues[locale.languageCode]["booth3"];
+  }
+
+  String get booth4 {
+    return _localizedValues[locale.languageCode]["booth4"];
+  }
+
+  String get booth5 {
+    return _localizedValues[locale.languageCode]["booth5"];
+  }
+
+  String get booth6 {
+    return _localizedValues[locale.languageCode]["booth6"];
+  }
+
+  String get booth7 {
+    return _localizedValues[locale.languageCode]["booth7"];
+  }
+
+  String get booth8 {
+    return _localizedValues[locale.languageCode]["booth8"];
+  }
+
+  String get booth9 {
+    return _localizedValues[locale.languageCode]["booth9"];
+  }
+
+  String get booth10 {
+    return _localizedValues[locale.languageCode]["booth10"];
+  }
+
+  String get booth11 {
+    return _localizedValues[locale.languageCode]["booth11"];
+  }
+
+  String get booth12 {
+    return _localizedValues[locale.languageCode]["booth12"];
+  }
+
+  String get askTheSpeakerTitle {
+    return _localizedValues[locale.languageCode]["ask_the_speaker_title"];
+  }
+
+  String get askTheSpeakerDescription {
+    return _localizedValues[locale.languageCode]["ask_the_speaker_description"];
   }
 }
 

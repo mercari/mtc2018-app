@@ -10,7 +10,10 @@ import "package:mtc2018_app/cache/memcache.dart";
 import "package:mtc2018_app/cache/cache.dart";
 import "package:mtc2018_app/repository/cache_repository.dart";
 import "package:mtc2018_app/repository/repository.dart";
-import "package:mtc2018_app/model/session.dart";
+import "package:firebase_messaging/firebase_messaging.dart";
+import "dart:async";
+import "package:mtc2018_app/page/session_detail.dart";
+import "package:mtc2018_app/page/conference_map_page.dart";
 
 void main() => runApp(MyApp());
 
@@ -56,9 +59,33 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   var _currentIndex = 0;
+  FirebaseMessaging _firebaseMessaging = new FirebaseMessaging();
 
   static final Cache _cache = MemCache();
   static final Repository _repository = CacheRepository(cache: _cache);
+
+  @override
+  void initState() {
+    super.initState();
+    _firebaseMessaging.configure(
+      onMessage: (Map<String, dynamic> message) async {
+        _showMessageDialog(message);
+      },
+      onResume: (Map<String, dynamic> message) async {
+        _navigateToSessionDetail(message);
+      },
+      onLaunch: (Map<String, dynamic> message) async {
+        await _navigateToSessionDetailOnLaunch(message);
+      },
+    );
+    _firebaseMessaging.requestNotificationPermissions(
+        const IosNotificationSettings(sound: true, badge: true, alert: true));
+    _firebaseMessaging.onIosSettingsRegistered
+        .listen((IosNotificationSettings settings) {});
+    _firebaseMessaging.getToken().then((token) {
+      print(token);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -81,6 +108,19 @@ class _MainPageState extends State<MainPage> {
         ],
         elevation: 4.0,
       ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.map),
+        foregroundColor: Colors.white,
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return ConferenceMapPage();
+                  },
+                  fullscreenDialog: true));
+        },
+      ),
       bottomNavigationBar: BottomNavigationBar(
         fixedColor: Colors.white,
         items: [
@@ -88,8 +128,9 @@ class _MainPageState extends State<MainPage> {
             title: Text("TIME TABLE"),
             icon: Icon(Icons.event_note),
           ),
-          BottomNavigationBarItem(
-              title: Text("CONTENTS"), icon: Icon(Icons.local_activity)),
+          // TODO: Comment in
+          // BottomNavigationBarItem(
+          //     title: Text("CONTENTS"), icon: Icon(Icons.local_activity)),
           BottomNavigationBarItem(
               title: Text("ABOUT"),
               icon: Image.asset("images/about_icn.png"),
@@ -108,9 +149,10 @@ class _MainPageState extends State<MainPage> {
         return TimeTablePage(
           repository: _repository,
         );
+      // TODO: Comment In
+      // case 1:
+      //   return ContentPage();
       case 1:
-        return ContentPage();
-      case 2:
         return AboutPage();
       default:
         return Text("No page");
@@ -121,5 +163,68 @@ class _MainPageState extends State<MainPage> {
     setState(() {
       _currentIndex = index;
     });
+  }
+
+  Widget _buildDialog(BuildContext context, String message) {
+    return AlertDialog(
+      content: Text(message),
+      actions: <Widget>[
+        FlatButton(
+          child: Text(MtcLocalizations.of(context).close),
+          onPressed: () {
+            Navigator.pop(context, false);
+          },
+        ),
+        FlatButton(
+          child: Text(MtcLocalizations.of(context).show),
+          onPressed: () {
+            Navigator.pop(context, true);
+          },
+        ),
+      ],
+    );
+  }
+
+  void _showMessageDialog(Map<String, dynamic> message) {
+    if (!message.containsKey("message")) {
+      return;
+    }
+    showDialog<bool>(
+      context: context,
+      builder: (_) => _buildDialog(context, message["message"]),
+    ).then((bool shouldNavigate) {
+      if (shouldNavigate == true) {
+        _navigateToSessionDetail(message);
+      }
+    });
+  }
+
+  var retryCount = 0;
+  Future<Null> _navigateToSessionDetailOnLaunch(
+      Map<String, dynamic> message) async {
+    var sessionList = await _repository.getSessionList();
+    if (sessionList.length == 0 && retryCount < 3) {
+      retryCount += 1;
+      await new Future.delayed(const Duration(milliseconds: 300));
+      _navigateToSessionDetailOnLaunch(message);
+      return;
+    } else {
+      _navigateToSessionDetail(message);
+    }
+  }
+
+  void _navigateToSessionDetail(Map<String, dynamic> message) {
+    if (!message.containsKey("id")) {
+      return;
+    }
+    final String sessionId = message['id'];
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            settings: RouteSettings(name: "/session_detail"),
+            builder: (context) {
+              return SessionDetailPage(
+                  repository: _repository, sessionId: sessionId);
+            }));
   }
 }
