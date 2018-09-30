@@ -125,7 +125,7 @@ class _MainPageState extends State<MainPage> {
         fixedColor: Colors.white,
         items: [
           BottomNavigationBarItem(
-            title: Text("TIME TABLE"),
+            title: Text("TIMETABLE"),
             icon: Icon(Icons.event_note),
           ),
           BottomNavigationBarItem(
@@ -149,9 +149,7 @@ class _MainPageState extends State<MainPage> {
           repository: _repository,
         );
       case 1:
-        return ContentPage(
-          repository: _repository,
-        );
+        return ContentPage(repository: _repository);
       case 2:
         return AboutPage();
       default:

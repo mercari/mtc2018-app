@@ -3,6 +3,7 @@ import "package:mtc2018_app/model/exhibition.dart";
 import "package:mtc2018_app/colors.dart";
 import "package:mtc2018_app/repository/repository.dart";
 import "dart:async";
+import 'package:mtc2018_app/localize.dart';
 
 class ContentPage extends StatefulWidget {
   final Repository repository;
@@ -19,7 +20,22 @@ class _ContentPageState extends State<ContentPage> {
   @override
   void initState() {
     super.initState();
-    _loadExhibitionList();
+    _init();
+  }
+
+  void _init() async {
+    final exhibitionList = await widget.repository.getExhibitionList();
+    setState(() {
+      _exhibitionList = exhibitionList;
+    });
+  }
+
+  Future<Null> _handleRefresh() async {
+    final exhibitionList = await widget.repository.refreshExhibitionList();
+    setState(() {
+      _exhibitionList = exhibitionList;
+    });
+    return null;
   }
 
   @override
@@ -33,34 +49,33 @@ class _ContentPageState extends State<ContentPage> {
     var boothAExhibitions = _exhibitionList.where((e) => e.place == "BoothA");
     var boothBExhibitions = _exhibitionList.where((e) => e.place == "BoothB");
 
-    return Container(
-        child: DefaultTabController(
-            length: 2,
-            child: Scaffold(
-              appBar: TabBar(
-                tabs: [Tab(text: "BOOTH A"), Tab(text: "BOOTH B")],
-                labelColor: kMtcSecondaryRed,
-                indicatorColor: kMtcSecondaryRed,
-              ),
-              body: TabBarView(
-                children: [
-                  RefreshIndicator(
-                      onRefresh: _handleRefresh,
-                      child: ListView(
-                          padding: EdgeInsets.all(16.0),
-                          children: boothAExhibitions.map((exhibition) {
-                            return _buildExhbiitionCard(context, exhibition);
-                          }).toList())),
-                  RefreshIndicator(
-                      onRefresh: _handleRefresh,
-                      child: ListView(
-                          padding: EdgeInsets.all(16.0),
-                          children: boothBExhibitions.map((exhibition) {
-                            return _buildExhbiitionCard(context, exhibition);
-                          }).toList())),
-                ],
-              ),
-            )));
+    return DefaultTabController(
+        length: 2,
+        child: Scaffold(
+          appBar: TabBar(
+            tabs: [Tab(text: "BOOTH A"), Tab(text: "BOOTH B")],
+            labelColor: kMtcSecondaryRed,
+            indicatorColor: kMtcSecondaryRed,
+          ),
+          body: TabBarView(
+            children: [
+              RefreshIndicator(
+                  onRefresh: _handleRefresh,
+                  child: ListView(
+                      padding: EdgeInsets.all(16.0),
+                      children: boothAExhibitions.map((exhibition) {
+                        return _buildExhbiitionCard(context, exhibition);
+                      }).toList())),
+              RefreshIndicator(
+                  onRefresh: _handleRefresh,
+                  child: ListView(
+                      padding: EdgeInsets.all(16.0),
+                      children: boothBExhibitions.map((exhibition) {
+                        return _buildExhbiitionCard(context, exhibition);
+                      }).toList())),
+            ],
+          ),
+        ));
   }
 
   Widget _buildExhbiitionCard(BuildContext context, Exhibition exhibition) {
@@ -107,22 +122,5 @@ class _ContentPageState extends State<ContentPage> {
                             style: TextStyle(color: Colors.black))))
               ],
             )));
-  }
-
-  void _loadExhibitionList() async {
-    final exhibitionList = await widget.repository.getExhibitionList();
-    exhibitionList.forEach((e) {
-      print(e.toJson());
-    });
-    setState(() {
-      _exhibitionList = exhibitionList;
-    });
-  }
-
-  Future<Null> _handleRefresh() async {
-    final exhibitionList = await widget.repository.refreshExhibitionList();
-    setState(() {
-      _exhibitionList = exhibitionList;
-    });
   }
 }

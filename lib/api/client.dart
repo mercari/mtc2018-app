@@ -163,5 +163,35 @@ class Client {
     List<dynamic> exhibitions = json.decode(jsonString);
     print(exhibitions);
     return exhibitions.map((e) => Exhibition.fromJson(e)).toList();
+
+    // FIXME: Load exhibitions from local because api does not include images now.
+
+    // String _query = """
+    // {
+    //   exhibitionList {
+    //     nodes {
+    //       id
+    //       place
+    //       title
+    //       titleJa
+    //       description
+    //       descriptionJa
+    //     }
+    //   }
+    // }
+    // """;
+
+    // var response = await _client.post(_url,
+    //     body: json.encode({
+    //       "query": _query,
+    //     }));
+
+    // if (response.statusCode == 200) {
+    //   var decoded = json.decode(utf8.decode(response.bodyBytes));
+    //   List<dynamic> nodes = decoded["data"]["exhibitionList"]["nodes"];
+    //   return nodes.map((n) => Exhibition.fromJson(n)).toList();
+    // } else {
+    //   return [];
+    // }
   }
 }
