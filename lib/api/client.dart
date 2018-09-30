@@ -161,7 +161,6 @@ class Client {
   Future<List<Exhibition>> fetchExhibitions() async {
     var jsonString = await rootBundle.loadString("data/exhibitions.json");
     List<dynamic> exhibitions = json.decode(jsonString);
-    print(exhibitions);
     return exhibitions.map((e) => Exhibition.fromJson(e)).toList();
 
     // FIXME: Load exhibitions from local because api does not include images now.

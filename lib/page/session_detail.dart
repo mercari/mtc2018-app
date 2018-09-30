@@ -28,9 +28,11 @@ class _SessionDetailPageState extends State<SessionDetailPage> {
 
   void _loadSession() async {
     final session = await widget.repository.getSessionById(widget.sessionId);
-    setState(() {
-      _session = session;
-    });
+    if (this.mounted) {
+      setState(() {
+        _session = session;
+      });
+    }
   }
 
   Widget buildBody(BuildContext context) {

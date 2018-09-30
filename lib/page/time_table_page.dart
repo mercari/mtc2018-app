@@ -91,9 +91,11 @@ class _TimeTablePageState extends State<TimeTablePage> {
 
   void _loadSessionList() async {
     final sessionList = await widget.repository.getSessionList();
-    setState(() {
-      _sessionList = sessionList;
-    });
+    if (this.mounted) {
+      setState(() {
+        _sessionList = sessionList;
+      });
+    }
   }
 
   void _onSpeakerPressed(BuildContext context, Speaker speaker) {
@@ -134,8 +136,10 @@ class _TimeTablePageState extends State<TimeTablePage> {
 
   Future<Null> _handleRefresh() async {
     final sessionList = await widget.repository.refreshSessionList();
-    setState(() {
-      _sessionList = sessionList;
-    });
+    if (this.mounted) {
+      setState(() {
+        _sessionList = sessionList;
+      });
+    }
   }
 }
