@@ -40,7 +40,8 @@ Simultaneous interpretation into English and Japanese will be provided for all s
       "about_academyhills_site": "To the official website of Academyhills",
       "ask_the_speaker_title": "Ask the Speaker",
       "ask_the_speaker_description":
-          "Ask the Speaker is an opportunity for you to talk directly to MTC speakers after their sessions. If you have any questions about a session, drop by after the session is finished and ask them anything! Speakers will move to the Ask the Speaker booth after their session ends, and remain there for the first 15 minutes of the following session."
+          "Ask the Speaker is an opportunity for you to talk directly to MTC speakers after their sessions. If you have any questions about a session, drop by after the session is finished and ask them anything! Speakers will move to the Ask the Speaker booth after their session ends, and remain there for the first 15 minutes of the following session.",
+      "booth_detail_title": "Booth Detail"
     },
     "ja": {
       "Close": "閉じる",
@@ -69,7 +70,8 @@ Mercari Tech Conf（MTC）は、株式会社メルカリをはじめとするメ
       "about_academyhills_site": "アカデミーヒルズ公式サイトへ",
       "ask_the_speaker_title": "Ask the Speakerについて",
       "ask_the_speaker_description":
-          "セッション後、登壇者と直接お話いただける場を設けています。SESSIONの疑問/質問などぜひ話しにお立ち寄りください。登壇者はSESSION終了後〜次のSESSIONが開始してから15分間までAsk the Speakerブースにいます。"
+          "セッション後、登壇者と直接お話いただける場を設けています。SESSIONの疑問/質問などぜひ話しにお立ち寄りください。登壇者はSESSION終了後〜次のSESSIONが開始してから15分間までAsk the Speakerブースにいます。",
+      "booth_detail_title": "Booth 詳細"
     },
   };
 
@@ -149,6 +151,10 @@ Mercari Tech Conf（MTC）は、株式会社メルカリをはじめとするメ
 
   String get askTheSpeakerDescription {
     return _localizedValues[locale.languageCode]["ask_the_speaker_description"];
+  }
+
+  String get boothDetailTitle {
+    return _localizedValues[locale.languageCode]["booth_detail_title"];
   }
 }
 

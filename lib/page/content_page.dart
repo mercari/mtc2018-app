@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import "package:mtc2018_app/model/exhibition.dart";
 import "package:mtc2018_app/colors.dart";
 import "package:mtc2018_app/repository/repository.dart";
+import 'package:mtc2018_app/page/content_detail_page.dart';
 
 class ContentPage extends StatefulWidget {
   final Repository repository;
@@ -92,7 +93,17 @@ class _ContentPageState extends State<ContentPage> {
     return Card(
         color: Colors.white,
         child: FlatButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      settings: RouteSettings(name: "/content_detail"),
+                      builder: (context) {
+                        return ContentDetailPage(
+                          exhibition: exhibition,
+                        );
+                      }));
+            },
             padding: EdgeInsets.all(0.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
