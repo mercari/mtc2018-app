@@ -21,16 +21,21 @@ final ThemeData _kMtcTheme = _buildMtcTheme();
 
 ThemeData _buildMtcTheme() {
   final ThemeData base = ThemeData.dark();
+  base.textTheme.apply(fontFamily: 'Noto');
+  base.primaryTextTheme.apply(fontFamily: 'Noto');
+  base.accentTextTheme.apply(fontFamily: 'Noto');
   return base.copyWith(
-    accentColor: kMtcSecondaryRed,
-    primaryColor: kMtcPrimaryGrey,
-    buttonColor: kMtcSecondaryRed,
-    scaffoldBackgroundColor: kMtcBackgroundGrey,
-    textSelectionColor: kMtcSecondaryRed,
-    errorColor: kMtcSecondaryRed,
-    canvasColor: kMtcPrimaryGrey,
-    primaryIconTheme: base.iconTheme.copyWith(color: kMtcIcon),
-  );
+      accentColor: kMtcSecondaryRed,
+      primaryColor: kMtcPrimaryGrey,
+      buttonColor: kMtcSecondaryRed,
+      scaffoldBackgroundColor: kMtcBackgroundGrey,
+      textSelectionColor: kMtcSecondaryRed,
+      errorColor: kMtcSecondaryRed,
+      canvasColor: kMtcPrimaryGrey,
+      primaryIconTheme: base.iconTheme.copyWith(color: kMtcIcon),
+      textTheme: base.textTheme.apply(fontFamily: 'Noto'),
+      primaryTextTheme: base.primaryTextTheme.apply(fontFamily: 'Noto'),
+      accentTextTheme: base.accentTextTheme.apply(fontFamily: 'Noto'));
 }
 
 class MyApp extends StatelessWidget {
