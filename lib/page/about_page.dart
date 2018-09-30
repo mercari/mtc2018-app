@@ -147,6 +147,19 @@ class AboutPage extends StatelessWidget {
                   ],
                 )),
           ])),
+      FlatButton(
+        padding: EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 32.0),
+        onPressed: () {
+          showLicensePage(
+            context: context,
+          );
+        },
+        child: Text("Licenses",
+            style: TextStyle(
+                fontSize: 12.0,
+                color: kMtcSecondaryRed,
+                decoration: TextDecoration.underline)),
+      )
     ]);
   }
 }
