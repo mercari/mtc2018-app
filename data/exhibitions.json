@@ -1,0 +1,122 @@
+[
+    {
+        "id": "Exhibition:1",
+        "place": "BoothA",
+        "title": "Potential Applications of Quantum Annealing at Mercari",
+        "titleJa": "メルカリにおける量子アニーリングの研究",
+        "description": "In 2018, Mercari began carrying out research into D-Wave. Learn about our research and experience how D-Wave works through our demonstration.",
+        "descriptionJa": "メルカリは今年に入ってからD-Waveの研究をはじめました。 今回はその研究の一部のご紹介およびD-Waveの動き方を体験できるデモンストレーションををご用意させていただきます。",
+        "exhibitionImage": "",
+        "boothImage": "booth_a_01.png"
+    },
+    {
+        "id": "Exhibition:2",
+        "place": "BoothA",
+        "title": "Solving Business Challenges with Engineering: Mercari’s Corporate Solutions Engineering Team",
+        "titleJa": "経営課題をエンジニアリングで解決、Corporate Solutions Engineering の取り組み",
+        "description": "Learn about the activities and future plans of the Corporate Solutions Engineering Team formed last year. There will also be a demo of our HR database 'Teams' and evaluation system 'Reviews'.",
+        "descriptionJa": "昨年末にスタートしたCorporate Solutions Engineeringのここまでの動きとこれからについてご紹介します。人事データベース Teams と評価システム Reviewsのデモも行います。",
+        "exhibitionImage": "exhibition2.jpg",
+        "boothImage": "booth_a_02.png"
+    },
+    {
+        "id": "Exhibition:3",
+        "place": "BoothA",
+        "title": "Initiatives by the Expert Team (Gopher DojoGo Friday,etc.)",
+        "titleJa": "エキスパートチームの取り組み（Gopher道場、Go Fridayなど）",
+        "description": "Learn more about our Gopher Dojo, Go Friday, and the activities of the Merpay Expert Team. A hands on experience with plenty of demos to enjoy!,",
+        "descriptionJa": "Gopher道場やGo Fridayなど、メルペイのエキスパートチームが日頃取り組んでいる社内外での活動についてご紹介いたします。また、実際に体験できるコンテンツもご用意しておりますのでお楽しみに！",
+        "exhibitionImage": "",
+        "boothImage": "booth_a_03.png"
+    },
+    {
+        "id": "Exhibition:4",
+        "place": "BoothA",
+        "title": "MTC App by Flutter",
+        "titleJa": "MTC App by Flutter",
+        "description": "Learn about the inner workings of the app (iOS/Android) we made for this conference using Flutter.",
+        "descriptionJa": "Flutterで作ったカンファレンスアプリ（iOS/Android）の内側をご紹介します。",
+        "exhibitionImage": "",
+        "boothImage": "booth_a_04.png"
+    },
+    {
+        "id": "Exhibition:5",
+        "place": "BoothA",
+        "title": "AQA Team Test Automation and Zapier Automation Booth",
+        "titleJa": "AQAチームによるテスト自動化及びZapier自動化ブース",
+        "description": "Take a behind-the-scenes look at Mercari’s mobile test automation. We’ll also be introducing Zapier an automation tool used at the company.",
+        "descriptionJa": "メルカリが取り組んでいるモバイルテスト自動化の取り組みや裏側、そして社内で使われている自動化ツール「Zapier」についてご紹介します。",
+        "exhibitionImage": "",
+        "boothImage": "booth_a_05.png"
+    },
+    {
+        "id": "Exhibition:6",
+        "place": "BoothA",
+        "title": "iOS App Rearchitecture Quiz",
+        "titleJa": "クイズ・iOS app Rearchitecture",
+        "description": "The iOS team is in the process of rehauling the architecture of the Mercari JP app. Experience the changes we are implementing first-hand with a demo using the actual app!",
+        "descriptionJa": "メルカリのJP版メルカリは、iOSチームによりアーキテクチャの大刷新が行われています。 その違いを実際のアプリを通して見比べることができるコンテンツをご用意させていただきましたので、ぜひお楽しみくださいませ！",
+        "exhibitionImage": "",
+        "boothImage": "booth_a_06.png"
+    },
+    {
+        "id": "Exhibition:7",
+        "place": "BoothA",
+        "title": "Welcome to Mercari US",
+        "titleJa": "Welcome to Mercari US",
+        "description": "Hello, we are Mercari US. This year, we rebranded the Mercari US and completely transformed the app. Try out the US version of Mercari at our demo corner and experience the atmosphere of our US office through video and free swags.",
+        "descriptionJa": "Hello, we are Mercari US. 今年リブランドし生まれ変わったUS版メルカリを実際に体験できるコーナーや、US現地のオフィスの雰囲気を知ってもらえるよう、映像やノベルティをご用意してお待ちしております！",
+        "exhibitionImage": "exhibition7.png",
+        "boothImage": "booth_a_07.png"
+    },
+    {
+        "id": "Exhibition:8",
+        "place": "BoothA",
+        "title": "Days in Mercari Android",
+        "titleJa": "Days in Mercari Android",
+        "description": "Learn about the everyday life of engineers on Mercari's Android Team including the kinds of features we’re developing and the documentation we produce.",
+        "descriptionJa": "メルカリAndroidチームのエンジニアが実際にどのように機能開発やドキュメンテーションに取り組んでいるかをイメージいただけるような、リアルな開発チームの日常をご紹介します。",
+        "exhibitionImage": "",
+        "boothImage": "booth_a_08.png"
+    },
+    {
+        "id": "Exhibition:9",
+        "place": "BoothA",
+        "title": "We are the Machine Learning Team!",
+        "titleJa": "We are the Machine Learning team!!",
+        "description": "Learn about the work of Mercari's Machine Learning Team and the critical thinking we apply in solving challenges with machine learning.",
+        "descriptionJa": "メルカリ機械学習チームの取り組みと我々がどのような問題意識をもって課題解決に取り組んでいるかをご紹介します。",
+        "exhibitionImage": "",
+        "boothImage": "booth_a_09.png"
+    },
+    {
+        "id": "Exhibition:10",
+        "place": "BoothB",
+        "title": "Mercari & Microservice",
+        "titleJa": "Mercari & Microservices",
+        "description": "Learn about microservices at Mercari and talk with the team members involved in our project to move to microservices.",
+        "descriptionJa": "mercariのMicroservices について、実際に業務を担当しているメンバーからのご紹介とディスカッションの場です。",
+        "exhibitionImage": "",
+        "boothImage": "booth_b_10.png"
+    },
+    {
+        "id": "Exhibition:11",
+        "place": "BoothB",
+        "title": "Research and development organization R4D",
+        "titleJa": "研究開発組織「R4D」",
+        "description": "Learn about R4D, Mercari's research and development organization. There will be demonstrations on robotics using quantum computing (currently undergoing research and development).",
+        "descriptionJa": "メルカリの研究開発組織「R4D」で進めているプロジェクトをご紹介します。また、量子コンピュータを用いたロボットのデモンストレーション（研究開発中）も行う予定です。",
+        "exhibitionImage": "",
+        "boothImage": "booth_b_11.png"
+    },
+    {
+        "id": "Exhibition:12",
+        "place": "BoothB",
+        "title": "Ask the Speaker",
+        "titleJa": "Ask the Speaker",
+        "description": "Ask the Speaker is an opportunity for you to talk directly to MTC speakers after their sessions. If you have any questions about a session, drop by after the session is finished and ask them anything! Speakers will move to the Ask the Speaker booth after their session ends, and remain there for the first 15 minutes of the following session.",
+        "descriptionJa": "セッション後、登壇者と直接お話いただける場を設けています。SESSIONの疑問/質問などぜひ話しにお立ち寄りください。登壇者はSESSION終了後〜次のSESSIONが開始してから15分間までAsk the Speakerブースにいます。",
+        "exhibitionImage": "",
+        "boothImage": "booth_b_12.png"
+    }
+]

@@ -5,6 +5,7 @@ import "repository.dart";
 import "package:mtc2018_app/cache/cache.dart";
 import "package:mtc2018_app/model/session.dart";
 import "package:mtc2018_app/model/news.dart";
+import "package:mtc2018_app/model/exhibition.dart";
 
 class CacheRepository extends Repository {
   final Cache cache;
@@ -63,5 +64,24 @@ class CacheRepository extends Repository {
     final newsList = await client.fetchNews();
     cache.put("NewsList", newsList);
     return newsList;
+  }
+
+  @override
+  Future<List<Exhibition>> getExhibitionList() async {
+    final cachedExhibitionList = await cache.get("ExhibitionList") as List<Exhibition>;
+    if (cachedExhibitionList != null) {
+      return cachedExhibitionList;
+    }
+
+    final exhibitionList = await client.fetchExhibitions();
+    cache.put("ExhibitionList", exhibitionList);
+    return exhibitionList;
+  }
+
+  @override
+  Future<List<Exhibition>> refreshExhibitionList() async {
+    final exhibitionList = await client.fetchExhibitions();
+    cache.put("ExhibitionList", exhibitionList);
+    return exhibitionList;
   }
 }
