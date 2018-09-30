@@ -159,14 +159,6 @@ class SessionCard extends StatelessWidget {
                   style: TextStyle(
                       fontWeight: FontWeight.bold, color: Colors.black)),
               subtitle: Text(position, style: TextStyle(color: Colors.black)),
-              // trailing: IconButton(
-              //     icon: const Icon(Icons.favorite_border),
-              //     color: Colors.black,
-              //     onPressed: () {
-              //       AlertDialog(
-              //           title: Text("Go to the session!"),
-              //           content: Text("Hey!"));
-              //     }),
             )));
   }
 }

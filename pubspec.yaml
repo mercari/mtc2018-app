@@ -14,6 +14,7 @@ dependencies:
   url_launcher: ^3.0.3
   font_awesome_flutter: ^8.0.1
   firebase_messaging: ^2.0.0
+  share: ^0.5.3
 
 dev_dependencies:
   flutter_test:
