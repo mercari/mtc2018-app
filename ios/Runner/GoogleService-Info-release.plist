@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>186100061778-nl2iq7u74vcumk6gbgcbgt8ni3i3p4hi.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.186100061778-nl2iq7u74vcumk6gbgcbgt8ni3i3p4hi</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDrxsbjUUrvoYtqSUP8hg7Nwe_bbbxUoCw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>186100061778</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.mercari.ios.mtc</string>
+	<key>PROJECT_ID</key>
+	<string>kouzoh-mtc2018-jp-prod</string>
+	<key>STORAGE_BUCKET</key>
+	<string>kouzoh-mtc2018-jp-prod.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:186100061778:ios:2195a4adfb3ce7a1</string>
+	<key>DATABASE_URL</key>
+	<string>https://kouzoh-mtc2018-jp-prod.firebaseio.com</string>
+</dict>
+</plist>
