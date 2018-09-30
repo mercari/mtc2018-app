@@ -2,8 +2,6 @@ import "package:flutter/material.dart";
 import "package:mtc2018_app/model/exhibition.dart";
 import "package:mtc2018_app/colors.dart";
 import "package:mtc2018_app/repository/repository.dart";
-import "dart:async";
-import 'package:mtc2018_app/localize.dart';
 
 class ContentPage extends StatefulWidget {
   final Repository repository;
@@ -30,13 +28,13 @@ class _ContentPageState extends State<ContentPage> {
     });
   }
 
-  Future<Null> _handleRefresh() async {
-    final exhibitionList = await widget.repository.refreshExhibitionList();
-    setState(() {
-      _exhibitionList = exhibitionList;
-    });
-    return null;
-  }
+  // Future<Null> _handleRefresh() async {
+  //   final exhibitionList = await widget.repository.refreshExhibitionList();
+  //   setState(() {
+  //     _exhibitionList = exhibitionList;
+  //   });
+  //   return null;
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -59,20 +57,16 @@ class _ContentPageState extends State<ContentPage> {
           ),
           body: TabBarView(
             children: [
-              RefreshIndicator(
-                  onRefresh: _handleRefresh,
-                  child: ListView(
-                      padding: EdgeInsets.all(16.0),
-                      children: boothAExhibitions.map((exhibition) {
-                        return _buildExhbiitionCard(context, exhibition);
-                      }).toList())),
-              RefreshIndicator(
-                  onRefresh: _handleRefresh,
-                  child: ListView(
-                      padding: EdgeInsets.all(16.0),
-                      children: boothBExhibitions.map((exhibition) {
-                        return _buildExhbiitionCard(context, exhibition);
-                      }).toList())),
+              ListView(
+                  padding: EdgeInsets.all(16.0),
+                  children: boothAExhibitions.map((exhibition) {
+                    return _buildExhbiitionCard(context, exhibition);
+                  }).toList()),
+              ListView(
+                  padding: EdgeInsets.all(16.0),
+                  children: boothBExhibitions.map((exhibition) {
+                    return _buildExhbiitionCard(context, exhibition);
+                  }).toList()),
             ],
           ),
         ));

@@ -1,26 +1,46 @@
 import "package:flutter/material.dart";
 import "package:mtc2018_app/colors.dart";
 import "package:mtc2018_app/localize.dart";
+import "package:mtc2018_app/repository/repository.dart";
+import "package:mtc2018_app/model/exhibition.dart";
 
-class ConferenceMapPage extends StatelessWidget {
+class ConferenceMapPage extends StatefulWidget {
+  final Repository repository;
+
+  const ConferenceMapPage({Key key, this.repository}) : super(key: key);
+
+  @override
+  _ConferenceMapPageState createState() => _ConferenceMapPageState();
+}
+
+class _ConferenceMapPageState extends State<ConferenceMapPage> {
+  List<Exhibition> _exhibitionList = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _init();
+  }
+
+  void _init() async {
+    final exhibitionList = await widget.repository.getExhibitionList();
+    setState(() {
+      _exhibitionList = exhibitionList;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    List<String> boothA = [
-      MtcLocalizations.of(context).booth1,
-      MtcLocalizations.of(context).booth2,
-      MtcLocalizations.of(context).booth3,
-      MtcLocalizations.of(context).booth4,
-      MtcLocalizations.of(context).booth5,
-      MtcLocalizations.of(context).booth6,
-      MtcLocalizations.of(context).booth7,
-      MtcLocalizations.of(context).booth8,
-      MtcLocalizations.of(context).booth9
-    ];
-    List<String> boothB = [
-      MtcLocalizations.of(context).booth10,
-      MtcLocalizations.of(context).booth11,
-      MtcLocalizations.of(context).booth12
-    ];
+    if (_exhibitionList.length == 0) {
+      return Scaffold(
+          appBar: AppBar(title: Text("Map"), centerTitle: false),
+          body: Center(
+            child: CircularProgressIndicator(),
+          ));
+    }
+
+    var boothAExhibitions = _exhibitionList.where((e) => e.place == "BoothA");
+    var boothBExhibitions = _exhibitionList.where((e) => e.place == "BoothB");
 
     var boothIndex = 0;
     return Scaffold(
@@ -48,9 +68,10 @@ class ConferenceMapPage extends StatelessWidget {
                             padding: EdgeInsets.all(24.0),
                             child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: boothA.map((booth) {
+                                children: boothAExhibitions.map((exhibition) {
                                   boothIndex += 1;
-                                  return _buildBoothInfo(boothIndex, booth);
+                                  return _buildExhibitionInfo(
+                                      context, boothIndex, exhibition);
                                 }).toList()),
                           ),
                         )
@@ -66,9 +87,10 @@ class ConferenceMapPage extends StatelessWidget {
                               padding: EdgeInsets.all(24.0),
                               child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: boothB.map((booth) {
+                                  children: boothBExhibitions.map((exhibition) {
                                     boothIndex += 1;
-                                    return _buildBoothInfo(boothIndex, booth);
+                                    return _buildExhibitionInfo(
+                                        context, boothIndex, exhibition);
                                   }).toList()),
                             )),
                         Container(
@@ -92,7 +114,13 @@ class ConferenceMapPage extends StatelessWidget {
                 ))));
   }
 
-  Widget _buildBoothInfo(int index, String text) {
+  Widget _buildExhibitionInfo(
+      BuildContext context, int index, Exhibition exhibition) {
+    Locale currentLocale = Localizations.localeOf(context);
+    var title = currentLocale.languageCode == "ja"
+        ? exhibition.titleJa
+        : exhibition.title;
+
     return Container(
         padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 16.0),
         child: Row(
@@ -106,7 +134,7 @@ class ConferenceMapPage extends StatelessWidget {
                         color: kMtcPrimaryGrey,
                         fontWeight: FontWeight.bold))),
             Flexible(
-                child: Text(text,
+                child: Text(title,
                     style: TextStyle(color: kMtcPrimaryGrey, fontSize: 14.0)))
           ],
         ));

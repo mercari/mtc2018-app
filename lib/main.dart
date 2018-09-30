@@ -116,7 +116,7 @@ class _MainPageState extends State<MainPage> {
               context,
               MaterialPageRoute(
                   builder: (BuildContext context) {
-                    return ConferenceMapPage();
+                    return ConferenceMapPage(repository: _repository);
                   },
                   fullscreenDialog: true));
         },
