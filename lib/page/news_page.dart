@@ -24,9 +24,11 @@ class _NewsPageState extends State<NewsPage> {
 
   void _init() async {
     final newsList = await widget.repository.getNewsList();
-    setState(() {
-      _newsList = newsList;
-    });
+    if (this.mounted) {
+      setState(() {
+        _newsList = newsList;
+      });
+    }
   }
 
   @override
@@ -95,9 +97,11 @@ class _NewsPageState extends State<NewsPage> {
 
   Future<Null> _handleRefresh() async {
     final newsList = await widget.repository.refreshNewsList();
-    setState(() {
-      _newsList = newsList;
-    });
+    if (this.mounted) {
+      setState(() {
+        _newsList = newsList;
+      });
+    }
     return null;
   }
 }
