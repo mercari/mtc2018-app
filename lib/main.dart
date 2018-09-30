@@ -129,7 +129,7 @@ class _MainPageState extends State<MainPage> {
             icon: Icon(Icons.event_note),
           ),
           BottomNavigationBarItem(
-              title: Text("CONTENTS"), icon: Icon(Icons.local_activity)),
+              title: Text("BOOTH"), icon: Icon(Icons.local_activity)),
           BottomNavigationBarItem(
               title: Text("ABOUT"),
               icon: Image.asset("images/about_icn.png"),
