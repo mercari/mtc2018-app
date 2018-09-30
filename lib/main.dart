@@ -21,9 +21,6 @@ final ThemeData _kMtcTheme = _buildMtcTheme();
 
 ThemeData _buildMtcTheme() {
   final ThemeData base = ThemeData.dark();
-  base.textTheme.apply(fontFamily: 'Noto');
-  base.primaryTextTheme.apply(fontFamily: 'Noto');
-  base.accentTextTheme.apply(fontFamily: 'Noto');
   return base.copyWith(
       accentColor: kMtcSecondaryRed,
       primaryColor: kMtcPrimaryGrey,
