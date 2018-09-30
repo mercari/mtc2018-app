@@ -5,6 +5,7 @@ import "package:intl/intl.dart";
 import "package:mtc2018_app/widget/social_user_button.dart";
 import "package:mtc2018_app/colors.dart";
 import "package:mtc2018_app/repository/repository.dart";
+import 'package:share/share.dart';
 
 class SessionDetailPage extends StatefulWidget {
   final Repository repository;
@@ -218,6 +219,19 @@ class _SessionDetailPageState extends State<SessionDetailPage> {
           title: Text(_session.title),
           centerTitle: false,
         ),
+        floatingActionButton: FloatingActionButton(
+            child: Icon(Icons.share),
+            foregroundColor: Colors.white,
+            onPressed: () {
+              Locale currentLocale = Localizations.localeOf(context);
+              var title = currentLocale.languageCode == "ja"
+                  ? _session.titleJa
+                  : _session.title;
+              var url = "https://techconf.mercari.com/2018/session/" +
+                  _session.id.replaceAll("Session:", "");
+              var text = "$title $url #mtc18";
+              Share.share(text);
+            }),
         body: buildBody(context));
   }
 }
