@@ -74,14 +74,6 @@ class _ContentPageState extends State<ContentPage> {
   }
 
   Widget _buildExhbiitionCard(BuildContext context, Exhibition exhibition) {
-    Locale currentLocale = Localizations.localeOf(context);
-    var title = currentLocale.languageCode == "ja"
-        ? exhibition.titleJa
-        : exhibition.title;
-    var description = currentLocale.languageCode == "ja"
-        ? exhibition.descriptionJa
-        : exhibition.description;
-
     Widget image;
     if (exhibition.exhibitionImage != "") {
       image = ClipRRect(
@@ -114,7 +106,7 @@ class _ContentPageState extends State<ContentPage> {
                         top: 16.0, left: 20.0, right: 20.0),
                     child: Container(
                         margin: const EdgeInsets.only(bottom: 10.0),
-                        child: Text(title,
+                        child: Text(exhibition.localizedTitle(context),
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 25.0,
@@ -123,7 +115,7 @@ class _ContentPageState extends State<ContentPage> {
                     padding: const EdgeInsets.only(left: 20.0, right: 20.0),
                     child: Container(
                         margin: const EdgeInsets.only(top: 20.0, bottom: 20.0),
-                        child: Text(description,
+                        child: Text(exhibition.localizedDescription(context),
                             style: TextStyle(color: Colors.black))))
               ],
             )));

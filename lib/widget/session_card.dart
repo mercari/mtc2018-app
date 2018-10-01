@@ -24,12 +24,6 @@ class SessionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Locale currentLocale = Localizations.localeOf(context);
-    var title =
-        currentLocale.languageCode == "ja" ? session.titleJa : session.title;
-    var outline = currentLocale.languageCode == "ja"
-        ? session.outlineJa
-        : session.outline;
     return Card(
         color: Colors.white,
         child: FlatButton(
@@ -44,10 +38,10 @@ class SessionCard extends StatelessWidget {
                         session.startTime, session.endTime)),
                 Container(
                     padding: const EdgeInsets.only(left: 20.0, right: 20.0),
-                    child: buildSessionTitle(title)),
+                    child: buildSessionTitle(session.localizedTitle(context))),
                 Container(
                     padding: const EdgeInsets.only(left: 20.0, right: 20.0),
-                    child: buildSessionText(outline)),
+                    child: buildSessionText(session.localizedOutline(context))),
                 Container(
                     padding: const EdgeInsets.only(
                         left: 20.0, right: 20.0, bottom: 12.0),

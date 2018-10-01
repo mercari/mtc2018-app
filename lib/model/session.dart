@@ -1,5 +1,6 @@
 import "speaker.dart";
 import "package:json_annotation/json_annotation.dart";
+import "package:flutter/material.dart";
 
 part "session.g.dart";
 
@@ -34,4 +35,14 @@ class Session extends Object with _$SessionSerializerMixin {
 
   factory Session.fromJson(Map<String, dynamic> json) =>
       _$SessionFromJson(json);
+
+  String localizedTitle(BuildContext context) {
+    Locale currentLocale = Localizations.localeOf(context);
+    return currentLocale.languageCode == "ja" ? titleJa : title;
+  }
+
+  String localizedOutline(BuildContext context) {
+    Locale currentLocale = Localizations.localeOf(context);
+    return currentLocale.languageCode == "ja" ? outlineJa : outline;
+  }
 }

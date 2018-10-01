@@ -19,15 +19,6 @@ class ContentDetailPage extends StatelessWidget {
   }
 
   Widget buildBody(BuildContext context) {
-    Locale currentLocale = Localizations.localeOf(context);
-    var title = currentLocale.languageCode == "ja"
-        ? exhibition.titleJa
-        : exhibition.title;
-
-    var description = currentLocale.languageCode == "ja"
-        ? exhibition.descriptionJa
-        : exhibition.description;
-
     Widget image;
     if (exhibition.exhibitionImage != "") {
       image = ClipRRect(
@@ -47,7 +38,7 @@ class ContentDetailPage extends StatelessWidget {
                     color: kMtcBackgroundGrey,
                     child: Container(
                         margin: const EdgeInsets.only(bottom: 10.0),
-                        child: Text(title,
+                        child: Text(exhibition.localizedTitle(context),
                             style: const TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 22.0))),
                   ))),
@@ -64,7 +55,8 @@ class ContentDetailPage extends StatelessWidget {
                         image != null ? image : Container(),
                         Container(
                             padding: EdgeInsets.fromLTRB(0.0, 24.0, 0.0, 32.0),
-                            child: Text(description,
+                            child: Text(
+                                exhibition.localizedDescription(context),
                                 style: TextStyle(
                                     fontSize: 14.0, color: kMtcPrimaryGrey))),
                         Container(

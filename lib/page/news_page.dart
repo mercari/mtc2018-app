@@ -54,10 +54,6 @@ class _NewsPageState extends State<NewsPage> {
           child: ListView(
             padding: EdgeInsets.all(16.0),
             children: _newsList.map((news) {
-              Locale currentLocale = Localizations.localeOf(context);
-              var message = currentLocale.languageCode == "ja"
-                  ? news.messageJa
-                  : news.message;
               return Card(
                   color: Colors.white,
                   child: Container(
@@ -71,7 +67,7 @@ class _NewsPageState extends State<NewsPage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    message,
+                                    news.localizedMessage(context),
                                     style: TextStyle(
                                         fontSize: 16.0,
                                         color: kMtcPrimaryGrey,
@@ -86,7 +82,8 @@ class _NewsPageState extends State<NewsPage> {
                           ],
                         ),
                         Container(height: 12.0),
-                        Text(message, style: TextStyle(color: kMtcPrimaryGrey)),
+                        Text(news.localizedMessage(context),
+                            style: TextStyle(color: kMtcPrimaryGrey)),
                       ],
                     ),
                   ));

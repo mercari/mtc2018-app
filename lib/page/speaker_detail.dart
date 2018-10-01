@@ -20,15 +20,6 @@ class SpeakerDetailPage extends StatelessWidget {
   }
 
   Widget buildSpeakerInformation(BuildContext context) {
-    Locale currentLocale = Localizations.localeOf(context);
-    var profile = currentLocale.languageCode == "ja"
-        ? speaker.profileJa
-        : speaker.profile;
-    var name =
-        currentLocale.languageCode == "ja" ? speaker.nameJa : speaker.name;
-    var position = currentLocale.languageCode == "ja"
-        ? speaker.positionJa
-        : speaker.position;
     return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -41,18 +32,18 @@ class SpeakerDetailPage extends StatelessWidget {
                   backgroundImage: new NetworkImage(speaker.iconUrl),
                   radius: 25.0,
                 ),
-                title: Text(name,
+                title: Text(speaker.localizedName(context),
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: kMtcPrimaryGrey,
                         fontSize: 18.0)),
-                subtitle: Text(position,
+                subtitle: Text(speaker.localizedPosition(context),
                     style: TextStyle(color: kMtcPrimaryGrey, fontSize: 12.0)),
                 // trailing: IconButton(icon: const Icon(Icons.favorite_border), color: Colors.black, onPressed: () { AlertDialog(title: Text("Go to the session!"), content: Text("Hey!")); }),
               ))),
           Container(
               margin: const EdgeInsets.only(bottom: 24.0),
-              child: Text(profile,
+              child: Text(speaker.localizedProfile(context),
                   style: TextStyle(color: kMtcPrimaryGrey, fontSize: 14.0))),
           buildLinkButtons(speaker)
         ]);
@@ -93,7 +84,7 @@ class SpeakerDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(speaker.name),
+          title: Text(speaker.localizedName(context)),
           centerTitle: false,
         ),
         body: buildBody(context));
