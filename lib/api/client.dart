@@ -7,14 +7,7 @@ import "package:mtc2018_app/model/exhibition.dart";
 import 'package:flutter/services.dart' show rootBundle;
 
 String _url = () {
-  var isDebug = false;
-  assert(isDebug = true);
-
-  if (isDebug) {
-    return "https://mtc2018.dev.citadelapps.com/2018/api/query";
-  } else {
-    return "https://techconf.mercari.com/2018/api/query";
-  }
+  return "https://techconf.mercari.com/2018/api/query";
 }();
 
 class Client {
