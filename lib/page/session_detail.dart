@@ -37,11 +37,6 @@ class _SessionDetailPageState extends State<SessionDetailPage> {
   }
 
   Widget buildBody(BuildContext context) {
-    Locale currentLocale = Localizations.localeOf(context);
-    var outline = currentLocale.languageCode == "ja"
-        ? _session.outlineJa
-        : _session.outline;
-
     return Container(
         margin: EdgeInsets.only(top: 20.0),
         child: ListView(children: <Widget>[
@@ -52,7 +47,8 @@ class _SessionDetailPageState extends State<SessionDetailPage> {
               margin: const EdgeInsets.only(top: 30.0),
               padding: const EdgeInsets.only(left: 20.0, right: 20.0),
               color: Colors.white,
-              child: buildContent(context, outline, _session.speakers))
+              child: buildContent(context, _session.localizedOutline(context),
+                  _session.speakers))
         ]));
   }
 
@@ -64,10 +60,6 @@ class _SessionDetailPageState extends State<SessionDetailPage> {
     var startTimeString = formatter.format(start);
     var endTimeString = formatter.format(end);
     var timeRangeString = "$startTimeString ~ $endTimeString";
-
-    Locale currentLocale = Localizations.localeOf(context);
-    var title =
-        currentLocale.languageCode == "ja" ? _session.titleJa : _session.title;
 
     return Material(
         type: MaterialType.canvas,
@@ -83,7 +75,7 @@ class _SessionDetailPageState extends State<SessionDetailPage> {
                             fontWeight: FontWeight.bold, fontSize: 14.0))),
                 Container(
                     margin: const EdgeInsets.only(bottom: 10.0),
-                    child: Text(title,
+                    child: Text(_session.localizedTitle(context),
                         style: const TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 22.0))),
                 Container(
@@ -142,15 +134,6 @@ class _SessionDetailPageState extends State<SessionDetailPage> {
   }
 
   Widget buildSpeakerInformation(BuildContext context, Speaker speaker) {
-    Locale currentLocale = Localizations.localeOf(context);
-    var profile = currentLocale.languageCode == "ja"
-        ? speaker.profileJa
-        : speaker.profile;
-    var name =
-        currentLocale.languageCode == "ja" ? speaker.nameJa : speaker.name;
-    var position = currentLocale.languageCode == "ja"
-        ? speaker.positionJa
-        : speaker.position;
     return Container(
         padding: EdgeInsets.all(24.0),
         child: Column(
@@ -165,16 +148,16 @@ class _SessionDetailPageState extends State<SessionDetailPage> {
                       backgroundImage: new NetworkImage(speaker.iconUrl),
                       radius: 25.0,
                     ),
-                    title: Text(name,
+                    title: Text(speaker.localizedName(context),
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: kMtcPrimaryGrey)),
-                    subtitle: Text(position,
+                    subtitle: Text(speaker.localizedPosition(context),
                         style: TextStyle(color: kMtcPrimaryGrey)),
                   ))),
               Container(
                   margin: const EdgeInsets.only(bottom: 20.0),
-                  child: Text(profile,
+                  child: Text(speaker.localizedProfile(context),
                       style:
                           TextStyle(color: kMtcPrimaryGrey, fontSize: 12.0))),
               buildLinkButtons(speaker)
@@ -216,17 +199,14 @@ class _SessionDetailPageState extends State<SessionDetailPage> {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text(_session.title),
+          title: Text(_session.localizedTitle(context)),
           centerTitle: false,
         ),
         floatingActionButton: FloatingActionButton(
             child: Icon(Icons.share),
             foregroundColor: Colors.white,
             onPressed: () {
-              Locale currentLocale = Localizations.localeOf(context);
-              var title = currentLocale.languageCode == "ja"
-                  ? _session.titleJa
-                  : _session.title;
+              var title = _session.localizedTitle(context);
               var url = "https://techconf.mercari.com/2018/session/" +
                   _session.id.replaceAll("Session:", "");
               var text = "$title $url #mtc18";

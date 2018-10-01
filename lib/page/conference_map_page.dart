@@ -116,11 +116,6 @@ class _ConferenceMapPageState extends State<ConferenceMapPage> {
 
   Widget _buildExhibitionInfo(
       BuildContext context, int index, Exhibition exhibition) {
-    Locale currentLocale = Localizations.localeOf(context);
-    var title = currentLocale.languageCode == "ja"
-        ? exhibition.titleJa
-        : exhibition.title;
-
     return Container(
         padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 16.0),
         child: Row(
@@ -134,7 +129,7 @@ class _ConferenceMapPageState extends State<ConferenceMapPage> {
                         color: kMtcPrimaryGrey,
                         fontWeight: FontWeight.bold))),
             Flexible(
-                child: Text(title,
+                child: Text(exhibition.localizedTitle(context),
                     style: TextStyle(color: kMtcPrimaryGrey, fontSize: 14.0)))
           ],
         ));
