@@ -78,85 +78,87 @@ class _ConferenceMapPageState extends State<ConferenceMapPage> {
                     children: [
                       Container(
                           color: Colors.white,
-                          child: ListView(
-                              padding: EdgeInsets.all(16.0),
-                              children: [
-                                Container(
-                                  padding:
-                                      EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 32.0),
-                                  child: Image.asset("images/tab_all.png"),
-                                )
-                              ])),
+                          child:
+                              ListView(padding: EdgeInsets.all(8.0), children: [
+                            Container(
+                              padding:
+                                  EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 32.0),
+                              child: Image.asset("images/tab_all.png"),
+                            )
+                          ])),
                       Container(
+                          padding: EdgeInsets.only(bottom: 64.0),
                           color: Colors.white,
-                          child: ListView(
-                              padding: EdgeInsets.all(16.0),
-                              children: [
-                                Container(
-                                  padding:
-                                      EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 32.0),
-                                  child: Image.asset("images/booth_a.png"),
-                                ),
-                                Container(
+                          child:
+                              ListView(padding: EdgeInsets.all(8.0), children: [
+                            Container(
+                              padding:
+                                  EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 32.0),
+                              child: Image.asset("images/booth_a.png"),
+                            ),
+                            Container(
+                              decoration: BoxDecoration(
                                   color: kMtcAboutSectionBackgroundGrey,
-                                  child: Container(
-                                    padding: EdgeInsets.all(24.0),
-                                    child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children:
-                                            boothAExhibitions.map((exhibition) {
-                                          boothIndex += 1;
-                                          return _buildExhibitionInfo(
-                                              context, boothIndex, exhibition);
-                                        }).toList()),
-                                  ),
-                                )
-                              ])),
+                                  borderRadius: BorderRadius.circular(8.0)),
+                              child: Container(
+                                padding: EdgeInsets.all(24.0),
+                                child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children:
+                                        boothAExhibitions.map((exhibition) {
+                                      boothIndex += 1;
+                                      return _buildExhibitionInfo(
+                                          context, boothIndex, exhibition);
+                                    }).toList()),
+                              ),
+                            )
+                          ])),
                       Container(
                           color: Colors.white,
-                          child: ListView(
-                              padding: EdgeInsets.all(16.0),
-                              children: [
-                                Container(
-                                  padding:
-                                      EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 32.0),
-                                  child: Image.asset("images/booth_b.png"),
-                                ),
-                                Container(
+                          child:
+                              ListView(padding: EdgeInsets.all(8.0), children: [
+                            Container(
+                              padding:
+                                  EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 32.0),
+                              child: Image.asset("images/booth_b.png"),
+                            ),
+                            Container(
+                                decoration: BoxDecoration(
                                     color: kMtcAboutSectionBackgroundGrey,
-                                    child: Container(
-                                      padding: EdgeInsets.all(24.0),
-                                      child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: boothBExhibitions
-                                              .map((exhibition) {
-                                            boothIndex += 1;
-                                            return _buildExhibitionInfo(context,
-                                                boothIndex, exhibition);
-                                          }).toList()),
-                                    )),
-                                Container(
-                                    padding: EdgeInsets.fromLTRB(
-                                        0.0, 24.0, 0.0, 16.0),
-                                    child: Text(
-                                        MtcLocalizations.of(context)
-                                            .askTheSpeakerTitle,
-                                        style: TextStyle(
-                                            color: kMtcPrimaryGrey,
-                                            fontSize: 20.0,
-                                            fontWeight: FontWeight.bold))),
-                                Container(
-                                    padding: EdgeInsets.fromLTRB(
-                                        0.0, 0.0, 0.0, 60.0),
-                                    child: Text(
-                                        MtcLocalizations.of(context)
-                                            .askTheSpeakerDescription,
-                                        style: TextStyle(
-                                            color: kMtcPrimaryGrey,
-                                            fontSize: 14.0))),
-                              ])),
+                                    borderRadius: BorderRadius.circular(8.0)),
+                                child: Container(
+                                  padding: EdgeInsets.all(24.0),
+                                  child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children:
+                                          boothBExhibitions.map((exhibition) {
+                                        boothIndex += 1;
+                                        return _buildExhibitionInfo(
+                                            context, boothIndex, exhibition);
+                                      }).toList()),
+                                )),
+                            Container(
+                                padding:
+                                    EdgeInsets.fromLTRB(8.0, 24.0, 8.0, 16.0),
+                                child: Text(
+                                    MtcLocalizations.of(context)
+                                        .askTheSpeakerTitle,
+                                    style: TextStyle(
+                                        color: kMtcPrimaryGrey,
+                                        fontSize: 20.0,
+                                        fontWeight: FontWeight.bold))),
+                            Container(
+                                padding:
+                                    EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 60.0),
+                                child: Text(
+                                    MtcLocalizations.of(context)
+                                        .askTheSpeakerDescription,
+                                    style: TextStyle(
+                                        color: kMtcPrimaryGrey,
+                                        fontSize: 14.0))),
+                          ])),
                     ],
                   ),
                 ))));

@@ -29,10 +29,10 @@ class ContentDetailPage extends StatelessWidget {
     }
 
     return Container(
-        margin: EdgeInsets.only(top: 20.0),
+        margin: EdgeInsets.only(top: 24.0),
         child: ListView(children: <Widget>[
           Container(
-              padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+              padding: const EdgeInsets.only(left: 24.0, right: 24.0),
               child: Material(
                   type: MaterialType.canvas,
                   child: Container(

@@ -54,7 +54,7 @@ class _NewsPageState extends State<NewsPage> {
         body: RefreshIndicator(
           onRefresh: _handleRefresh,
           child: ListView(
-            padding: EdgeInsets.all(16.0),
+            padding: EdgeInsets.all(8.0),
             children: _newsList.map((news) {
               return Card(
                   color: Colors.white,
@@ -68,18 +68,18 @@ class _NewsPageState extends State<NewsPage> {
                             Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
+                                  Text(news.date,
+                                      style: TextStyle(
+                                          fontSize: 12.0,
+                                          color: kMtcPrimaryGrey)),
+                                  Container(height: 4.0),
                                   Text(
                                     news.localizedMessage(context),
                                     style: TextStyle(
                                         fontSize: 16.0,
                                         color: kMtcPrimaryGrey,
                                         fontWeight: FontWeight.bold),
-                                  ),
-                                  Container(height: 4.0),
-                                  Text(news.date,
-                                      style: TextStyle(
-                                          fontSize: 12.0,
-                                          color: kMtcPrimaryGrey))
+                                  )
                                 ])
                           ],
                         ),

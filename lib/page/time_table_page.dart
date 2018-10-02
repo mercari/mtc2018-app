@@ -59,7 +59,7 @@ class _TimeTablePageState extends State<TimeTablePage> {
                   RefreshIndicator(
                       onRefresh: _handleRefresh,
                       child: ListView(
-                          padding: EdgeInsets.all(16.0),
+                          padding: EdgeInsets.all(8.0),
                           children: trackASessions.map((session) {
                             return SessionCard(
                               session: session,
@@ -77,7 +77,7 @@ class _TimeTablePageState extends State<TimeTablePage> {
                   RefreshIndicator(
                       onRefresh: _handleRefresh,
                       child: ListView(
-                          padding: EdgeInsets.all(16.0),
+                          padding: EdgeInsets.all(8.0),
                           children: trackBSessions.map((session) {
                             return SessionCard(
                                 session: session,

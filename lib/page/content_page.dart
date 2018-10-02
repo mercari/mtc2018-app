@@ -65,12 +65,12 @@ class _ContentPageState extends State<ContentPage> {
           body: TabBarView(
             children: [
               ListView(
-                  padding: EdgeInsets.all(16.0),
+                  padding: EdgeInsets.all(8.0),
                   children: boothAExhibitions.map((exhibition) {
                     return _buildExhbiitionCard(context, exhibition);
                   }).toList()),
               ListView(
-                  padding: EdgeInsets.all(16.0),
+                  padding: EdgeInsets.all(8.0),
                   children: boothBExhibitions.map((exhibition) {
                     return _buildExhbiitionCard(context, exhibition);
                   }).toList()),
@@ -109,19 +109,20 @@ class _ContentPageState extends State<ContentPage> {
                 image != null ? image : Container(),
                 Container(
                     padding: const EdgeInsets.only(
-                        top: 16.0, left: 20.0, right: 20.0),
+                        top: 16.0, left: 24.0, right: 24.0),
                     child: Container(
-                        margin: const EdgeInsets.only(bottom: 10.0),
                         child: Text(exhibition.localizedTitle(context),
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 25.0,
+                                fontSize: 18.0,
                                 color: Colors.black)))),
                 Container(
-                    padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+                    padding: const EdgeInsets.only(left: 24.0, right: 24.0),
                     child: Container(
-                        margin: const EdgeInsets.only(top: 20.0, bottom: 20.0),
+                        margin: const EdgeInsets.only(top: 8.0, bottom: 24.0),
                         child: Text(exhibition.localizedDescription(context),
+                            maxLines: 3,
+                            overflow: TextOverflow.ellipsis,
                             style: TextStyle(color: Colors.black))))
               ],
             )));
