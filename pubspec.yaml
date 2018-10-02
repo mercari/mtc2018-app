@@ -69,6 +69,7 @@ flutter:
    - images/booth_b_12.png
    - images/exhibition2.jpg
    - images/exhibition7.png
+   - images/tab_all.png
    - data/exhibitions.json
 
   # An image asset can refer to one or more resolution-specific "variants", see

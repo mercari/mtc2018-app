@@ -47,16 +47,21 @@ class _ConferenceMapPageState extends State<ConferenceMapPage> {
         appBar: AppBar(title: Text("Map"), centerTitle: false),
         body: Container(
             child: DefaultTabController(
-                length: 2,
+                length: 3,
                 child: Scaffold(
                   backgroundColor: Colors.white,
                   appBar: TabBar(
-                    tabs: [Tab(text: "BOOTH A"), Tab(text: "BOOTH B")],
+                    tabs: [Tab(text: "ALL"), Tab(text: "BOOTH A"), Tab(text: "BOOTH B")],
                     labelColor: kMtcSecondaryRed,
                     indicatorColor: kMtcSecondaryRed,
                   ),
                   body: TabBarView(
                     children: [
+                      ListView(padding: EdgeInsets.all(16.0), children: [
+                        Container(
+                          padding: EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 32.0),
+                          child: Image.asset("images/tab_all.png"),
+                        )]),
                       ListView(padding: EdgeInsets.all(16.0), children: [
                         Container(
                           padding: EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 32.0),
