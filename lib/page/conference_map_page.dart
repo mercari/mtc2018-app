@@ -60,7 +60,7 @@ class _ConferenceMapPageState extends State<ConferenceMapPage> {
                       ListView(padding: EdgeInsets.all(16.0), children: [
                         Container(
                           padding: EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 32.0),
-                          child: Image.asset("images/booth_a.png"),
+                          child: Image.asset("images/tab_all.png"),
                         )]),
                       ListView(padding: EdgeInsets.all(16.0), children: [
                         Container(
