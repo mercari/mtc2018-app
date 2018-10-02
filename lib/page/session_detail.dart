@@ -38,14 +38,14 @@ class _SessionDetailPageState extends State<SessionDetailPage> {
 
   Widget buildBody(BuildContext context) {
     return Container(
-        margin: EdgeInsets.only(top: 20.0),
+        margin: EdgeInsets.only(top: 24.0),
         child: ListView(children: <Widget>[
           Container(
-              padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+              padding: const EdgeInsets.only(left: 24.0, right: 24.0),
               child: buildSummary(context)),
           Container(
-              margin: const EdgeInsets.only(top: 30.0),
-              padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+              margin: const EdgeInsets.only(top: 24.0),
+              padding: const EdgeInsets.only(left: 24.0, right: 24.0),
               color: Colors.white,
               child: buildContent(context, _session.localizedOutline(context),
                   _session.speakers))
@@ -69,17 +69,17 @@ class _SessionDetailPageState extends State<SessionDetailPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Container(
-                    margin: const EdgeInsets.only(bottom: 5.0),
+                    margin: const EdgeInsets.only(bottom: 4.0),
                     child: Text(timeRangeString,
                         style: const TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 14.0))),
                 Container(
-                    margin: const EdgeInsets.only(bottom: 10.0),
+                    margin: const EdgeInsets.only(bottom: 8.0),
                     child: Text(_session.localizedTitle(context),
                         style: const TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 22.0))),
                 Container(
-                    margin: const EdgeInsets.only(bottom: 10.0),
+                    margin: const EdgeInsets.only(bottom: 8.0),
                     child: buildSessionTags(_session.tags)),
               ],
             )));
@@ -199,6 +199,7 @@ class _SessionDetailPageState extends State<SessionDetailPage> {
 
     return Scaffold(
         appBar: AppBar(
+          iconTheme: IconThemeData(color: Colors.white),
           title: Text(_session.localizedTitle(context)),
           centerTitle: false,
         ),

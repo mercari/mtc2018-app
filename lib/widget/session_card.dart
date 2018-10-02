@@ -33,21 +33,21 @@ class SessionCard extends StatelessWidget {
               children: <Widget>[
                 Container(
                     padding: const EdgeInsets.only(
-                        top: 20.0, left: 20.0, right: 20.0, bottom: 10.0),
+                        top: 24.0, left: 8.0, right: 8.0, bottom: 8.0),
                     child: buildSessionTimeRange(
                         session.startTime, session.endTime)),
                 Container(
-                    padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+                    padding: const EdgeInsets.only(left: 8.0, right: 8.0),
                     child: buildSessionTitle(session.localizedTitle(context))),
                 Container(
-                    padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+                    padding: const EdgeInsets.only(left: 8.0, right: 8.0),
                     child: buildSessionText(session.localizedOutline(context))),
                 Container(
                     padding: const EdgeInsets.only(
-                        left: 20.0, right: 20.0, bottom: 12.0),
+                        left: 8.0, right: 8.0, bottom: 24.0),
                     child: buildSessionTags(session.tags)),
                 Container(
-                    padding: const EdgeInsets.only(bottom: 20.0),
+                    padding: const EdgeInsets.only(bottom: 24.0),
                     child: buildSessionSpeakersInformation(
                         context, session.speakers))
               ],
@@ -62,22 +62,17 @@ class SessionCard extends StatelessWidget {
     var startTimeString = formatter.format(start);
     var endTimeString = formatter.format(end);
     var timeRangeString = "$startTimeString ~ $endTimeString";
-    return Container(
-        margin: const EdgeInsets.only(bottom: 5.0),
-        child: Text(timeRangeString,
-            style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 14.0,
-                color: Colors.black)));
+    return Text(timeRangeString,
+        style: TextStyle(
+            fontWeight: FontWeight.bold, fontSize: 14.0, color: Colors.black));
   }
 
   Widget buildSessionTitle(String title) {
     return Container(
-        margin: const EdgeInsets.only(bottom: 10.0),
         child: Text(title,
             style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 25.0,
+                fontSize: 18.0,
                 color: Colors.black)));
   }
 
@@ -109,13 +104,13 @@ class SessionCard extends StatelessWidget {
                       right:
                           const BorderSide(width: 1.0, color: kMtcSecondaryRed),
                     )),
-                child:
-                    Text("#$tag", style: TextStyle(color: kMtcSecondaryRed)))));
+                child: Text(" # $tag",
+                    style: TextStyle(color: kMtcSecondaryRed)))));
   }
 
   Widget buildSessionText(String text) {
     return Container(
-        margin: const EdgeInsets.only(top: 20.0, bottom: 20.0),
+        margin: const EdgeInsets.only(top: 8.0, bottom: 24.0),
         child: Text(text, style: TextStyle(color: Colors.black)));
   }
 
@@ -141,8 +136,8 @@ class SessionCard extends StatelessWidget {
         },
         child: Container(
             decoration: BoxDecoration(
-                border: Border(top: BorderSide(width: 1.0)),
-                color: Color(0xDDDDDD)),
+                border: Border(
+                    top: BorderSide(width: 1.0, color: Color(0xFFDDDDDD)))),
             child: ListTile(
               contentPadding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
               leading: CircleAvatar(
@@ -151,8 +146,11 @@ class SessionCard extends StatelessWidget {
               ),
               title: Text(name,
                   style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.black)),
-              subtitle: Text(position, style: TextStyle(color: Colors.black)),
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                      fontSize: 14.0)),
+              subtitle: Text(position,
+                  style: TextStyle(color: Colors.black, fontSize: 12.0)),
             )));
   }
 }

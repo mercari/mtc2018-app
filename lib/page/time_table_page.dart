@@ -42,19 +42,24 @@ class _TimeTablePageState extends State<TimeTablePage> {
         child: DefaultTabController(
             length: 2,
             child: Scaffold(
-              appBar: TabBar(
-                tabs: [Tab(text: "TRACK A"), Tab(text: "TRACK B")],
-                labelColor: kMtcSecondaryRed,
-                indicatorColor: kMtcSecondaryRed,
-                unselectedLabelColor: Colors.white,
-                labelStyle: TextStyle(fontWeight: FontWeight.bold),
-              ),
+              appBar: AppBar(
+                  iconTheme: IconThemeData(color: Colors.white),
+                  flexibleSpace: SafeArea(
+                    child: TabBar(
+                      tabs: [Tab(text: "TRACK A"), Tab(text: "TRACK B")],
+                      labelColor: kMtcSecondaryRed,
+                      indicatorColor: kMtcSecondaryRed,
+                      indicatorWeight: 4.0,
+                      unselectedLabelColor: Colors.white,
+                      labelStyle: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  )),
               body: TabBarView(
                 children: [
                   RefreshIndicator(
                       onRefresh: _handleRefresh,
                       child: ListView(
-                          padding: EdgeInsets.all(16.0),
+                          padding: EdgeInsets.all(8.0),
                           children: trackASessions.map((session) {
                             return SessionCard(
                               session: session,
@@ -72,7 +77,7 @@ class _TimeTablePageState extends State<TimeTablePage> {
                   RefreshIndicator(
                       onRefresh: _handleRefresh,
                       child: ListView(
-                          padding: EdgeInsets.all(16.0),
+                          padding: EdgeInsets.all(8.0),
                           children: trackBSessions.map((session) {
                             return SessionCard(
                                 session: session,
