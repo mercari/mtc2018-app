@@ -46,6 +46,8 @@ class _TimeTablePageState extends State<TimeTablePage> {
                 tabs: [Tab(text: "TRACK A"), Tab(text: "TRACK B")],
                 labelColor: kMtcSecondaryRed,
                 indicatorColor: kMtcSecondaryRed,
+                unselectedLabelColor: Colors.white,
+                labelStyle: TextStyle(fontWeight: FontWeight.bold),
               ),
               body: TabBarView(
                 children: [
