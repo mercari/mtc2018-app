@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "301800230929",
-    "firebase_url": "https://kouzoh-mtc2018-jp-dev.firebaseio.com",
-    "project_id": "kouzoh-mtc2018-jp-dev",
-    "storage_bucket": "kouzoh-mtc2018-jp-dev.appspot.com"
+    "project_number": "186100061778",
+    "firebase_url": "https://kouzoh-mtc2018-jp-prod.firebaseio.com",
+    "project_id": "kouzoh-mtc2018-jp-prod",
+    "storage_bucket": "kouzoh-mtc2018-jp-prod.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:301800230929:android:b9e64f190d0f8388",
+        "mobilesdk_app_id": "1:186100061778:android:b9e64f190d0f8388",
         "android_client_info": {
           "package_name": "com.mercari.techconf.app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "301800230929-k0tb839v8fqvtekg2cj1k9up6fcpdldm.apps.googleusercontent.com",
+          "client_id": "186100061778-uhpa1vmaq62gqd8a1po9ckr8nb51tp28.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBsdQr060WIorTPX4UUno5Xhhm2Z_7qIyw"
+          "current_key": "AIzaSyD1ZGBR7dGZOPKbvbsstlTI-L_3mpzTUrU"
         }
       ],
       "services": {
