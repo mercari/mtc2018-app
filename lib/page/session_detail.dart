@@ -184,6 +184,10 @@ class _SessionDetailPageState extends State<SessionDetailPage> {
           url: "https://twitter.com/$twitterId"));
     }
 
+    if (buttons.length == 0) {
+      return Container();
+    }
+
     return Container(
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.start, children: buttons));

@@ -69,6 +69,10 @@ class SpeakerDetailPage extends StatelessWidget {
           url: "https://twitter.com/$twitterId"));
     }
 
+    if (buttons.length == 0) {
+      return Container();
+    }
+
     return Container(
         padding: const EdgeInsets.all(24.0),
         width: double.infinity,
