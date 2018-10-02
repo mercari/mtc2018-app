@@ -42,13 +42,17 @@ class _TimeTablePageState extends State<TimeTablePage> {
         child: DefaultTabController(
             length: 2,
             child: Scaffold(
-              appBar: TabBar(
-                tabs: [Tab(text: "TRACK A"), Tab(text: "TRACK B")],
-                labelColor: kMtcSecondaryRed,
-                indicatorColor: kMtcSecondaryRed,
-                unselectedLabelColor: Colors.white,
-                labelStyle: TextStyle(fontWeight: FontWeight.bold),
-              ),
+              appBar: AppBar(
+                  flexibleSpace: SafeArea(
+                child: TabBar(
+                  tabs: [Tab(text: "TRACK A"), Tab(text: "TRACK B")],
+                  labelColor: kMtcSecondaryRed,
+                  indicatorColor: kMtcSecondaryRed,
+                  indicatorWeight: 4.0,
+                  unselectedLabelColor: Colors.white,
+                  labelStyle: TextStyle(fontWeight: FontWeight.bold),
+                ),
+              )),
               body: TabBarView(
                 children: [
                   RefreshIndicator(

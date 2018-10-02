@@ -44,22 +44,26 @@ class _ConferenceMapPageState extends State<ConferenceMapPage> {
 
     var boothIndex = 0;
     return Scaffold(
-        appBar: AppBar(title: Text("Map"), centerTitle: false),
+        appBar: AppBar(title: Text("Map"), centerTitle: false, elevation: 0.0),
         body: Container(
             child: DefaultTabController(
                 length: 3,
                 child: Scaffold(
-                  appBar: TabBar(
-                    tabs: [
-                      Tab(text: "ALL"),
-                      Tab(text: "BOOTH A"),
-                      Tab(text: "BOOTH B")
-                    ],
-                    labelColor: kMtcSecondaryRed,
-                    indicatorColor: kMtcSecondaryRed,
-                    unselectedLabelColor: Colors.white,
-                    labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                  ),
+                  appBar: AppBar(
+                      automaticallyImplyLeading: false,
+                      flexibleSpace: SafeArea(
+                          child: TabBar(
+                        tabs: [
+                          Tab(text: "ALL"),
+                          Tab(text: "BOOTH A"),
+                          Tab(text: "BOOTH B")
+                        ],
+                        labelColor: kMtcSecondaryRed,
+                        indicatorColor: kMtcSecondaryRed,
+                        unselectedLabelColor: Colors.white,
+                        indicatorWeight: 4.0,
+                        labelStyle: TextStyle(fontWeight: FontWeight.bold),
+                      ))),
                   body: TabBarView(
                     children: [
                       Container(

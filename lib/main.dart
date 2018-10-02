@@ -108,7 +108,7 @@ class _MainPageState extends State<MainPage> {
             },
           ),
         ],
-        elevation: 4.0,
+        elevation: 0.0,
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.map),
