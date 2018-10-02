@@ -33,7 +33,11 @@ class _ConferenceMapPageState extends State<ConferenceMapPage> {
   Widget build(BuildContext context) {
     if (_exhibitionList.length == 0) {
       return Scaffold(
-          appBar: AppBar(title: Text("Map"), centerTitle: false),
+          appBar: AppBar(
+            title: Text("Map"),
+            centerTitle: false,
+            iconTheme: IconThemeData(color: Colors.white),
+          ),
           body: Center(
             child: CircularProgressIndicator(),
           ));
@@ -44,13 +48,19 @@ class _ConferenceMapPageState extends State<ConferenceMapPage> {
 
     var boothIndex = 0;
     return Scaffold(
-        appBar: AppBar(title: Text("Map"), centerTitle: false, elevation: 0.0),
+        appBar: AppBar(
+          title: Text("Map"),
+          centerTitle: false,
+          elevation: 0.0,
+          iconTheme: IconThemeData(color: Colors.white),
+        ),
         body: Container(
             child: DefaultTabController(
                 length: 3,
                 child: Scaffold(
                   appBar: AppBar(
                       automaticallyImplyLeading: false,
+                      iconTheme: IconThemeData(color: Colors.white),
                       flexibleSpace: SafeArea(
                           child: TabBar(
                         tabs: [

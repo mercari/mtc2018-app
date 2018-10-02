@@ -43,16 +43,17 @@ class _TimeTablePageState extends State<TimeTablePage> {
             length: 2,
             child: Scaffold(
               appBar: AppBar(
+                  iconTheme: IconThemeData(color: Colors.white),
                   flexibleSpace: SafeArea(
-                child: TabBar(
-                  tabs: [Tab(text: "TRACK A"), Tab(text: "TRACK B")],
-                  labelColor: kMtcSecondaryRed,
-                  indicatorColor: kMtcSecondaryRed,
-                  indicatorWeight: 4.0,
-                  unselectedLabelColor: Colors.white,
-                  labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                ),
-              )),
+                    child: TabBar(
+                      tabs: [Tab(text: "TRACK A"), Tab(text: "TRACK B")],
+                      labelColor: kMtcSecondaryRed,
+                      indicatorColor: kMtcSecondaryRed,
+                      indicatorWeight: 4.0,
+                      unselectedLabelColor: Colors.white,
+                      labelStyle: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  )),
               body: TabBarView(
                 children: [
                   RefreshIndicator(

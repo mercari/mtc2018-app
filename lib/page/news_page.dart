@@ -36,6 +36,7 @@ class _NewsPageState extends State<NewsPage> {
     if (_newsList.length == 0) {
       return Scaffold(
           appBar: AppBar(
+            iconTheme: IconThemeData(color: Colors.white),
             title: Text(MtcLocalizations.of(context).newsTitle),
             centerTitle: false,
           ),
@@ -46,6 +47,7 @@ class _NewsPageState extends State<NewsPage> {
 
     return Scaffold(
         appBar: AppBar(
+          iconTheme: IconThemeData(color: Colors.white),
           title: Text(MtcLocalizations.of(context).newsTitle),
           centerTitle: false,
         ),

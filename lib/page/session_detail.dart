@@ -199,6 +199,7 @@ class _SessionDetailPageState extends State<SessionDetailPage> {
 
     return Scaffold(
         appBar: AppBar(
+          iconTheme: IconThemeData(color: Colors.white),
           title: Text(_session.localizedTitle(context)),
           centerTitle: false,
         ),

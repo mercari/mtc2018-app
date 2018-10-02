@@ -52,15 +52,16 @@ class _ContentPageState extends State<ContentPage> {
         length: 2,
         child: Scaffold(
           appBar: AppBar(
+              iconTheme: IconThemeData(color: Colors.white),
               flexibleSpace: SafeArea(
                   child: TabBar(
-            tabs: [Tab(text: "BOOTH A"), Tab(text: "BOOTH B")],
-            labelColor: kMtcSecondaryRed,
-            indicatorColor: kMtcSecondaryRed,
-            indicatorWeight: 4.0,
-            unselectedLabelColor: Colors.white,
-            labelStyle: TextStyle(fontWeight: FontWeight.bold),
-          ))),
+                tabs: [Tab(text: "BOOTH A"), Tab(text: "BOOTH B")],
+                labelColor: kMtcSecondaryRed,
+                indicatorColor: kMtcSecondaryRed,
+                indicatorWeight: 4.0,
+                unselectedLabelColor: Colors.white,
+                labelStyle: TextStyle(fontWeight: FontWeight.bold),
+              ))),
           body: TabBarView(
             children: [
               ListView(
