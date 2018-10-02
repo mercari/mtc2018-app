@@ -45,7 +45,9 @@ class TagTimeTablePage extends StatelessWidget {
             settings: RouteSettings(name: "/tag_time_table"),
             builder: (context) {
               return TagTimeTablePage(
-                  tagName: tagName, sessionList: sessionList);
+                  repository: repository,
+                  tagName: tagName,
+                  sessionList: sessionList);
             }));
   }
 
