@@ -57,6 +57,8 @@ class _ConferenceMapPageState extends State<ConferenceMapPage> {
                     ],
                     labelColor: kMtcSecondaryRed,
                     indicatorColor: kMtcSecondaryRed,
+                    unselectedLabelColor: Colors.white,
+                    labelStyle: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   body: TabBarView(
                     children: [

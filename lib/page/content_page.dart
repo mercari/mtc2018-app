@@ -55,6 +55,8 @@ class _ContentPageState extends State<ContentPage> {
             tabs: [Tab(text: "BOOTH A"), Tab(text: "BOOTH B")],
             labelColor: kMtcSecondaryRed,
             indicatorColor: kMtcSecondaryRed,
+            unselectedLabelColor: Colors.white,
+            labelStyle: TextStyle(fontWeight: FontWeight.bold),
           ),
           body: TabBarView(
             children: [
