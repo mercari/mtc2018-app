@@ -87,7 +87,6 @@ class _ConferenceMapPageState extends State<ConferenceMapPage> {
                             )
                           ])),
                       Container(
-                          padding: EdgeInsets.only(bottom: 64.0),
                           color: Colors.white,
                           child:
                               ListView(padding: EdgeInsets.all(8.0), children: [
@@ -112,7 +111,8 @@ class _ConferenceMapPageState extends State<ConferenceMapPage> {
                                           context, boothIndex, exhibition);
                                     }).toList()),
                               ),
-                            )
+                            ),
+                            Container(height: 60.0)
                           ])),
                       Container(
                           color: Colors.white,
