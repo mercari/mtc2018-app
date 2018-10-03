@@ -4,7 +4,7 @@ import "package:url_launcher/url_launcher.dart";
 import "dart:io" show Platform;
 import "package:mtc2018_app/localize.dart";
 
-var _horizontalSpace = 8.0;
+var _horizontalSpace = 16.0;
 
 var boxDecoration = BoxDecoration(
     color: kMtcAboutSectionBackgroundGrey,
