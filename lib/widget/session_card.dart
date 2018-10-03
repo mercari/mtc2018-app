@@ -91,7 +91,7 @@ class SessionCard extends StatelessWidget {
               onTagPressed(tag);
             },
             child: Container(
-                padding: EdgeInsets.symmetric(vertical: 4.0, horizontal: 8.0),
+                padding: EdgeInsets.fromLTRB(8.0, 4.0, 12.0, 8.0),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(100.0),
                     border: const Border(

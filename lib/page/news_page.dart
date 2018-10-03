@@ -59,7 +59,7 @@ class _NewsPageState extends State<NewsPage> {
               return Card(
                   color: Colors.white,
                   child: Container(
-                    padding: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 24.0),
+                    padding: EdgeInsets.all(16.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -83,7 +83,7 @@ class _NewsPageState extends State<NewsPage> {
                                 ])
                           ],
                         ),
-                        Container(height: 12.0),
+                        Container(height: 4.0),
                         Text(news.localizedMessage(context),
                             style: TextStyle(color: kMtcPrimaryGrey)),
                       ],

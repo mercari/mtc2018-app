@@ -38,18 +38,17 @@ class _SessionDetailPageState extends State<SessionDetailPage> {
 
   Widget buildBody(BuildContext context) {
     return Container(
-        margin: EdgeInsets.only(top: 24.0),
         child: ListView(children: <Widget>[
-          Container(
-              padding: const EdgeInsets.only(left: 24.0, right: 24.0),
-              child: buildSummary(context)),
-          Container(
-              margin: const EdgeInsets.only(top: 24.0),
-              padding: const EdgeInsets.only(left: 24.0, right: 24.0),
-              color: Colors.white,
-              child: buildContent(context, _session.localizedOutline(context),
-                  _session.speakers))
-        ]));
+      Container(
+          padding: const EdgeInsets.only(left: 24.0, right: 24.0),
+          child: buildSummary(context)),
+      Container(
+          margin: const EdgeInsets.only(top: 24.0),
+          padding: const EdgeInsets.only(left: 24.0, right: 24.0),
+          color: Colors.white,
+          child: buildContent(
+              context, _session.localizedOutline(context), _session.speakers))
+    ]));
   }
 
   Widget buildSummary(BuildContext context) {
@@ -65,6 +64,7 @@ class _SessionDetailPageState extends State<SessionDetailPage> {
         type: MaterialType.canvas,
         child: Container(
             color: kMtcBackgroundGrey,
+            padding: EdgeInsets.only(top: 24.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
