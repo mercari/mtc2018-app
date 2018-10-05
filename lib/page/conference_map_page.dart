@@ -1,8 +1,8 @@
 import "package:flutter/material.dart";
 import "package:mtc2018_app/colors.dart";
 import "package:mtc2018_app/localize.dart";
-import "package:mtc2018_app/repository/repository.dart";
 import "package:mtc2018_app/model/exhibition.dart";
+import "package:mtc2018_app/repository/repository.dart";
 
 class ConferenceMapPage extends StatefulWidget {
   final Repository repository;
@@ -179,7 +179,8 @@ class _ConferenceMapPageState extends State<ConferenceMapPage> {
                         color: kMtcPrimaryGrey,
                         fontWeight: FontWeight.bold))),
             Flexible(
-                child: Text(exhibition.localizedTitle(context),
+                child: Text(
+                    exhibition.localizedTitle(getCurrentLanguageCode(context)),
                     style: TextStyle(color: kMtcPrimaryGrey, fontSize: 14.0)))
           ],
         ));

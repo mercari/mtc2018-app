@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
-import "package:mtc2018_app/model/exhibition.dart";
-import "package:mtc2018_app/localize.dart";
 import "package:mtc2018_app/colors.dart";
+import "package:mtc2018_app/localize.dart";
+import "package:mtc2018_app/model/exhibition.dart";
 
 class ContentDetailPage extends StatelessWidget {
   final Exhibition exhibition;
@@ -37,7 +37,8 @@ class ContentDetailPage extends StatelessWidget {
           Container(
               color: Colors.white,
               padding: const EdgeInsets.all(24.0),
-              child: Text(exhibition.localizedTitle(context),
+              child: Text(
+                  exhibition.localizedTitle(getCurrentLanguageCode(context)),
                   style: const TextStyle(
                       color: kMtcPrimaryGrey,
                       fontWeight: FontWeight.bold,
@@ -52,7 +53,9 @@ class ContentDetailPage extends StatelessWidget {
                     image != null ? image : Container(),
                     Container(
                         padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 32.0),
-                        child: Text(exhibition.localizedDescription(context),
+                        child: Text(
+                            exhibition.localizedDescription(
+                                getCurrentLanguageCode(context)),
                             style: TextStyle(
                                 fontSize: 14.0, color: kMtcPrimaryGrey))),
                     Container(

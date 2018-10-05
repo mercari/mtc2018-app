@@ -1,5 +1,5 @@
 import "package:json_annotation/json_annotation.dart";
-import "package:flutter/material.dart";
+
 part "news.g.dart";
 
 @JsonSerializable()
@@ -14,8 +14,7 @@ class News extends Object with _$NewsSerializerMixin {
 
   factory News.fromJson(Map<String, dynamic> json) => _$NewsFromJson(json);
 
-  String localizedMessage(BuildContext context) {
-    Locale currentLocale = Localizations.localeOf(context);
-    return currentLocale.languageCode == "ja" ? messageJa : message;
+  String localizedMessage(String languageCode) {
+    return languageCode == "ja" ? messageJa : message;
   }
 }

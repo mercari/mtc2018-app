@@ -1,8 +1,9 @@
 import "package:flutter/material.dart";
-import "package:mtc2018_app/model/session.dart";
-import "package:mtc2018_app/model/speaker.dart";
 import "package:intl/intl.dart";
 import "package:mtc2018_app/colors.dart";
+import 'package:mtc2018_app/localize.dart';
+import "package:mtc2018_app/model/session.dart";
+import "package:mtc2018_app/model/speaker.dart";
 
 typedef void CardPressedCallback();
 typedef void SpeakerPressedCallback(Speaker speaker);
@@ -38,10 +39,12 @@ class SessionCard extends StatelessWidget {
                         session.startTime, session.endTime)),
                 Container(
                     padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                    child: buildSessionTitle(session.localizedTitle(context))),
+                    child: buildSessionTitle(session
+                        .localizedTitle(getCurrentLanguageCode(context)))),
                 Container(
                     padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                    child: buildSessionText(session.localizedOutline(context))),
+                    child: buildSessionText(session
+                        .localizedOutline(getCurrentLanguageCode(context)))),
                 Container(
                     padding: const EdgeInsets.only(
                         left: 8.0, right: 8.0, bottom: 24.0),

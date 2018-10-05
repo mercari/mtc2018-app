@@ -1,6 +1,7 @@
-import "package:flutter/material.dart";
 import "dart:async";
+
 import "package:flutter/foundation.dart" show SynchronousFuture;
+import "package:flutter/material.dart";
 
 class MtcLocalizations {
   MtcLocalizations(this.locale);
@@ -171,4 +172,9 @@ class MtcLocalizationsDelegate extends LocalizationsDelegate<MtcLocalizations> {
 
   @override
   bool shouldReload(MtcLocalizationsDelegate old) => false;
+}
+
+String getCurrentLanguageCode(BuildContext context) {
+  Locale currentLocale = Localizations.localeOf(context);
+  return currentLocale.languageCode;
 }

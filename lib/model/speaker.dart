@@ -1,5 +1,5 @@
 import "package:json_annotation/json_annotation.dart";
-import "package:flutter/material.dart";
+
 part "speaker.g.dart";
 
 @JsonSerializable()
@@ -31,18 +31,15 @@ class Speaker extends Object with _$SpeakerSerializerMixin {
   factory Speaker.fromJson(Map<String, dynamic> json) =>
       _$SpeakerFromJson(json);
 
-  String localizedName(BuildContext context) {
-    Locale currentLocale = Localizations.localeOf(context);
-    return currentLocale.languageCode == "ja" ? nameJa : name;
+  String localizedName(String languageCode) {
+    return languageCode == "ja" ? nameJa : name;
   }
 
-  String localizedPosition(BuildContext context) {
-    Locale currentLocale = Localizations.localeOf(context);
-    return currentLocale.languageCode == "ja" ? positionJa : position;
+  String localizedPosition(String languageCode) {
+    return languageCode == "ja" ? positionJa : position;
   }
 
-  String localizedProfile(BuildContext context) {
-    Locale currentLocale = Localizations.localeOf(context);
-    return currentLocale.languageCode == "ja" ? profileJa : profile;
+  String localizedProfile(String languageCode) {
+    return languageCode == "ja" ? profileJa : profile;
   }
 }

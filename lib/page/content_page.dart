@@ -1,8 +1,9 @@
 import "package:flutter/material.dart";
-import "package:mtc2018_app/model/exhibition.dart";
 import "package:mtc2018_app/colors.dart";
-import "package:mtc2018_app/repository/repository.dart";
+import 'package:mtc2018_app/localize.dart';
+import "package:mtc2018_app/model/exhibition.dart";
 import 'package:mtc2018_app/page/content_detail_page.dart';
+import "package:mtc2018_app/repository/repository.dart";
 
 class ContentPage extends StatefulWidget {
   final Repository repository;
@@ -111,7 +112,9 @@ class _ContentPageState extends State<ContentPage> {
                     padding: const EdgeInsets.only(
                         top: 16.0, left: 24.0, right: 24.0),
                     child: Container(
-                        child: Text(exhibition.localizedTitle(context),
+                        child: Text(
+                            exhibition.localizedTitle(
+                                getCurrentLanguageCode(context)),
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 18.0,
@@ -120,7 +123,9 @@ class _ContentPageState extends State<ContentPage> {
                     padding: const EdgeInsets.only(left: 24.0, right: 24.0),
                     child: Container(
                         margin: const EdgeInsets.only(top: 8.0, bottom: 24.0),
-                        child: Text(exhibition.localizedDescription(context),
+                        child: Text(
+                            exhibition.localizedDescription(
+                                getCurrentLanguageCode(context)),
                             maxLines: 3,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(color: Colors.black))))
