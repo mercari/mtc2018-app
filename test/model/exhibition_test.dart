@@ -5,8 +5,7 @@ void main() {
   group("localizedTitle", () {
     test('returns valid locale text', () {
       // given
-      Exhibition exhibition =
-          new Exhibition("", "", "title", "titleJa", "", "", "", "");
+      var exhibition = Exhibition("", "", "title", "titleJa", "", "", "", "");
 
       // when & then
       expect(exhibition.localizedTitle("en"), "title");
@@ -17,8 +16,8 @@ void main() {
   group("localizedDescription", () {
     test('returns valid locale text', () {
       // given
-      Exhibition exhibition = new Exhibition(
-          "", "", "", "", "description", "descriptionJa", "", "");
+      var exhibition =
+          Exhibition("", "", "", "", "description", "descriptionJa", "", "");
 
       // when & then
       expect(exhibition.localizedDescription("en"), "description");
