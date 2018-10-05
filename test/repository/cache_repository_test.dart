@@ -46,6 +46,65 @@ void main() {
     });
   });
 
+  group("getSessionById", () {
+    test('returns cached session when cache contains', () async {
+      // given
+      var cachedSession =
+          Session("1", "", "", "", "", "", "", "", "", "", [], []);
+      var sessionList = [cachedSession];
+      var client = MockClient();
+      var cache = MockCache();
+      when(cache.get("SessionList"))
+          .thenAnswer((_) => Future.value(sessionList));
+      var repository = CacheRepository(cache: cache, client: client);
+
+      // when
+      var session = await repository.getSessionById("1");
+
+      // then
+      expect(session, cachedSession);
+      verifyNever(client.fetchSessionById(any));
+    });
+
+    test('returns null when cache does not contain', () async {
+      // given
+      var cachedSession =
+          Session("1", "", "", "", "", "", "", "", "", "", [], []);
+      var sessionList = [cachedSession];
+      var client = MockClient();
+      var cache = MockCache();
+      when(cache.get("SessionList"))
+          .thenAnswer((_) => Future.value(sessionList));
+      var repository = CacheRepository(cache: cache, client: client);
+
+      // when
+      var session = await repository.getSessionById("2");
+
+      // then
+      expect(session, null);
+      verifyNever(client.fetchSessionById(any));
+    });
+
+    test('returns fetched session when cache is null', () async {
+      // given
+      var dummySession =
+          Session("1", "", "", "", "", "", "", "", "", "", [], []);
+      var client = MockClient();
+      when(client.fetchSessionById("1"))
+          .thenAnswer((_) => Future.value(dummySession));
+      var cache = MockCache();
+      when(cache.get("SessionList")).thenAnswer((_) => Future.value(null));
+      var repository = CacheRepository(cache: cache, client: client);
+
+      // when
+      var session = await repository.getSessionById("1");
+
+      // then
+      expect(session, dummySession);
+      verify(client.fetchSessionById("1"));
+    });
+  });
+
   group("refreshSessionList", () {
     test('fetches and reset cache', () async {
       // given
