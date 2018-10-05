@@ -1,7 +1,8 @@
 import "package:flutter/material.dart";
+import "package:mtc2018_app/colors.dart";
+import 'package:mtc2018_app/localize.dart';
 import "package:mtc2018_app/model/speaker.dart";
 import "package:mtc2018_app/widget/social_user_button.dart";
-import "package:mtc2018_app/colors.dart";
 
 class SpeakerDetailPage extends StatelessWidget {
   final Speaker speaker;
@@ -32,18 +33,21 @@ class SpeakerDetailPage extends StatelessWidget {
                   backgroundImage: new NetworkImage(speaker.iconUrl),
                   radius: 25.0,
                 ),
-                title: Text(speaker.localizedName(context),
+                title: Text(
+                    speaker.localizedName(getCurrentLanguageCode(context)),
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: kMtcPrimaryGrey,
                         fontSize: 18.0)),
-                subtitle: Text(speaker.localizedPosition(context),
+                subtitle: Text(
+                    speaker.localizedPosition(getCurrentLanguageCode(context)),
                     style: TextStyle(color: kMtcPrimaryGrey, fontSize: 12.0)),
                 // trailing: IconButton(icon: const Icon(Icons.favorite_border), color: Colors.black, onPressed: () { AlertDialog(title: Text("Go to the session!"), content: Text("Hey!")); }),
               ))),
           Container(
               margin: const EdgeInsets.only(bottom: 24.0),
-              child: Text(speaker.localizedProfile(context),
+              child: Text(
+                  speaker.localizedProfile(getCurrentLanguageCode(context)),
                   style: TextStyle(color: kMtcPrimaryGrey, fontSize: 14.0))),
           buildLinkButtons(speaker)
         ]);
@@ -89,7 +93,7 @@ class SpeakerDetailPage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           iconTheme: IconThemeData(color: Colors.white),
-          title: Text(speaker.localizedName(context)),
+          title: Text(speaker.localizedName(getCurrentLanguageCode(context))),
           centerTitle: false,
         ),
         body: buildBody(context));

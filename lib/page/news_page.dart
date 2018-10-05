@@ -1,9 +1,10 @@
+import "dart:async";
+
 import "package:flutter/material.dart";
-import "package:mtc2018_app/model/news.dart";
 import "package:mtc2018_app/colors.dart";
 import "package:mtc2018_app/localize.dart";
+import "package:mtc2018_app/model/news.dart";
 import "package:mtc2018_app/repository/repository.dart";
-import "dart:async";
 
 class NewsPage extends StatefulWidget {
   final Repository repository;
@@ -74,7 +75,8 @@ class _NewsPageState extends State<NewsPage> {
                                           color: kMtcPrimaryGrey)),
                                   Container(height: 4.0),
                                   Text(
-                                    news.localizedMessage(context),
+                                    news.localizedMessage(
+                                        getCurrentLanguageCode(context)),
                                     style: TextStyle(
                                         fontSize: 16.0,
                                         color: kMtcPrimaryGrey,
@@ -84,7 +86,9 @@ class _NewsPageState extends State<NewsPage> {
                           ],
                         ),
                         Container(height: 4.0),
-                        Text(news.localizedMessage(context),
+                        Text(
+                            news.localizedMessage(
+                                getCurrentLanguageCode(context)),
                             style: TextStyle(color: kMtcPrimaryGrey)),
                       ],
                     ),

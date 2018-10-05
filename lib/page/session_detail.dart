@@ -1,10 +1,11 @@
 import "package:flutter/material.dart";
+import "package:intl/intl.dart";
+import "package:mtc2018_app/colors.dart";
+import 'package:mtc2018_app/localize.dart';
 import "package:mtc2018_app/model/session.dart";
 import "package:mtc2018_app/model/speaker.dart";
-import "package:intl/intl.dart";
-import "package:mtc2018_app/widget/social_user_button.dart";
-import "package:mtc2018_app/colors.dart";
 import "package:mtc2018_app/repository/repository.dart";
+import "package:mtc2018_app/widget/social_user_button.dart";
 import 'package:share/share.dart';
 
 class SessionDetailPage extends StatefulWidget {
@@ -47,7 +48,9 @@ class _SessionDetailPageState extends State<SessionDetailPage> {
           padding: const EdgeInsets.only(left: 24.0, right: 24.0),
           color: Colors.white,
           child: buildContent(
-              context, _session.localizedOutline(context), _session.speakers))
+              context,
+              _session.localizedOutline(getCurrentLanguageCode(context)),
+              _session.speakers))
     ]));
   }
 
@@ -75,7 +78,9 @@ class _SessionDetailPageState extends State<SessionDetailPage> {
                             fontWeight: FontWeight.bold, fontSize: 14.0))),
                 Container(
                     margin: const EdgeInsets.only(bottom: 8.0),
-                    child: Text(_session.localizedTitle(context),
+                    child: Text(
+                        _session
+                            .localizedTitle(getCurrentLanguageCode(context)),
                         style: const TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 22.0))),
                 Container(
@@ -136,32 +141,32 @@ class _SessionDetailPageState extends State<SessionDetailPage> {
   Widget buildSpeakerInformation(BuildContext context, Speaker speaker) {
     return Container(
         padding: EdgeInsets.all(24.0),
-        child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Container(
-                  margin: const EdgeInsets.only(bottom: 10.0),
-                  child: Container(
-                      child: ListTile(
-                    contentPadding: const EdgeInsets.all(0.0),
-                    leading: CircleAvatar(
-                      backgroundImage: new NetworkImage(speaker.iconUrl),
-                      radius: 25.0,
-                    ),
-                    title: Text(speaker.localizedName(context),
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: kMtcPrimaryGrey)),
-                    subtitle: Text(speaker.localizedPosition(context),
-                        style: TextStyle(color: kMtcPrimaryGrey)),
-                  ))),
-              Container(
-                  margin: const EdgeInsets.only(bottom: 20.0),
-                  child: Text(speaker.localizedProfile(context),
-                      style:
-                          TextStyle(color: kMtcPrimaryGrey, fontSize: 12.0))),
-              buildLinkButtons(speaker)
-            ]));
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <
+            Widget>[
+          Container(
+              margin: const EdgeInsets.only(bottom: 10.0),
+              child: Container(
+                  child: ListTile(
+                contentPadding: const EdgeInsets.all(0.0),
+                leading: CircleAvatar(
+                  backgroundImage: new NetworkImage(speaker.iconUrl),
+                  radius: 25.0,
+                ),
+                title: Text(
+                    speaker.localizedName(getCurrentLanguageCode(context)),
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: kMtcPrimaryGrey)),
+                subtitle: Text(
+                    speaker.localizedPosition(getCurrentLanguageCode(context)),
+                    style: TextStyle(color: kMtcPrimaryGrey)),
+              ))),
+          Container(
+              margin: const EdgeInsets.only(bottom: 20.0),
+              child: Text(
+                  speaker.localizedProfile(getCurrentLanguageCode(context)),
+                  style: TextStyle(color: kMtcPrimaryGrey, fontSize: 12.0))),
+          buildLinkButtons(speaker)
+        ]));
   }
 
   Widget buildLinkButtons(Speaker speaker) {
@@ -204,14 +209,15 @@ class _SessionDetailPageState extends State<SessionDetailPage> {
     return Scaffold(
         appBar: AppBar(
           iconTheme: IconThemeData(color: Colors.white),
-          title: Text(_session.localizedTitle(context)),
+          title: Text(_session.localizedTitle(getCurrentLanguageCode(context))),
           centerTitle: false,
         ),
         floatingActionButton: FloatingActionButton(
             child: Icon(Icons.share),
             foregroundColor: Colors.white,
             onPressed: () {
-              var title = _session.localizedTitle(context);
+              var title =
+                  _session.localizedTitle(getCurrentLanguageCode(context));
               var url = "https://techconf.mercari.com/2018/session/" +
                   _session.id.replaceAll("Session:", "");
               var text = "$title $url #mtc18";

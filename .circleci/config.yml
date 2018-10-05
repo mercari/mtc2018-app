@@ -1,0 +1,15 @@
+version: 2
+jobs:
+  build:
+    environment:
+      - LANG: en_US.UTF-8
+    docker:
+      - image: circleci/android:api-27-alpha
+    steps:
+      - checkout
+      - run:
+          name: Install Flutter SDK
+          command: git clone -b beta https://github.com/flutter/flutter.git ~/flutter
+      - run:
+          name: run tests
+          command: ~/flutter/bin/flutter test
