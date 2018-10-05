@@ -1,19 +1,20 @@
+import "dart:async";
+
+import "package:firebase_messaging/firebase_messaging.dart";
 import "package:flutter/material.dart";
 import "package:flutter_localizations/flutter_localizations.dart";
-import "package:mtc2018_app/page/time_table_page.dart";
-import "package:mtc2018_app/page/about_page.dart";
-import "package:mtc2018_app/page/news_page.dart";
-import "package:mtc2018_app/page/content_page.dart";
+import 'package:mtc2018_app/api/client.dart';
+import "package:mtc2018_app/cache/memcache.dart";
 import "package:mtc2018_app/colors.dart";
 import "package:mtc2018_app/localize.dart";
-import "package:mtc2018_app/cache/memcache.dart";
-import "package:mtc2018_app/cache/cache.dart";
+import "package:mtc2018_app/page/about_page.dart";
+import "package:mtc2018_app/page/conference_map_page.dart";
+import "package:mtc2018_app/page/content_page.dart";
+import "package:mtc2018_app/page/news_page.dart";
+import "package:mtc2018_app/page/session_detail.dart";
+import "package:mtc2018_app/page/time_table_page.dart";
 import "package:mtc2018_app/repository/cache_repository.dart";
 import "package:mtc2018_app/repository/repository.dart";
-import "package:firebase_messaging/firebase_messaging.dart";
-import "dart:async";
-import "package:mtc2018_app/page/session_detail.dart";
-import "package:mtc2018_app/page/conference_map_page.dart";
 
 void main() => runApp(MyApp());
 
@@ -63,8 +64,8 @@ class _MainPageState extends State<MainPage> {
   var _currentIndex = 0;
   FirebaseMessaging _firebaseMessaging = new FirebaseMessaging();
 
-  static final Cache _cache = MemCache();
-  static final Repository _repository = CacheRepository(cache: _cache);
+  static final Repository _repository =
+      CacheRepository(cache: MemCache(), client: Client());
 
   @override
   void initState() {
