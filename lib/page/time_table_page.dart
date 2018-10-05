@@ -20,11 +20,22 @@ class TimeTablePage extends StatefulWidget {
 
 class _TimeTablePageState extends State<TimeTablePage> {
   List<Session> _sessionList = [];
-
+  List<ScrollController> _scrollCtList = [];
   @override
   void initState() {
     super.initState();
-    _loadSessionList();
+    _init();
+  }
+
+  void _init() async {
+    final sessionList = await widget.repository.getSessionList();
+    if (this.mounted) {
+      setState(() {
+        _sessionList = sessionList;
+        _scrollCtList = new List.generate(sessionList.length,
+            (i) => new ScrollController(initialScrollOffset: 0.0));
+      });
+    }
   }
 
   @override
@@ -58,49 +69,63 @@ class _TimeTablePageState extends State<TimeTablePage> {
                 children: [
                   RefreshIndicator(
                       onRefresh: _handleRefresh,
-                      child: ListView(
-                          padding: EdgeInsets.all(8.0),
-                          children: trackASessions.map((session) {
-                            return SessionCard(
-                              session: session,
-                              onCardPressed: () {
-                                _onCardPressed(context, session);
-                              },
-                              onSpeakerPressed: (speaker) {
-                                _onSpeakerPressed(context, speaker);
-                              },
-                              onTagPressed: (tag) {
-                                _onTagPressed(context, tag);
-                              },
-                            );
-                          }).toList())),
+                      child: new NotificationListener(
+                          child: ListView(
+                              controller: _scrollCtList.length >= 1
+                                  ? _scrollCtList[0]
+                                  : null,
+                              padding: EdgeInsets.all(8.0),
+                              children: trackASessions.map((session) {
+                                return SessionCard(
+                                  session: session,
+                                  onCardPressed: () {
+                                    _onCardPressed(context, session);
+                                  },
+                                  onSpeakerPressed: (speaker) {
+                                    _onSpeakerPressed(context, speaker);
+                                  },
+                                  onTagPressed: (tag) {
+                                    _onTagPressed(context, tag);
+                                  },
+                                );
+                              }).toList()),
+                          onNotification: (notification) {
+                            _handleScrollCtl(0, notification);
+                          })),
                   RefreshIndicator(
                       onRefresh: _handleRefresh,
-                      child: ListView(
-                          padding: EdgeInsets.all(8.0),
-                          children: trackBSessions.map((session) {
-                            return SessionCard(
-                                session: session,
-                                onCardPressed: () {
-                                  _onCardPressed(context, session);
-                                },
-                                onSpeakerPressed: (speaker) {
-                                  _onSpeakerPressed(context, speaker);
-                                },
-                                onTagPressed: (tag) {
-                                  _onTagPressed(context, tag);
-                                });
-                          }).toList())),
+                      child: new NotificationListener(
+                          child: ListView(
+                              controller: _scrollCtList.length >= 2
+                                  ? _scrollCtList[1]
+                                  : null,
+                              padding: EdgeInsets.all(8.0),
+                              children: trackBSessions.map((session) {
+                                return SessionCard(
+                                    session: session,
+                                    onCardPressed: () {
+                                      _onCardPressed(context, session);
+                                    },
+                                    onSpeakerPressed: (speaker) {
+                                      _onSpeakerPressed(context, speaker);
+                                    },
+                                    onTagPressed: (tag) {
+                                      _onTagPressed(context, tag);
+                                    });
+                              }).toList()),
+                          onNotification: (notification) {
+                            _handleScrollCtl(1, notification);
+                          })),
                 ],
               ),
             )));
   }
 
-  void _loadSessionList() async {
-    final sessionList = await widget.repository.getSessionList();
-    if (this.mounted) {
+  void _handleScrollCtl(int index, notification) {
+    if (this.mounted && notification is ScrollNotification) {
       setState(() {
-        _sessionList = sessionList;
+        _scrollCtList[index] = new ScrollController(
+            initialScrollOffset: notification.metrics.pixels);
       });
     }
   }
