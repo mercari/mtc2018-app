@@ -1,17 +1,18 @@
 import "dart:async";
 
 import "package:mtc2018_app/api/client.dart";
-import "repository.dart";
 import "package:mtc2018_app/cache/cache.dart";
-import "package:mtc2018_app/model/session.dart";
-import "package:mtc2018_app/model/news.dart";
 import "package:mtc2018_app/model/exhibition.dart";
+import "package:mtc2018_app/model/news.dart";
+import "package:mtc2018_app/model/session.dart";
+
+import "repository.dart";
 
 class CacheRepository extends Repository {
   final Cache cache;
-  final client = Client();
+  final Client client;
 
-  CacheRepository({this.cache});
+  CacheRepository({this.cache, this.client});
 
   @override
   Future<List<Session>> getSessionList() async {
@@ -68,7 +69,8 @@ class CacheRepository extends Repository {
 
   @override
   Future<List<Exhibition>> getExhibitionList() async {
-    final cachedExhibitionList = await cache.get("ExhibitionList") as List<Exhibition>;
+    final cachedExhibitionList =
+        await cache.get("ExhibitionList") as List<Exhibition>;
     if (cachedExhibitionList != null) {
       return cachedExhibitionList;
     }
