@@ -31,9 +31,11 @@ ThemeData _buildMtcTheme() {
       errorColor: kMtcSecondaryRed,
       canvasColor: kMtcPrimaryGrey,
       primaryIconTheme: base.iconTheme.copyWith(color: kMtcIcon),
-      textTheme: base.textTheme.apply(fontFamily: 'Noto'),
-      primaryTextTheme: base.primaryTextTheme.apply(fontFamily: 'Noto'),
-      accentTextTheme: base.accentTextTheme.apply(fontFamily: 'Noto'));
+      textTheme: base.textTheme.apply(fontFamily: 'Hiragino Kaku Gothic ProN'),
+      primaryTextTheme:
+          base.primaryTextTheme.apply(fontFamily: 'Hiragino Kaku Gothic ProN'),
+      accentTextTheme:
+          base.accentTextTheme.apply(fontFamily: 'Hiragino Kaku Gothic ProN'));
 }
 
 class MyApp extends StatelessWidget {
