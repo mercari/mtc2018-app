@@ -7,3 +7,15 @@ The Official Conference App for [Mercari Tech Conf 2018](https://techconf.mercar
 
 - [App Store](https://itunes.apple.com/jp/app/mercari-tech-conf/id1435143820?mt=8)
 - [Play Store](https://play.google.com/store/apps/details?id=com.mercari.techconf.app)
+
+## Contribution
+
+Please read the CLA below carefully before submitting your contribution.
+
+https://www.mercari.com/cla/
+
+## License
+
+Copyright 2018 Mercari, Inc.
+
+Licensed under the MIT License.
