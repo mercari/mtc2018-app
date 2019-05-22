@@ -1,7 +1,7 @@
 import "dart:async";
 
-import "package:flutter/foundation.dart" show SynchronousFuture;
-import "package:flutter/material.dart";
+import "package:flutter_web/foundation.dart" show SynchronousFuture;
+import "package:flutter_web/material.dart";
 
 class MtcLocalizations {
   MtcLocalizations(this.locale);

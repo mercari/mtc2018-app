@@ -1,26 +1,39 @@
 name: mtc2018_app
 description: The Official Conference App for Mercari Tech Conf 2018
 
-dependencies:
-  flutter:
-    sdk: flutter
-  flutter_localizations:
-    sdk: flutter
+version: 1.0.0
 
+dependencies:
+  flutter_web: any
   cupertino_icons: ^0.1.2
-  json_annotation: ^0.2.3
+  json_annotation: ^2.0.0
   url_launcher: ^3.0.3
   font_awesome_flutter: ^8.0.1
   firebase_messaging: ^2.0.0
   share: ^0.5.3
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
+  flutter_web_test: any
   flutter_launcher_icons: "^0.6.0"
-  build_runner: ^0.9.0
-  json_serializable: ^0.5.4
+  json_serializable: ^2.0.0
   mockito: ^3.0.0
+  build_runner: ^1.2.2
+  build_web_compilers: ^1.1.0
+  test: ^1.3.4
+
+dependency_overrides:
+  flutter_web:
+    git:
+      url: https://github.com/flutter/flutter_web
+      path: packages/flutter_web
+  flutter_web_ui:
+    git:
+      url: https://github.com/flutter/flutter_web
+      path: packages/flutter_web_ui
+  flutter_web_test:
+    git:
+      url: https://github.com/flutter/flutter_web
+      path: packages/flutter_web_test
   
 flutter_icons:
   android: true

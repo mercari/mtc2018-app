@@ -1,4 +1,4 @@
-import "package:flutter/material.dart";
+import "package:flutter_web/material.dart";
 
 const kMtcPrimaryGrey = const Color(0xFF111830);
 const kMtcBackgroundGrey = const Color(0xFF1C2236);

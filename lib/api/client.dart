@@ -4,7 +4,7 @@ import "dart:convert";
 import "dart:async";
 import "package:mtc2018_app/model/session.dart";
 import "package:mtc2018_app/model/exhibition.dart";
-import 'package:flutter/services.dart' show rootBundle;
+import 'package:flutter_web/services.dart' show rootBundle;
 
 String _url = () {
   var isDebug = false;

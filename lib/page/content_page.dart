@@ -1,4 +1,4 @@
-import "package:flutter/material.dart";
+import "package:flutter_web/material.dart";
 import "package:mtc2018_app/colors.dart";
 import 'package:mtc2018_app/localize.dart';
 import "package:mtc2018_app/model/exhibition.dart";

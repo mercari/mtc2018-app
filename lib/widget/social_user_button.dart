@@ -1,4 +1,4 @@
-import "package:flutter/material.dart";
+import "package:flutter_web/material.dart";
 import "package:url_launcher/url_launcher.dart";
 import "package:mtc2018_app/colors.dart";
 import "package:font_awesome_flutter/font_awesome_flutter.dart";
