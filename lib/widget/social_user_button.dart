@@ -19,22 +19,13 @@ class SocialUserButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    IconData icon;
-    switch (type) {
-      case SocialType.github:
-        icon = FontAwesomeIcons.githubSquare;
-        break;
-      case SocialType.twitter:
-        icon = FontAwesomeIcons.twitterSquare;
-        break;
-    }
     return Container(
         child: FlatButton(
             onPressed: _launchURL,
             padding: EdgeInsets.all(0.0),
             child: Row(children: [
               Icon(
-                icon,
+                Icons.share,
                 color: kMtcPrimaryGrey,
               ),
               Container(

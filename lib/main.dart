@@ -44,11 +44,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: _kMtcTheme,
       home: MainPage(),
-      localizationsDelegates: [
-        const MtcLocalizationsDelegate(),
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ],
       supportedLocales: [
         const Locale("en", ""), // English
         const Locale("ja", ""), // Japanese
